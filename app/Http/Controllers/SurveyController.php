@@ -14,7 +14,8 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        //
+        $question =survey::find(1)->questions;
+         dd($question[0]->question);
     }
 
     /**
