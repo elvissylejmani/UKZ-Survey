@@ -14,4 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/Survey','QuestionController');
+Route::resource('/Survey','SurveyController');
