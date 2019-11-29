@@ -14,11 +14,13 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        $question =survey::find(1)->questions;
-     foreach ($question as $q ) {
-        echo $q;
-            foreach ($q->Answers as $a) {
-                echo $a;
+        $question =survey::find(2)->questions;
+        foreach ($question as $q ) {
+             echo $q->Survey;
+        //echo $q;
+        foreach ($q->Answers as $a) {
+                //echo $a;
+          //      echo $a->Question;
             }
      } 
     }

@@ -15,9 +15,9 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('Answer_ID')->unsigned();
+            $table->bigInteger('Question_ID')->unsigned();
             $table->unsignedInteger('Answer');
-            $table->foreign('Answer_ID')->references('id')->on('questions')->onDelete('cascade');
+            $table->foreign('Question_ID')->references('id')->on('questions')->onDelete('cascade');
 
 
 
