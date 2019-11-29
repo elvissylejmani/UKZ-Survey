@@ -9,6 +9,10 @@ class question extends Model
     //
     public function Answers()
     {
-        return $this->hasMany(Answer::class,'Answer_ID');
+        return $this->hasMany(Answer::class,'Question_ID');
+    }
+    public function Survey()
+    {
+        return $this->belongsTo(survey::class,'Survey_ID');
     }
 }

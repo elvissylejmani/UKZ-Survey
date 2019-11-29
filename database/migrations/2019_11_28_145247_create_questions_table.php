@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->BigInteger('question_id')->unsigned();
+            $table->BigInteger('Survey_ID')->unsigned();
             $table->string('question');
             $table->timestamps();
-            $table->foreign('question_id')->references('id')->on('surveys')->onDelete('cascade');
+            $table->foreign('Survey_ID')->references('id')->on('surveys')->onDelete('cascade');
         });
     }
 
