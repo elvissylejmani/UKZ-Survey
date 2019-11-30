@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\question;
 use Illuminate\Http\Request;
+use App\Answer;
+use Illuminate\Support\Arr;
 
 class QuestionController extends Controller
 {
@@ -36,11 +38,25 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $vls = request()->validate(['vlera' => 'required']);
-        foreach ($vls as $vl ) {
-            
+        $ans = request()->validate(['Answer' => 'required']); 
+        $qid = request()->validate(['Question_ID' => 'required']); 
+        for ($i=0; $i <= count($ans); $i++) { 
+            Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
         }
-        return $vl;
+        
+        //dd($vls);
+        // dd($vls['Answer']);
+        // foreach ($vls as $vl) {
+        //    dd($vl);
+        // }
+      
+       
+        // foreach ($vls as $vl ) {
+        //     foreach ($vl as $v ) {
+        //         echo $v;
+        //     }
+        // }
+//        return $vl;
 
     }
 

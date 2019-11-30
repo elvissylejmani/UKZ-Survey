@@ -12,11 +12,12 @@
                  <div class="input-group ">
                           <div class="input-group-text rounded w-100 p-3">
                               <div class="mx-auto">
-                           1 <input type="radio" class="ml-4 mr-4 " value="1" name="vlera[]{{$question->id}}">
-                           2 <input type="radio" class="ml-4 mr-4 " value="2" name="vlera[]{{$question->id}}">
-                           3 <input type="radio" class="ml-4 mr-4 " value="3" name="vlera[]{{$question->id}}">
-                           4 <input type="radio" class="ml-4 mr-4 " value="4" name="vlera[]{{$question->id}}">
-                           5 <input type="radio" class="ml-4 mr-4 " value="5" name="vlera[]{{$question->id}}">
+                           1 <input type="radio" class="ml-4 mr-4 " value="1" name="Answer[]{{$question->id}}">
+                           2 <input type="radio" class="ml-4 mr-4 " value="2" name="Answer[]{{$question->id}}">
+                           3 <input type="radio" class="ml-4 mr-4 " value="3" name="Answer[]{{$question->id}}">
+                           4 <input type="radio" class="ml-4 mr-4 " value="4" name="Answer[]{{$question->id}}">
+                           5 <input type="radio" class="ml-4 mr-4 " value="5" name="Answer[]{{$question->id}}">
+                            <input type="hidden" name="Question_ID[]" value="{{$question->id}}"> 
                         </div>
                         </div>
                       </div>
