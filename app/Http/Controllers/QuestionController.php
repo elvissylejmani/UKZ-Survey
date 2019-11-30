@@ -14,7 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return "hello, welcome to survey";
+        return "hello";
     }
 
     /**
@@ -25,6 +25,7 @@ class QuestionController extends Controller
     public function create()
     {
         //
+        return "hello";
     }
 
     /**
@@ -36,6 +37,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
+        return "hello";
     }
 
     /**
@@ -44,9 +46,12 @@ class QuestionController extends Controller
      * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(question $question)
+    public function show(question $question,$id)
     {
-        //
+         $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
+         foreach ($questions as $question ) {
+             echo $question->question;
+         }
     }
 
     /**
@@ -57,7 +62,7 @@ class QuestionController extends Controller
      */
     public function edit(question $question)
     {
-        //
+        return "hello";
     }
 
     /**
@@ -69,7 +74,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, question $question)
     {
-        //
+        return "hello";
     }
 
     /**
@@ -80,6 +85,6 @@ class QuestionController extends Controller
      */
     public function destroy(question $question)
     {
-        //
+        return "hello";
     }
 }
