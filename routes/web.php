@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/Survey','SurveyController');
+Route::resource('/Question','QuestionController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
