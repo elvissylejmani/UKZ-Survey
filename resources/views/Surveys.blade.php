@@ -1,6 +1,6 @@
-@extends('home')
+@extends('layouts.app')
 
-@section('content')
+@section('content') 
 
 <div class="container">
     <div class="row justify-content-center">
@@ -9,7 +9,7 @@
                 <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
                         <ul class="navbar-nav auto">
                             </li class="nav-item">{{ $survey->id }}</li>
-                            </li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
+                            <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
                                 <a href="Question/{{$survey->id}}">  <button type="button" class="btn btn-secondary btn-lg">Plotso pyetsorin</button> </a>
 
                         </ul>

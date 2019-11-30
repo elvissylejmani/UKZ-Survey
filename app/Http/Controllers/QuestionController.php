@@ -36,8 +36,12 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        return "hello";
+        $vls = request()->validate(['vlera' => 'required']);
+        foreach ($vls as $vl ) {
+            
+        }
+        return $vl;
+
     }
 
     /**
@@ -49,9 +53,7 @@ class QuestionController extends Controller
     public function show(question $question,$id)
     {
          $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
-         foreach ($questions as $question ) {
-             echo $question->question;
-         }
+        return view('question',compact('questions'));
     }
 
     /**
