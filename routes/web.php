@@ -13,6 +13,8 @@
 
 Route::resource('/Survey','SurveyController');
 Route::resource('/Question','QuestionController');
+Route::resource('/Answer','AnswerController');
+Route::get('/AddQuestions/{id}','AddQuestion@index');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
