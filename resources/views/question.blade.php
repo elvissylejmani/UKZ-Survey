@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @foreach ($questions as $question)
-    <form action="/Question" method="post">
+    <form action="/Answer" method="post">
         @csrf
     <div class="row">
         <div class="col-12 mb-4">

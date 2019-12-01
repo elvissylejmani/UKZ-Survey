@@ -35,7 +35,12 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ans = request()->validate(['Answer' => 'required']); 
+        $qid = request()->validate(['Question_ID' => 'required']); 
+        for ($i=0; $i <= count($ans); $i++) { 
+            Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
+        }
+        return redirect('/home')->with('alert','Faleminderit per vlersimin');
     }
 
     /**
