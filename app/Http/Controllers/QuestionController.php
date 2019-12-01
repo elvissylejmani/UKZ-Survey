@@ -43,21 +43,7 @@ class QuestionController extends Controller
         for ($i=0; $i <= count($ans); $i++) { 
             Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
         }
-        
-        //dd($vls);
-        // dd($vls['Answer']);
-        // foreach ($vls as $vl) {
-        //    dd($vl);
-        // }
-      
-       
-        // foreach ($vls as $vl ) {
-        //     foreach ($vl as $v ) {
-        //         echo $v;
-        //     }
-        // }
-//        return $vl;
-
+        return redirect('/home')->with('alert','Faleminderit per vlersimin');
     }
 
     /**
