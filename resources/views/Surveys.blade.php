@@ -2,10 +2,10 @@
 
 @section('content') 
 
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row">
     @foreach ($surveys as $survey)
-    <div class="col ">
+    <div class="col col-md-6 mb-4">
                 <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
                         <ul class="navbar-nav auto">
                             </li class="nav-item">{{ $survey->id }}</li>

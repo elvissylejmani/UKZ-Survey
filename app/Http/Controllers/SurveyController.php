@@ -25,7 +25,9 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        //
+
+        $surveys = survey::orderBy('id', 'DESC')->get()->all();
+        return view('SurveyCreate',compact('surveys'));
     }
 
     /**
@@ -36,7 +38,9 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vl = request()->validate(['SurveyTitle' => 'required']);
+        survey::create($vl);
+        return redirect('/Survey/create')->with('alert','Pyetesori u krijua me sukses');
     }
 
     /**
