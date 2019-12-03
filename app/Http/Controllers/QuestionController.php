@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\survey;
 use App\question;
 use Illuminate\Http\Request;
-use App\Answer;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 
 class QuestionController extends Controller
@@ -38,7 +38,15 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        return request()->all();
+        $vls=request()->validate(['question' => 'required']);
+        $id =request()->validate(['Survey_ID' => 'required']);
+        $question = new question(['Survey_ID' => $id, 'question' => $vls]);
+        $survey = survey::findOrFail($id);
+        $survey->questions = $question;
+        for($i =0; $i < count($vls['question']);$i++) {
+                question::create(['Survey_ID' => $survey[0]['id'], 'question' => $vls['question'][$i]]);
+            }
+        return redirect('/')->with('alert','Pyetejet u shtuan me suksese'); 
     }
 
     /**
