@@ -38,8 +38,6 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-
-        //test 
         $vls=request()->validate(['question' => 'required']);
         $id =request()->validate(['Survey_ID' => 'required']);
         $question = new question(['Survey_ID' => $id, 'question' => $vls]);

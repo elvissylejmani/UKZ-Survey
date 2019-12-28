@@ -11,6 +11,9 @@
 |
 */
 
+// use Illuminate\Routing\Route;
+// use Illuminate\Support\Facades\Auth;
+
 Route::resource('/Survey','SurveyController');
 Route::resource('/Question','QuestionController');
 Route::resource('/Answer','AnswerController');
@@ -19,22 +22,3 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
