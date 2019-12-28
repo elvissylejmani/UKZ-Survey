@@ -37,10 +37,10 @@ class AnswerController extends Controller
     {
         $ans = request()->validate(['Answer' => 'required']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
-        for ($i=0; $i <= count($ans); $i++) { 
+        for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
             Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
         }
-        return redirect('/home')->with('alert','Faleminderit per vlersimin');
+        return redirect('/')->with('alert','Faleminderit per vlersimin');
     }
 
     /**
