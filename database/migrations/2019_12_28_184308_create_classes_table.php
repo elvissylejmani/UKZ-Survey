@@ -20,6 +20,7 @@ class CreateClassesTable extends Migration
             $table->foreign('Professor_ID')->references('id')->on('professors')->onDelete('cascade');
             $table->timestamps();
         });
+      
     }
 
     /**
