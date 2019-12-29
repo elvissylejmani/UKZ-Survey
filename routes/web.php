@@ -20,6 +20,7 @@ Route::resource('/Question','QuestionController');
 Route::resource('/Answer','AnswerController');
 Route::resource('/Professor','ProfessorController');
 Route::get('/AddQuestions/{id}','AddQuestion@index');
+Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy']);
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
