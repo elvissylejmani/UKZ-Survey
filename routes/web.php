@@ -14,9 +14,11 @@
 // use Illuminate\Routing\Route;
 // use Illuminate\Support\Facades\Auth;
 
+
 Route::resource('/Survey','SurveyController');
 Route::resource('/Question','QuestionController');
 Route::resource('/Answer','AnswerController');
+Route::resource('/Professor','ProfessorController');
 Route::get('/AddQuestions/{id}','AddQuestion@index');
 Auth::routes();
 
