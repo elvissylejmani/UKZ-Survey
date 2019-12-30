@@ -50,8 +50,13 @@ class ProfessorController extends Controller
      */
     public function show($id)
     {
+        $classes = classe::all();
         $professor = professor::findOrFail($id);
-        return view('editprof', compact('professor'));
+      $profclasses= [];
+      foreach ($professor->Classes as $class) {
+         $profclasses[] = $class->Name;
+      }
+        return view('editprof', compact('professor','classes','profclasses'));
     }
 
     /**
@@ -62,8 +67,14 @@ class ProfessorController extends Controller
      */
     public function edit($id)
     {
-        //
-        return "hello edit";
+        $id = request()->validate(['prof' => 'required']);
+        $cid = request()->validate(['class' => 'required']);
+        $professor = professor::findOrFail($id['prof']);
+        $class = classe::findOrFail($cid['class']);
+        $professor->Classes()->attach($class);
+        $class->Professors()->attach($professor);
+
+        return back();
 
     }
 
