@@ -10,6 +10,10 @@ class classe extends Model
     
     public function Professor()
     {
-        return $this->belongsTo(professor::class,'Professor_ID');
+        return $this->belongsToMany(professor::class);
+    }
+    public function Students()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
