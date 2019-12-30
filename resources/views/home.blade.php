@@ -27,6 +27,14 @@
                                 
                                     <a href="/Survey/create">   <button type="submit" class="btn btn-primary"> Shto pyetesore </button></a>
                         </li>
+                            <li class="nav-item">
+                                
+                                    <a href="/Professor">   <button type="submit" class="btn btn-primary ml-2">Profesorat</button></a>
+                        </li>
+                            <li class="nav-item">
+                                
+                                    <a href="/Classes">   <button type="submit" class="btn btn-primary ml-2">Oret mesimore</button></a>
+                        </li>
                             </ul>
                             </nav>
                         </div>
