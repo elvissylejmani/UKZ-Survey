@@ -22,9 +22,16 @@
         <div class="col-12 mb-4">
             <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
             
-                <ul>
+                <ul class="navbar-nav auto">
                 @forelse ($professor->Classes as $Class)
-                    <li> {{$Class->Name}} </li>
+                <form action="/Classes/{{$professor->id}}/edit">
+                    <li> <p class="h4"> {{$Class->Name}}
+                         <button onClick="return confirm('A jeni i sigurt se deshironi ta fshini kete te dhenen?')" type="submit" class="btn btn-danger">
+                            <i class="fas fa-minus-circle"></i> 
+                    </button> 
+                </p>
+                </li>
+                </form>
                     @empty
                     <p class="h2">Profesori nuk eshte i regjistruar ne as nje klase</p>
                 @endforelse
@@ -45,7 +52,6 @@
                 <button class="btn btn-info" type="submit">Shto</button>
             </div>
         </div>
-        <input type="hidden" name="prof" value="{{$professor->id}}">
     </form>
         </nav>
             

@@ -19,6 +19,7 @@ Route::resource('/Survey','SurveyController');
 Route::resource('/Question','QuestionController');
 Route::resource('/Answer','AnswerController');
 Route::resource('/Professor','ProfessorController');
+Route::resource('/Classes','ClassesController');
 Route::get('/AddQuestions/{id}','AddQuestion@index');
 Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy']);
 Auth::routes();
