@@ -29,7 +29,27 @@
                     <p class="h2">Profesori nuk eshte i regjistruar ne as nje klase</p>
                 @endforelse
             </ul>
-            </nav>
+            <form action="/Professor/{{$professor->id}}/edit" method="GET">
+            <div class="input-group">
+            <select class="custom-select" name="class" searchable="Search here.." required>
+                <option value="" disabled selected>shto klasa per profesorin</option>
+                @foreach ($classes as $class)
+                   @if (!in_array($class->Name,$profclasses))
+                       
+                <option value="{{$class->id}}">{{$class->Name}}</option>
+                @endif 
+
+                @endforeach
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-info" type="submit">Shto</button>
+            </div>
+        </div>
+        <input type="hidden" name="prof" value="{{$professor->id}}">
+    </form>
+        </nav>
+            
+
         </div>
     </div>
 
@@ -39,3 +59,8 @@
 </div>
 
 @endsection
+<script>
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+</script>

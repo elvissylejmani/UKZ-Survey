@@ -8,7 +8,7 @@ class classe extends Model
 {
     protected $guarded = [];
     
-    public function Professor()
+    public function Professors()
     {
         return $this->belongsToMany(professor::class);
     }
