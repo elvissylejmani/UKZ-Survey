@@ -38,7 +38,7 @@
                         <li class="nav-item"><p class="h1">{{ $professor->Name }} </p></li>
                         <li class="nav-item"><p class="h1">{{ $professor->LastName }} </p></li>
                         @if ($professor->classes != null)
-                            <p class="h2">Classes:</p>
+                            <p class="h2">Lendet:</p>
                             <ol>
                         @foreach ($professor->classes as $class)
                         <li class="nav-item"><p class="h4">{{ $class->Name }} </p></li>
@@ -53,7 +53,6 @@
                         <a href=" {{  route('Professor.delete', $professor->id) }}"onClick="return confirm('A jeni i sigurt se deshironi ta fshini te dhenen?')"><i style="float:right;margin-left:43vw; color:#FB0101; font-size:2em; " class="fas fa-times"></i></a>  
                         
                     </div> 
-                        {{-- <a href="/AddQuestions/{{$professor->id}}">  <button type="button" class="btn btn-secondary btn-lg">Shto Pyetje</button> </a> --}}
 
         </nav>  
         </div>
