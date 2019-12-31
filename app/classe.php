@@ -16,4 +16,8 @@ class classe extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function Groups()
+    {
+        return $this->belongsToMany(Groups::class,'Class_ID');
+    }
 }

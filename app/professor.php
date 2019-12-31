@@ -11,5 +11,12 @@ class professor extends Model
     {
         return $this->belongsToMany(classe::class);
     }
-    
+    public function Roles()
+    {
+        return $this->hasMany(Roles::class,'Prof_ID');
+    }
+    public function Status()
+    {
+        return $this->hasOne(Status::class,'Prof_ID');
+    }
 }
