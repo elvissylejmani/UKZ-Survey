@@ -15,7 +15,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        return "Hello";
+
+        $Classes = classe::orderby('id','DESC')->get()->all();
+        return view('Classes',compact('Classes'));
     }
 
     /**
@@ -37,6 +39,9 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         //
+       $Class = request()->validate(['Name' => 'required']);
+       classe::create($Class);
+       return back();
     }
 
     /**
@@ -47,7 +52,14 @@ class ClassesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $class = classe::findOrFail($id);
+        $professor = professor::all();
+        $classprof = [];
+        foreach ($class->Professors as $prof) {
+            $classprof[] = $prof->Name;
+        }
+        return view('EditClass',compact('class','professor','classprof'));
     }
 
     /**
@@ -74,7 +86,8 @@ class ClassesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        classe::findOrFail($id)->update(request()->validate(['Name'=>'required']));
+        return back();
     }
 
     /**
@@ -85,6 +98,15 @@ class ClassesController extends Controller
      */
     public function destroy($id)
     {
-        //
+       classe::findOrFail($id)->delete();
+       return back();
+    }
+    public function addprof($id)
+    {
+        $pid = request()->validate(['prof' => 'required']);
+        $class = classe::findOrFail($id);
+        $prof= professor::findOrFail($pid['prof']);
+        $class->Professors()->attach($prof);
+        return back();
     }
 }
