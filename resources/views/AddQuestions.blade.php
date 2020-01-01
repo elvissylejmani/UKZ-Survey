@@ -35,7 +35,7 @@
   else {
     $("#rolonum").html('');
     for (var i = 1; i <= n; i++) {
-      $("#rolonum").append('<p><span>Item ' + i + ' </span><input id="rolo_add' + i + '" name="question[]"  class="form-control"  type="text" value="" required/></p>');
+      $("#rolonum").append('<p><span>Item ' + i + ' </span><input id="rolo_add' + i + '" name="question[]" value="{{ old('question.i')}}"  class="form-control"  type="text" value="" required/></p>');
     }
     $("#rolonum").append('<button class="btn btn-info" type="submit">submit</button>');
   }

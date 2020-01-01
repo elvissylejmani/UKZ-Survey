@@ -18,6 +18,6 @@ class classe extends Model
     }
     public function Groups()
     {
-        return $this->belongsToMany(Groups::class,'Class_ID');
+        return $this->hasMany(Groups::class,'Class_ID');
     }
 }
