@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Groups;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
+use App\classe;
+
 
 class GroupsController extends Controller
 {
@@ -15,7 +17,9 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        return "Hello";
+        $classes = classe::all();
+        $Groups = Groups::orderBy('id', 'DESC')->get()->all();
+        return view('Groups',compact('Groups','classes'));
     }
 
     /**
