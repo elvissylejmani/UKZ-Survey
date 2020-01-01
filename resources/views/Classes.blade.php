@@ -12,8 +12,8 @@
     <div class="col col-md-8">
             <nav class="navbar navbar-md navbar-light bg-white shadow-sm align-start border border rounded">
                     @csrf
-                    <p class="h3 text-center ml-4"> Shto Profesorin</p>
-                    <input type="text" name="Name" value="{{ old('Name')}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}" placeholder="Emri i profesorit" aria-label="Username" aria-describedby="basic-addon1"> 
+                    <p class="h3 text-center ml-4"> Shto Lend</p>
+                    <input type="text" name="Name" value="{{ old('Name')}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}" placeholder="Emri i Lendes" aria-label="Username" aria-describedby="basic-addon1"> 
                     <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
 
@@ -59,7 +59,11 @@
 <div class="row">
 <div class="col-sm">
 <p class="h3">Grupet</p>
-
+<ul class="navbar-nav auto">
+@foreach ($class->Groups as $group)
+    <li class="nav-item"> {{$group->Name}} </li>
+@endforeach
+</ul>
 </div>
 
 </div>

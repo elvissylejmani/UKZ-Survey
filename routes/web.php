@@ -20,6 +20,7 @@ Route::resource('/Question','QuestionController');
 Route::resource('/Answer','AnswerController');
 Route::resource('/Professor','ProfessorController');
 Route::resource('/Classes','ClassesController');
+Route::resource('Groups','GroupsController');
 Route::post('/Classes/{id}/addprof','ClassesController@addprof');
 Route::get('/AddQuestions/{id}','AddQuestion@index');
 Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy']);
