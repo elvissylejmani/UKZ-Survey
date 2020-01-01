@@ -35,6 +35,10 @@
                                 
                                     <a href="/Classes">   <button type="submit" class="btn btn-primary ml-2">Oret mesimore</button></a>
                         </li>
+                            <li class="nav-item">
+                                
+                                    <a href="/Groups">   <button type="submit" class="btn btn-primary ml-2">Grupet mesimore</button></a>
+                        </li>
                             </ul>
                             </nav>
                         </div>

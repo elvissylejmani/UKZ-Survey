@@ -10,7 +10,7 @@
                 @csrf
                 @method('PATCH')
                 <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
-               <p class="h2">Modifiko emrin e lendes</p>
+                <p class="h2">Modifiko emrin e lendes</p>
 
                     <input type="text" name="Name" value="{{$class->Name}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}"  aria-label="Username" aria-describedby="basic-addon1"> 
                     <button type="Submit" class="btn btn-success">Modifiko</button>
@@ -66,7 +66,9 @@
         <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
             <ul class="navbar-nav auto">
                 @foreach ($class->Groups as $group)
-                <form action="/Classes/edit">
+                <form action="/Groups/{{$group->id}}" method="POST">
+                    @method('DELETE')
+                    @csrf
                     <li> <p class="h4"> {{$group->Name}}
                          <button onClick="return confirm('A jeni i sigurt se deshironi ta fshini kete te dhenen?')" type="submit" class="btn btn-danger">
                             <i class="fas fa-minus-circle"></i> 
