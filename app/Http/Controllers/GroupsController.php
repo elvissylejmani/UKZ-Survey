@@ -55,7 +55,10 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        //
+        $Group = Groups::findOrFail($id);
+        $classes = classe::all();
+        return view('EditGroup',compact('Group','classes'));
+
     }
 
     /**
@@ -66,7 +69,6 @@ class GroupsController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -78,7 +80,19 @@ class GroupsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Name = $request->input('Name');
+        if($request->has('Class_ID'))
+        {
+            $Class_ID = $request->input('Class_ID');
+            $update = ['Name' =>$Name,'Class_ID' => $Class_ID];
+            Groups::findOrFail($id)->update($update);
+            return back();
+        }
+        else {
+        $update = ['Name' => $Name];
+        Groups::findOrFail($id)->update($update);
+        return back();
+        }
     }
 
     /**
