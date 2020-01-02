@@ -15,15 +15,15 @@
 // use Illuminate\Support\Facades\Auth;
 
 
-Route::resource('/Survey','SurveyController');
-Route::resource('/Question','QuestionController');
-Route::resource('/Answer','AnswerController');
-Route::resource('/Professor','ProfessorController');
-Route::resource('/Classes','ClassesController');
-Route::resource('Groups','GroupsController');
-Route::post('/Classes/{id}/addprof','ClassesController@addprof');
-Route::get('/AddQuestions/{id}','AddQuestion@index');
-Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy']);
+Route::resource('/Survey','SurveyController')->middleware('auth');
+Route::resource('/Question','QuestionController')->middleware('auth');
+Route::resource('/Answer','AnswerController')->middleware('auth');
+Route::resource('/Professor','ProfessorController')->middleware('auth');
+Route::resource('/Classes','ClassesController')->middleware('auth');
+Route::resource('Groups','GroupsController')->middleware('auth');
+Route::post('/Classes/{id}/addprof','ClassesController@addprof')->middleware('auth');
+Route::get('/AddQuestions/{id}','AddQuestion@index')->middleware('auth');
+Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy'])->middleware('auth');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
