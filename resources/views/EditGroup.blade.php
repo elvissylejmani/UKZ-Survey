@@ -26,8 +26,29 @@
                 </nav>
             </form>
         </div>
+        <div class="row ml-4">
+            <div class="col-lg-6">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Profesoret</div>
+                <div class="card-body">
+                    @foreach ($Group->Class->Professors as $prof)
+                <p class="card-text">{{$prof->Name}} {{$prof->LastName}}</p>
+                    @endforeach
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Studentet</div>
+                    <div class="card-body">
+                    @foreach ($Group->Students as $Stud)
+                      <p class="card-text">{{$Stud->name}}</p>
+                    @endforeach  
+                    </div>
+                  </div>
+                </div>
+        </div>
     </div>
-
 
 
 
