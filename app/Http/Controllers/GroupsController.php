@@ -57,6 +57,7 @@ class GroupsController extends Controller
     {
         $Group = Groups::findOrFail($id);
         $classes = classe::all();
+
         return view('EditGroup',compact('Group','classes'));
 
     }

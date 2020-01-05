@@ -40,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(classe::class);
     }
+    public function Groups()
+    {
+        return $this->belongsToMany(Groups::class);
+    }
 }
