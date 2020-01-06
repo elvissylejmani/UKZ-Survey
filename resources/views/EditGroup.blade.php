@@ -43,7 +43,7 @@
                     <div class="card-header">Studentet</div>
                     <div class="card-body">
                         @foreach ($Group->Students as $Stud)
-                      <p class="card-text">{{$Stud->name}}</p>
+                      <p class="card-text">{{$Stud->name}} {{$Stud->lastname}} {{$Stud->id}}</p>
                     @endforeach  
                     </div>
                     <div class="card-footer">
@@ -52,9 +52,9 @@
                                                   <select class="custom-select" name="stud" searchable="Search here.." required>
                             <option value="" disabled selected>Shto student per ket lend</option>
                             @foreach ($Users as $User)
-                               @if (!in_array($User->name,$grupuser))
+                               @if (!in_array($User->id,$grupuser))
                                    
-                            <option value="{{$User->id}}">{{$User->name}}</option>
+                            <option value="{{$User->id}}">{{$User->name}}  {{$User->lastname}} {{$User->id}}</option>
                             @endif 
                 
                             @endforeach

@@ -60,7 +60,7 @@ class GroupsController extends Controller
         $Users = User::all();
         $grupuser = [];
         foreach ($Group->Students as $stud) {
-            $grupuser[] = $stud->name;
+            $grupuser[] = $stud->id;
         }
         return view('EditGroup',compact('Group','classes','Users','grupuser'));
 

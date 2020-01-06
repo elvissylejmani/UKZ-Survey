@@ -19,7 +19,8 @@
                     </li>
                         </ul>
                     </nav>
-                        
+                        @if (Auth::user()->can('Admin'))
+                            
                         <p class="h5">Sektori i Adminave:</p>
                         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg  mb-1">
                             <ul class="navbar-nav auto">
@@ -46,6 +47,8 @@
                         </li>
                             </ul>
                             </nav>
+                            @endif
+
                         </div>
                         
                 </div>
