@@ -6,7 +6,7 @@ use App\Groups;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use App\classe;
-
+use App\User;
 
 class GroupsController extends Controller
 {
@@ -57,8 +57,12 @@ class GroupsController extends Controller
     {
         $Group = Groups::findOrFail($id);
         $classes = classe::all();
-
-        return view('EditGroup',compact('Group','classes'));
+        $Users = User::all();
+        $grupuser = [];
+        foreach ($Group->Students as $stud) {
+            $grupuser[] = $stud->id;
+        }
+        return view('EditGroup',compact('Group','classes','Users','grupuser'));
 
     }
 
@@ -68,8 +72,12 @@ class GroupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
+        $stud = User::findOrFail($request->input('stud'));
+        Groups::findOrFail($id)->Students()->attach($stud);
+        return back();
+
     }
 
     /**

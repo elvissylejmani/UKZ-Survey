@@ -21,6 +21,7 @@ Route::resource('/Answer','AnswerController')->middleware('auth');
 Route::resource('/Professor','ProfessorController')->middleware('auth');
 Route::resource('/Classes','ClassesController')->middleware('auth');
 Route::resource('Groups','GroupsController')->middleware('auth');
+Route::resource('/Users','UsersController')->middleware('auth');
 Route::post('/Classes/{id}/addprof','ClassesController@addprof')->middleware('auth');
 Route::get('/AddQuestions/{id}','AddQuestion@index')->middleware('auth');
 Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy'])->middleware('auth');

@@ -43,7 +43,7 @@
         <select class="custom-select" name="prof" searchable="Search here.." required>
             <option value="" disabled selected>Shto profesora ne kete lend</option>
             @foreach ($professor as $prof)
-               @if (!in_array($prof->Name,$classprof))
+               @if (!in_array($prof->id,$classprof))
                    
             <option value="{{$prof->id}}">{{$prof->Name}} {{$prof->LastName}}</option>
             @endif 
