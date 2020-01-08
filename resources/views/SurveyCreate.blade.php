@@ -32,8 +32,10 @@
                     <ul class="navbar-nav auto">
                         </li class="nav-item">{{ $survey->id }}</li>
                         <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
-                            <a href="/AddQuestions/{{$survey->id}}">  <button type="button" class="btn btn-secondary btn-lg">Shto Pyetje</button> </a>
-
+                              <a href="/AddQuestions/{{$survey->id}}">  <button type="button" class="btn btn-secondary btn-lg">Shto Pyetje</button> </a>
+                          <form action="/Question/{{$survey->id}}/edit">
+                            <button type="submit" class="btn btn-info btn-lg"> Modifiko</button>
+                        </form>
                     </ul>
         </nav>  
         </div>

@@ -13,6 +13,7 @@
                                 <a href="Question/{{$survey->id}}">  <button type="button" class="btn btn-secondary btn-lg">Plotso pyetsorin</button> </a>
 
                         </ul>
+                      
             </nav>  
             </div>
             @endforeach

@@ -69,7 +69,9 @@ class QuestionController extends Controller
      */
     public function edit(question $question)
     {
-        return "hello";
+       if ($question!=null) {
+           return "hello";
+       }
     }
 
     /**
