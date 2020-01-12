@@ -52,5 +52,18 @@
 </div>
 <input type="hidden" name="Survey_ID" value="{{$id}}">
 </form>
+
+<div class="row">
+@foreach ($questions as $question)
+    
+<div class="col-lg-12">
+  <input type="text" name="question" value="{{ $question->question }}"  class="form-control mb-4 {{$errors->has('question') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
+                    
+
+</div>
+@endforeach
+
+</div>
+
 </div>
 @endsection
