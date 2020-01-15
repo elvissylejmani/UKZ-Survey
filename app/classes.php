@@ -8,6 +8,13 @@ class classe extends Model
 {
     protected $guarded = [];
     
+    public function Type()
+    {
+        return $this->belongsTo(Type::class,'id');
+    }
+
+
+
     // public function Professors()
     // {
     //     return $this->belongsToMany(professor::class);
