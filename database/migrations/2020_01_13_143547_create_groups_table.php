@@ -17,9 +17,13 @@ class CreateGroupsTable extends Migration
             $table->bigIncrements('id');
             $table->string('Name');
             $table->unsignedBigInteger('Prof_ID');
+            $table->unsignedBigInteger('Class_ID');
             $table->foreign('Prof_ID')
             ->references('id')
             ->on('professors');
+            $table->foreign('Class_ID')
+            ->references('id')
+            ->on('classes');
             $table->timestamps();
         });
     }

@@ -12,7 +12,10 @@ class classe extends Model
     {
         return $this->belongsTo(Type::class,'id');
     }
-
+    public function Groups()
+    {
+        return $this->hasMany(group::class, 'Class_ID');
+    }
 
 
     // public function Professors()

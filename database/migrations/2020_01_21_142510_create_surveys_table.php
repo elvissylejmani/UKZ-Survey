@@ -16,6 +16,12 @@ class CreateSurveysTable extends Migration
         Schema::create('surveys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('SurveyTitle');
+            $table->unsignedBigInteger('Group_ID');
+            $table->foreign('Group_ID')
+            ->references('id')
+            ->on('groups')
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
