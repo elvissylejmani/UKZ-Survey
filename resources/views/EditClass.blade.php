@@ -19,46 +19,7 @@
         </div>
     </div>
 
-<div class="row">
-<div class="col-lg-12">
-<nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
-    <ul class="navbar-nav auto">
-        @forelse ($class->Professors as $prof)
-        <form action="/Classes/{{$prof->id}}/edit">
-            <li> <p class="h4"> {{$prof->Name}} {{$prof->LastName}}
-                 <button onClick="return confirm('A jeni i sigurt se deshironi ta fshini kete te dhenen?')" type="submit" class="btn btn-danger">
-                    <i class="fas fa-minus-circle"></i> 
-            </button> 
-        </p>
-        </li>
-        </form>
-            @empty
-            <p class="h2">Kjo lend nuk ka as nje profesor</p>
-        @endforelse
-    </ul>
-<div class="col-sm-4">
-    <form action="/Classes/{{$class->id}}/addprof" method="POST">
-        @csrf
-        <div class="input-group">
-        <select class="custom-select" name="prof" searchable="Search here.." required>
-            <option value="" disabled selected>Shto profesora ne kete lend</option>
-            @foreach ($professor as $prof)
-               @if (!in_array($prof->id,$classprof))
-                   
-            <option value="{{$prof->id}}">{{$prof->Name}} {{$prof->LastName}}</option>
-            @endif 
 
-            @endforeach
-        </select>
-        <div class="input-group-append">
-            <button class="btn btn-info" type="submit">Shto</button>
-        </div>
-    </div>
-</form>
-</div>
-</nav>  
-</div>
-</div>
 
 
 <div class="row mt-4">

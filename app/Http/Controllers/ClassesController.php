@@ -55,14 +55,14 @@ class ClassesController extends Controller
     {
         
         $class = classe::findOrFail($id);
-        $professor = professor::all();
-      
-        $classprof = [];
-        foreach ($class->Professors as $prof) {
-            $classprof[] = $prof->id;
-        }
         
-        return view('EditClass',compact('class','professor','classprof'));
+        // $professor = professor::all();
+        // $classprof = [];
+        // foreach ($class->Professors as $prof) {
+        //     $classprof[] = $prof->id;
+        // }
+        
+        return view('EditClass',compact('class'));
     }
 
     /**

@@ -17,7 +17,7 @@
                    <select class="custom-select mb-4" name="Class_ID" searchable="Search here..">
                     <option value="" disabled selected>shto lenden per kete grup</option>
                     @foreach ($classes as $class)
-                    @if (!($Group->Class->Name == $class->Name))
+                    @if (!($Group->class->Name == $class->Name))
                     <option value="{{$class->id}}">{{$class->Name}}</option>
                     @endif
                     @endforeach
@@ -32,9 +32,8 @@
                   <div class="card  text-white bg-primary" style="width: 35rem;" >
                     <div class="card-header" >Profesoret</div>
                     <div class="card-body" >
-                        @foreach ($Group->Class->Professors as $prof)
-                        <p class="card-text h4" >{{$prof->Name}} {{$prof->LastName}} </p>
-                            @endforeach
+                      {{$Group->Professor->Name}}
+                      {{$Group->Professor->LastName}}
                     </div>
                   </div>
                 </div>

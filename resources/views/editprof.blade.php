@@ -18,46 +18,7 @@
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 mb-4">
-            <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
-            
-                <ul class="navbar-nav auto">
-                @forelse ($professor->Classes as $Class)
-                <form action="/Classes/{{$professor->id}}/edit">
-                    <li> <p class="h4"> {{$Class->Name}}
-                         <button onClick="return confirm('A jeni i sigurt se deshironi ta fshini kete te dhenen?')" type="submit" class="btn btn-danger">
-                            <i class="fas fa-minus-circle"></i> 
-                    </button> 
-                </p>
-                </li>
-                </form>
-                    @empty
-                    <p class="h2">Profesori nuk eshte i regjistruar ne as nje klase</p>
-                @endforelse
-            </ul>
-            <form action="/Professor/{{$professor->id}}/edit" method="GET">
-            <div class="input-group">
-            <select class="custom-select" name="class" searchable="Search here.." required>
-                <option value="" disabled selected>shto klasa per profesorin</option>
-                @foreach ($classes as $class)
-                   @if (!in_array($class->Name,$profclasses))
-                       
-                <option value="{{$class->id}}">{{$class->Name}}</option>
-                @endif 
-
-                @endforeach
-            </select>
-            <div class="input-group-append">
-                <button class="btn btn-info" type="submit">Shto</button>
-            </div>
-        </div>
-    </form>
-        </nav>
-            
-
-        </div>
-    </div>
+   
 
 
 
