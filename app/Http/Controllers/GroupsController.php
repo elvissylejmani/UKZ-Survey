@@ -112,7 +112,7 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
-        Groups::findOrFail($id)->delete();
+        group::findOrFail($id)->delete();
         return back();
     }
 }
