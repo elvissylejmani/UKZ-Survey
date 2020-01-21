@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Groups;
+use App\group;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use App\classe;
@@ -18,7 +18,7 @@ class GroupsController extends Controller
     public function index()
     {
         $classes = classe::all();
-        $Groups = Groups::orderBy('id', 'DESC')->get()->all();
+        $Groups = group::orderBy('id', 'DESC')->get()->all();
         return view('Groups',compact('Groups','classes'));
     }
 
@@ -42,7 +42,7 @@ class GroupsController extends Controller
     {
         $group = $request->input('Name1'); 
         $id = $request->input('Class_ID'); 
-        Groups::create(['Name' => $group,'Class_ID' => $id]);
+        group::create(['Name' => $group,'Class_ID' => $id]);
 
         return back();
     }
@@ -55,7 +55,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $Group = Groups::findOrFail($id);
+        $Group = group::findOrFail($id);
         $classes = classe::all();
         $Users = User::all();
         $grupuser = [];
@@ -75,7 +75,7 @@ class GroupsController extends Controller
     public function edit(Request $request,$id)
     {
         $stud = User::findOrFail($request->input('stud'));
-        Groups::findOrFail($id)->Students()->attach($stud);
+        group::findOrFail($id)->Students()->attach($stud);
         return back();
 
     }
@@ -94,12 +94,12 @@ class GroupsController extends Controller
         {
             $Class_ID = $request->input('Class_ID');
             $update = ['Name' =>$Name,'Class_ID' => $Class_ID];
-            Groups::findOrFail($id)->update($update);
+            group::findOrFail($id)->update($update);
             return back();
         }
         else {
         $update = ['Name' => $Name];
-        Groups::findOrFail($id)->update($update);
+        group::findOrFail($id)->update($update);
         return back();
         }
     }

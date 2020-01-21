@@ -14,6 +14,6 @@ class survey extends Model
     }
     public function Groups()
     {
-        return $this->hasMany(group::class,'id');
+        return $this->hasMany(group::class,'Group_ID','id');
     }
 }

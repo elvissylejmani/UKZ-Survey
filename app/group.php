@@ -9,7 +9,7 @@ class group extends Model
     protected $fillable = ['Name','Prof_ID','Class_ID'];
     public function Professor()
     {
-        return $this->belongsTo(professor::class,'id');
+        return $this->belongsTo(professor::class,'Prof_ID','id');
     }
     public function Students()
     {
@@ -17,10 +17,10 @@ class group extends Model
     }
     public function class()
     {
-        return $this->belongsTo(classe::class, 'id');
+        return $this->belongsTo(classe::class, 'Class_ID','id');
     }
     public function Survey()
     {
-        return $this->belongsTo(survey::class,'Group_ID');
+        return $this->hasOne(survey::class,'Group_ID');
     }
 }

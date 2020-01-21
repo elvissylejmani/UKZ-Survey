@@ -50,13 +50,9 @@ class ProfessorController extends Controller
      */
     public function show($id)
     {
-        $classes = classe::all();
         $professor = professor::findOrFail($id);
-      $profclasses= [];
-      foreach ($professor->Classes as $class) {
-         $profclasses[] = $class->Name;
-      }
-        return view('editprof', compact('professor','classes','profclasses'));
+      
+        return view('editprof', compact('professor'));
     }
 
     /**

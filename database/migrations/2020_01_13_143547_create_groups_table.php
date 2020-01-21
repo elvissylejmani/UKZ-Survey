@@ -16,14 +16,16 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Name');
-            $table->unsignedBigInteger('Prof_ID');
+            $table->unsignedBigInteger('Prof_ID')->nullable();
             $table->unsignedBigInteger('Class_ID');
             $table->foreign('Prof_ID')
             ->references('id')
-            ->on('professors');
+            ->on('professors')
+            ->onDelete('set null');
             $table->foreign('Class_ID')
             ->references('id')
-            ->on('classes');
+            ->on('classes')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

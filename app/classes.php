@@ -10,24 +10,10 @@ class classe extends Model
     
     public function Type()
     {
-        return $this->belongsTo(Type::class,'id');
+        return $this->belongsTo(Type::class,'Type_ID','id');
     }
     public function Groups()
     {
         return $this->hasMany(group::class, 'Class_ID');
     }
-
-
-    // public function Professors()
-    // {
-    //     return $this->belongsToMany(professor::class);
-    // }
-    // public function Students()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
-    // public function Groups()
-    // {
-    //     return $this->hasMany(Groups::class,'Class_ID');
-    // }
 }

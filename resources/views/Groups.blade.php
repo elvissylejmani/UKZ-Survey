@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div class="col">
-                   <p class="h3">Lenda:</p><p class="h2"> {{$Group->Class->Name}} </p>
+                   <p class="h3">Lenda:</p><p class="h2">  </p>
             </div>
             <form action="/Groups/{{$Group->id}}" method="GET">
                 <button type="submit"  class="btn btn-success">Modifiko te dhenat e Lendes</button>

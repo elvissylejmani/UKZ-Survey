@@ -48,11 +48,9 @@
     </div>
         <div class="row">
             <div class="col">
-                <p class="h3">Profesorat</p>
+                <p class="h3">Profesori</p>
         <ul class="navbar-nav auto">
-        @foreach ($class->Professors as $prof)
-            <li class="nav-item"> {{$prof->Name}} {{$prof->LastName}} </li>
-        @endforeach
+            {{$class->Group}}
         </ul>
     </div>
 </div>
