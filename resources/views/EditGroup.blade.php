@@ -59,10 +59,11 @@
                             @endforeach
                         </select>
                         <div class="input-group-append">
-                            <button class="btn btn-info" type="submit">Shto</button>
+                            <button class="btn btn-info" type="submit" >Shto</button>
                         </div>
                     </div>
                 </form>
+
                     </div>
                   </div>
                 </div>

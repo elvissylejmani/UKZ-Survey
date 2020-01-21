@@ -46,6 +46,19 @@
                                     <a href="/Users">   <button type="submit" class="btn btn-primary ml-2">Perdoruesit</button></a>
                         </li>
                             </ul>
+                            <ul class="navbar-nav auto">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                <li class="nav-item">
+                            <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="file" name="import_file" id="" required>
+                                  <button  class="btn btn-info" type="submit">Shto te dhena me excel</button>
+                
+                                </form>
+                                </li>
+                            </div>
+                            </div>
                             </nav>
                             @endif
 
