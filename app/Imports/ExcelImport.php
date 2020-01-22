@@ -2,8 +2,6 @@
 
 namespace App\Imports;
 
-use App\Professor;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class ExcelImport implements WithMultipleSheets

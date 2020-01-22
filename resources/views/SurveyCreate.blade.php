@@ -14,7 +14,17 @@
                         @csrf
                         <p class="h3 text-center ml-4"> Shto Pyetesor</p>
                         <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}"  class="form-control mb-4 {{$errors->has('SurveyTitle') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
-                        <button type="Submit" class="btn btn-primary">Shto</button>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input">
+                                Per profesorin: Elvis Sylejmani
+                              </div>
+                            </div>
+                          </div>
+
+                          <button type="Submit" class="btn btn-primary">Shto</button>
+
                     </nav>
 
         </div>
