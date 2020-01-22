@@ -46,7 +46,9 @@
                                     <a href="/Users">   <button type="submit" class="btn btn-primary ml-2">Perdoruesit</button></a>
                         </li>
                             </ul>
-                            <ul class="navbar-nav auto">
+                         
+                            </div>
+                            <ul class="navbar-nav auto ml-4 mb-4">
                                 <div class="row">
                                     <div class="col-md-12">
                                 <li class="nav-item">
@@ -57,7 +59,7 @@
                 
                                 </form>
                                 </li>
-                            </div>
+                            </ul>
                             </div>
                             </nav>
                             @endif
