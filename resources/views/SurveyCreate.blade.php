@@ -14,17 +14,34 @@
                         @csrf
                         <p class="h3 text-center ml-4"> Shto Pyetesor</p>
                         <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}"  class="form-control mb-4 {{$errors->has('SurveyTitle') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                                Per profesorin: Elvis Sylejmani
-                              </div>
-                            </div>
+               
+                    @forelse($groups as $group)
+                        
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                          <input type="checkbox" name="Group_ID[]" value="{{$group->id}}" aria-label="Checkbox for following text input">
+                            Lenda: <b> {{$group->class->Name}} </b>,   Groupi: <b> {{$group->Name}} </b>,  Profesori: <b> {{$group->Professor->Name}}  {{$group->Professor->LastName}} </b>
                           </div>
-
+                        </div>
+                      </div>
+                    @empty
+                    <p class="h3">Nuk ka as edhe nje grup te liruar per pyetsor</p>
+                         <p class="h5">Per krijimin e pyetsorve krijoni grupe te reja ose beni fshirjen e pyetsorve te vjeter</p>
+                     @endforelse
+                          
                           <button type="Submit" class="btn btn-primary">Shto</button>
-
+                          @if ($errors->any())
+                          <div class="col-md-12 mt-4">
+                          <div class="alert alert-danger">
+                              <ul class="navbar-nav auto">
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                        </div>
+                      @endif
                     </nav>
 
         </div>

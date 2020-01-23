@@ -21,6 +21,6 @@ class group extends Model
     }
     public function Survey()
     {
-        return $this->hasOne(survey::class,'Group_ID');
+        return $this->hasOne(survey::class,'Group_ID','id');
     }
 }
