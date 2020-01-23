@@ -7,7 +7,7 @@ use App\question;
 
 class survey extends Model
 {
-    protected $fillable = ['SurveyTitle'];
+    protected $fillable = ['SurveyTitle','Group_ID'];
     public function questions()
     {
         return $this->hasMany(question::class,'Survey_ID');

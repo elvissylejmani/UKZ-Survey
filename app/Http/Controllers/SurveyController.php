@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\survey;
+use App\group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SurveyController extends Controller
 {
@@ -14,6 +16,7 @@ class SurveyController extends Controller
      */
     public function index()
     {
+      
         $surveys = survey::orderBy('id', 'DESC')->get()->all();
         return view('Surveys',compact('surveys'));
     }
@@ -25,9 +28,10 @@ class SurveyController extends Controller
      */
     public function create()
     {
+        $groups = group::doesnthave('survey')->get();
 
         $surveys = survey::orderBy('id', 'DESC')->get()->all();
-        return view('SurveyCreate',compact('surveys'));
+        return view('SurveyCreate',compact('surveys','groups'));
     }
 
     /**
@@ -38,8 +42,11 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
+        $Group_IDs = request()->validate(['Group_ID' => 'required']);
         $vl = request()->validate(['SurveyTitle' => 'required']);
-        survey::create($vl);
+        foreach ($Group_IDs['Group_ID'] as $Group_ID ) {
+        survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
+    }
         return redirect('/Survey/create')->with('alert','Pyetesori u krijua me sukses');
     }
 
