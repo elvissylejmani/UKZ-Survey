@@ -14,7 +14,15 @@
                         @csrf
                         <p class="h3 text-center ml-4"> Shto Pyetesor</p>
                         <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}"  class="form-control mb-4 {{$errors->has('SurveyTitle') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
-               
+                   @if ($groups->isNotEmpty())
+                       
+                       
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                    <input type="checkbox" onClick="toggle(this)" />Selekto te gjith grupet <br/>
+                </div>
+            </div>
+            @endif
                     @forelse($groups as $group)
                         
                     <div class="input-group mb-3">
@@ -56,11 +64,17 @@
 @foreach ($surveys as $survey)
 <div class="col col-md-6 mb-4">
             <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
+                <form action="/Survey/{{$survey->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                <button type="submit" class="btn btn-danger"><i style=" " class="fas fa-times"></i></button>
+            </form>
+            <div class="col-md-11">
                     <ul class="navbar-nav auto">
                         </li class="nav-item">{{ $survey->id }}</li>
                         <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
                     </ul>
-
+                </div>
                         <div class="col-md-12">
                               <a href="/AddQuestions/{{$survey->id}}">  <button type="button"  class="btn btn-success btn-lg">Shto / Modifiko</button> </a>
                           
@@ -73,6 +87,14 @@
 </div>
 
 @endsection
+<script>
+function toggle(source) {
+  checkboxes = document.getElementsByName('Group_ID[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
 
+</script>
 
 
