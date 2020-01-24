@@ -81,7 +81,6 @@ class SurveyController extends Controller
      */
     public function update(Request $request, survey $survey)
     {
-        //
     }
 
     /**
@@ -90,8 +89,10 @@ class SurveyController extends Controller
      * @param  \App\survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function destroy(survey $survey)
+    public function destroy(survey $survey, $id)
     {
-        //
+        survey::findOrFail($id)->delete();
+        return back();
+        
     }
 }
