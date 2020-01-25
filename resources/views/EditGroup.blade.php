@@ -27,16 +27,20 @@
             </form>
         </div>
        
-            <div class="row">
-                <div class="col-lg-6 ">
-                  <div class="card  text-white bg-primary" style="width: 35rem;" >
-                    <div class="card-header" >Profesoret</div>
-                    <div class="card-body" >
-                      {{$Group->Professor->Name}}
-                      {{$Group->Professor->LastName}}
+        <div class="row">
+          
+          <div class="col-lg-6 ">
+            <div class="card  text-white bg-primary" style="width: 35rem;" >
+              <div class="card-header" >Profesoret</div>
+              <div class="card-body" >
+                @empty(!$Group->Professor)
+                        {{$Group->Professor->Name}}
+                        {{$Group->Professor->LastName}}
+                @endempty
+                      </div>
                     </div>
                   </div>
-                </div>
+
                 <div class="col-sm-6">
                   <div class="card  text-white bg-success" style="width: 35rem;" >
                     <div class="card-header">Studentet</div>
