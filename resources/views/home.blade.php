@@ -51,16 +51,18 @@
                             <ul class="navbar-nav auto ml-4 mb-4">
                                 <div class="row">
                                     <div class="col-md-12">
-                                <li class="nav-item">
+                         <li class="nav-item">
+                            <div class="custom-file">
                             <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="file" name="import_file" id="" required>
+                                <input type="file" name="import_file"  class="custom-file" id="" required>
                                   <button  class="btn btn-info" type="submit">Shto te dhena me excel</button>
-                
                                 </form>
-                                </li>
+                              </div>
+                         </li>
                             </ul>
                             </div>
+                        </div>
                             </nav>
                             @endif
 
