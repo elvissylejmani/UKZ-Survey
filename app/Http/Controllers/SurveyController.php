@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\survey;
 use App\group;
+use App\question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -44,8 +45,12 @@ class SurveyController extends Controller
     {
         $Group_IDs = request()->validate(['Group_ID' => 'required']);
         $vl = request()->validate(['SurveyTitle' => 'required']);
+        $questions = request()->validate(['question' => 'required']);
         foreach ($Group_IDs['Group_ID'] as $Group_ID ) {
-        survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
+       $id = survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
+            foreach ($questions['question'] as $question) {
+                  question::create(['Survey_ID' => $id['id'], 'question' => $question]);
+            }
     }
         return redirect('/Survey/create')->with('alert','Pyetesori u krijua me sukses');
     }
