@@ -20,7 +20,12 @@
         
                         @endforeach
                     </select>
-                
+                    <select class="custom-select mb-4" name="Prof_ID" searchable="Search here..">
+                        <option value="" disabled selected>shto profesor per kete grup</option>
+                        @foreach ($Professors as $Prof)
+                        <option value="{{$Prof->id}}">{{$Prof->Name}} {{$Prof->LastName}}</option>
+                        @endforeach
+                    </select>
                     <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\group;
+use App\professor;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use App\classe;
@@ -18,8 +19,10 @@ class GroupsController extends Controller
     public function index()
     {
         $classes = classe::all();
+        $Professors = professor::all();
+
         $Groups = group::orderBy('id', 'DESC')->get()->all();
-        return view('Groups',compact('Groups','classes'));
+        return view('Groups',compact('Groups','classes','Professors'));
     }
 
     /**
@@ -42,7 +45,8 @@ class GroupsController extends Controller
     {
         $group = $request->input('Name1'); 
         $id = $request->input('Class_ID'); 
-        group::create(['Name' => $group,'Class_ID' => $id]);
+        $Prof_Id = $request->input('Prof_ID'); 
+        group::create(['Name' => $group,'Class_ID' => $id,'Prof_ID' => $Prof_Id]);
 
         return back();
     }

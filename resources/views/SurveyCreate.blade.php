@@ -29,7 +29,11 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text">
                           <input type="checkbox" name="Group_ID[]" value="{{$group->id}}" aria-label="Checkbox for following text input">
-                            Lenda: <b> {{$group->class->Name}} </b>,   Groupi: <b> {{$group->Name}} </b>,  Profesori: <b> {{$group->Professor->Name}}  {{$group->Professor->LastName}} </b>
+                                Lenda: <b> 
+                                                    
+                                    {{$group->class->Name ?? ''}}
+
+                                  </b>,   Groupi: <b> {{$group->Name ?? ''}} </b>,  Profesori: <b> {{$group->Professor->Name ?? ''}}  {{$group->Professor->LastName ?? ''}} </b>
                           </div>
                         </div>
                       </div>
