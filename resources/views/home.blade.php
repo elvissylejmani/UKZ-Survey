@@ -55,7 +55,7 @@
                             <div class="custom-file">
                             <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="file" name="import_file"  class="custom-file" id="" required>
+                                <input type="file" name="import_file"   id="" required>
                                   <button  class="btn btn-info" type="submit">Shto te dhena me excel</button>
                                 </form>
                               </div>

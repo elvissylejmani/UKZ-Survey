@@ -14,7 +14,6 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        //$stud->Classes()->attach($class); // per lidhjen e studentave me klaset
         $professors = professor::orderBy('id', 'DESC')->get()->all();
         return view('Professors',compact('professors'));
     }

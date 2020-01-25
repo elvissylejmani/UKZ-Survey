@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\classe;
 use Illuminate\Http\Request;
 use App\professor;
+use App\type;
 use App\Groups;
 
 class ClassesController extends Controller
@@ -18,7 +19,8 @@ class ClassesController extends Controller
     {
 
         $Classes = classe::orderby('id','DESC')->get()->all();
-        return view('Classes',compact('Classes'));
+        $Types = type::all();
+        return view('Classes',compact('Classes','Types'));
     }
 
     /**
@@ -40,7 +42,7 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         //
-       $Class = request()->validate(['Name' => 'required']);
+       $Class = request()->validate(['Name' => 'required', 'Type_ID' => 'required']);
        classe::create($Class);
        return back();
     }
@@ -56,11 +58,6 @@ class ClassesController extends Controller
         
         $class = classe::findOrFail($id);
         
-        // $professor = professor::all();
-        // $classprof = [];
-        // foreach ($class->Professors as $prof) {
-        //     $classprof[] = $prof->id;
-        // }
         
         return view('EditClass',compact('class'));
     }

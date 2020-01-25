@@ -14,6 +14,15 @@
                     @csrf
                     <p class="h3 text-center ml-4"> Shto Lend</p>
                     <input type="text" name="Name" value="{{ old('Name')}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}" placeholder="Emri i Lendes" aria-label="Username" aria-describedby="basic-addon1"> 
+                    <select class="custom-select" name="Type_ID" searchable="Search here.." required>
+                        <option value="" disabled selected>Shto student per ket lend</option>
+                        @foreach ($Types as $Type)
+                               
+                        <option value="{{$Type->id}}">{{$Type->type}}</option>
+            
+                        @endforeach
+                    </select>
+                   
                     <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
 
@@ -50,7 +59,10 @@
             <div class="col">
                 <p class="h3">Profesori</p>
         <ul class="navbar-nav auto">
-            {{$class->Group}}
+            @foreach ($class->Groups as $Group)
+                {{$Group->Professor['Name']}}
+                {{$Group->Professor['LastName']}}
+            @endforeach
         </ul>
     </div>
 </div>

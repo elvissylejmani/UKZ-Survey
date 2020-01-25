@@ -15,6 +15,7 @@
                     <p class="h3 text-center ml-4"> Shto Profesorin</p>
                     <input type="text" name="Name" value="{{ old('Name')}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}" placeholder="Emri i profesorit" aria-label="Username" aria-describedby="basic-addon1"> 
                     <input type="text" name="LastName" value="{{ old('LastName')}}"  class="form-control mb-4 {{$errors->has('LastName') ? 'border border-danger' : ''}}" placeholder="Mbiemri i profesorit" aria-label="Username" aria-describedby="basic-addon1"> 
+                    
                     <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
 
