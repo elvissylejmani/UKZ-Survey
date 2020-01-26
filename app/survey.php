@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\question;
+use App\group;
+use App\professor;
 
 class survey extends Model
 {
@@ -12,8 +14,13 @@ class survey extends Model
     {
         return $this->hasMany(question::class,'Survey_ID');
     }
-    public function Groups()
+    public function Group()
     {
-        return $this->hasMany(group::class,'Group_ID','id');
+        return $this->belongsTo(group::class,'Group_ID');
     }
+    // public function ProfGroup()
+    // {
+    //    dd($this->hasOneThrough(professor::class,group::class,'Prof_ID','id', 'id','id'));
+    // }
+
 }

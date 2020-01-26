@@ -14,9 +14,31 @@
                         @csrf
                         <p class="h3 text-center ml-4"> Shto Pyetesor</p>
                         <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}"  class="form-control mb-4 {{$errors->has('SurveyTitle') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
-                   @if ($groups->isNotEmpty())
-                       
-                       
+                  <div class="col-md-12">
+                        <div class="input-group mb-3">
+                            <input id="my_input" placeholder="Sa pyeteja ka ne pyetesor" class="form-control" name="test1" type="text" value="">
+                        
+                        <button data-toggle="modal" class="btn btn-outline-secondary" data-target="#myModal" id="add_input1" name="" type="button" onclick="add_inputboxes()">GO</button>
+                                      </div>  
+                                      <div class="col col-md-6" id="rolonum">
+                                        <script>  
+                                            
+                                            function add_inputboxes() {
+                                          n = $('#my_input').val();
+                                          if (n < 1)
+                                            alert("ERROR: Enter a positive number");
+                                          else {
+                                            $("#rolonum").html('');
+                                            for (var i = 1; i <= n; i++) {
+                                              $("#rolonum").append('<p><span>Item ' + i + ' </span><input id="rolo_add' + i + '" name="question[]"  class="form-control"  type="text" value="" required/></p>');
+                                            }
+                                          }
+                                        }
+                                        
+                                        </script>
+                                        </div>
+                                    </div>
+                        @if ($groups->isNotEmpty())
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                     <input type="checkbox" onClick="toggle(this)" />Selekto te gjith grupet <br/>
@@ -77,6 +99,8 @@
                     <ul class="navbar-nav auto">
                         </li class="nav-item">{{ $survey->id }}</li>
                         <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
+                        {{-- <li class="nav-item"><p class="h1">{{ $survey }} </p></li> --}}
+
                     </ul>
                 </div>
                         <div class="col-md-12">
