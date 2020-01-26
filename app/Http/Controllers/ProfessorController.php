@@ -15,7 +15,6 @@ class ProfessorController extends Controller
     public function index()
     {
         $professors = professor::orderBy('id', 'DESC')->get()->all();
-        return $professors[1]->Survey;
         return view('Professors',compact('professors'));
     }
 
