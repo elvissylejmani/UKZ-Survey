@@ -99,7 +99,8 @@
                     <ul class="navbar-nav auto">
                         </li class="nav-item">{{ $survey->id }}</li>
                         <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
-                        {{-- <li class="nav-item"><p class="h1">{{ $survey }} </p></li> --}}
+                        <li class="nav-item"><p class="h2">Lenda: {{ $survey['group']->class->Name ?? '' }} </p></li>
+                        <li class="nav-item"><p class="h3">Profesori: {{ $survey['group']->Professor->Name ?? ''}} {{ $survey['group']->Professor->LastName ?? ''}}</p></li>
 
                     </ul>
                 </div>

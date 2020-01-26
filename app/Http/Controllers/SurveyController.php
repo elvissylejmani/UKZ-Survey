@@ -29,9 +29,13 @@ class SurveyController extends Controller
      */
     public function create()
     {
+    
+        // return $p[0]['group']->Professor;
         $groups = group::doesnthave('survey')->get();
 
-        $surveys = survey::orderBy('id', 'DESC')->get()->all();
+        // $surveys = survey::orderBy('id', 'DESC')->get()->all();
+        $surveys = survey::orderBy('id', 'DESC')->with('group')->get()->all();
+        // return $surveys[0]['group']->class->Name;
         return view('SurveyCreate',compact('surveys','groups'));
     }
 
