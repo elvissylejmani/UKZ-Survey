@@ -99,6 +99,8 @@
                     <ul class="navbar-nav auto">
                         </li class="nav-item">{{ $survey->id }}</li>
                         <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
+                        {{-- <li class="nav-item"><p class="h1">{{ $survey }} </p></li> --}}
+
                     </ul>
                 </div>
                         <div class="col-md-12">
