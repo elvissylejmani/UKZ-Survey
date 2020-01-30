@@ -25,28 +25,21 @@
                         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg  mb-1">
                             <ul class="navbar-nav auto">
                             <li class="nav-item">
-                                
-                                    <a href="/Survey/create">   <button type="submit" class="btn btn-primary"> Shto pyetesore </button></a>
+                                    <a href="/Survey/create">   <button type="submit" class="btn btn-primary">Pyetesore </button></a>
                         </li>
                             <li class="nav-item">
-                           
                                   <a href="/Professor">   <button type="submit" class="btn btn-primary ml-2">Profesorat</button></a>
-                                  
                         </li>
                             <li class="nav-item">
-                                
                                     <a href="/Classes">   <button type="submit" class="btn btn-primary ml-2">Lendet mesimore</button></a>
                         </li>
                             <li class="nav-item">
-                                
                                     <a href="/Groups">   <button type="submit" class="btn btn-primary ml-2">Grupet mesimore</button></a>
                         </li>
                             <li class="nav-item">
-                                
                                     <a href="/Users">   <button type="submit" class="btn btn-primary ml-2">Perdoruesit</button></a>
                         </li>
                             </ul>
-                         
                             </div>
                             <ul class="navbar-nav auto ml-4 mb-4">
                                 <div class="row">
@@ -65,9 +58,7 @@
                         </div>
                             </nav>
                             @endif
-
                         </div>
-                        
                 </div>
             </div>
         </div>

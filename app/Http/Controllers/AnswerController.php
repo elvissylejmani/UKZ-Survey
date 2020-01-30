@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\question;
+use App\survey;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
@@ -49,9 +51,15 @@ class AnswerController extends Controller
      * @param  \App\Answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function show(Answer $answer)
+    public function show(Answer $answer, $id)
     {
-        //
+         $sur = survey::findOrFail($id);             
+         $questions = $sur->Questions;
+        //  foreach ( $questions as $question ) {
+        //    echo $question->Answers[0];
+        //  }
+        
+
     }
 
     /**

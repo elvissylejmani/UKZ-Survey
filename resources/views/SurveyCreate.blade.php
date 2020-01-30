@@ -106,6 +106,9 @@
                 </div>
                         <div class="col-md-12">
                               <a href="/AddQuestions/{{$survey->id}}">  <button type="button"  class="btn btn-success btn-lg">Shto / Modifiko</button> </a>
+                             <form action="/Answer/{{$survey->id}}" method="GET">
+                              <button type="submit"   class="btn btn-success btn-lg">Shiko rezultatet</button> 
+                            </form>
                           
                     </div>
         </nav>  
