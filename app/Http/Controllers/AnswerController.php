@@ -53,12 +53,13 @@ class AnswerController extends Controller
      */
     public function show(Answer $answer, $id)
     {
-         $sur = survey::findOrFail($id);             
-         $questions = $sur->Questions;
+         $sur = survey::findOrFail($id);     
+          $gr = $sur->Group;        
+          $questions = $sur->Questions;
         //  foreach ( $questions as $question ) {
         //    echo $question->Answers[0];
         //  }
-        return view('Answers');
+        return view('Answers',compact('questions','sur','gr'));
 
     }
 
