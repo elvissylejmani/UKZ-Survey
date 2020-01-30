@@ -7,10 +7,28 @@
         <b>Grupi:</b> {{$gr->Name ?? ''}}
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+        @foreach ($questions as $question)
+    <h5 class="card-title"><b>Pyeteja:</b> {{$question->question ?? '' }}</h5>
+    @php
+     $temp = 0;   
+     $count = 0;
+    @endphp
+        @foreach ($question->Answers as $ans)
+        <p class="card-text">{{$ans->Answer ?? ''}}</p>
+            @php
+                $temp += $ans->Answer;
+                $count++;
+            @endphp
+        @endforeach
+    <b>Mesatarja per ket pytje:</b>  
+    @if ($count != 0)
+    {{ $temp/$count ?? '' }}
+    @endif
+        @endforeach
+      {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
     </div>
+<div class="card-footer"><b> Mesatarja e komplet pyetesorit </b> {{ $avg }}</div>
+
   </div>
 
 </div>
