@@ -58,7 +58,7 @@ class AnswerController extends Controller
         //  foreach ( $questions as $question ) {
         //    echo $question->Answers[0];
         //  }
-        
+        return view('Answers');
 
     }
 
