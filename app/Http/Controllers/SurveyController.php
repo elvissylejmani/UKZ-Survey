@@ -6,6 +6,7 @@ use App\survey;
 use App\group;
 use App\question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SurveyController extends Controller
@@ -29,7 +30,7 @@ class SurveyController extends Controller
      */
     public function create()
     {
-    
+        return Auth::user()->Surveys;
         // return $p[0]['group']->Professor;
         $groups = group::doesnthave('survey')->get();
 
