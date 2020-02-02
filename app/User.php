@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -50,4 +52,15 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function Surveys()
+    {
+       $us = DB::table('users')
+        ->where('users.id', '=', Auth::id())
+        ->join('group_user', 'users.id', '=', 'group_user.User_ID')
+        ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
+        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
+        ->select('surveys.SurveyTitle','users.id')
+        ->get();
+        dd($us);
+}
 }
