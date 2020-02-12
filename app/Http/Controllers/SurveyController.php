@@ -19,7 +19,14 @@ class SurveyController extends Controller
     public function index()
     {
       
-        $surveys = survey::orderBy('id', 'DESC')->get()->all();
+        $surveys = DB::table('users')
+        ->where('users.id', '=', Auth::id())
+        ->join('group_user', 'users.id', '=', 'group_user.User_ID')
+        ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
+        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
+        ->select('surveys.SurveyTitle','surveys.id')
+        ->get();
+        // $surveys = survey::orderBy('id', 'DESC')->get()->all();
         return view('Surveys',compact('surveys'));
     }
 
@@ -30,7 +37,6 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        return Auth::user()->Surveys;
         // return $p[0]['group']->Professor;
         $groups = group::doesnthave('survey')->get();
 
