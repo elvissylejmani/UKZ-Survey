@@ -52,15 +52,4 @@ class User extends Authenticatable
             return false;
         }
     }
-    public function Surveys()
-    {
-       $us = DB::table('users')
-        ->where('users.id', '=', Auth::id())
-        ->join('group_user', 'users.id', '=', 'group_user.User_ID')
-        ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
-        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        ->select('surveys.SurveyTitle','users.id')
-        ->get();
-        dd($us);
-}
 }
