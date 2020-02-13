@@ -26,7 +26,6 @@ class SurveyController extends Controller
         ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
         ->select('surveys.SurveyTitle','surveys.id')
         ->get();
-        // $surveys = survey::orderBy('id', 'DESC')->get()->all();
         return view('Surveys',compact('surveys'));
     }
 
