@@ -43,6 +43,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(group::class);
     }
+    public function StudentInfo()
+    {
+        return $this->hasOne(StudentData::class,'Stud_ID','id');
+    }
     public function IsAdmin()
     {
         if ($this->type == 'Admin') {
