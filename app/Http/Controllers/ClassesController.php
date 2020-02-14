@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\professor;
 use App\type;
 use App\Groups;
+use Illuminate\Support\Facades\Auth;
 
 class ClassesController extends Controller
 {
@@ -17,7 +18,6 @@ class ClassesController extends Controller
      */
     public function index()
     {
-
         $Classes = classe::orderby('id','DESC')->get()->all();
         $Types = type::all();
         return view('Classes',compact('Classes','Types'));

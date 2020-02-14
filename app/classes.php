@@ -16,4 +16,8 @@ class classe extends Model
     {
         return $this->hasMany(group::class, 'Class_ID');
     }
+    public function Students()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
