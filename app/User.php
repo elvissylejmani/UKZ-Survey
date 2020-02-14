@@ -43,6 +43,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(group::class);
     }
+    public function Classes()
+    {
+        return $this->belongsToMany(classe::class);
+    }
     public function StudentInfo()
     {
         return $this->hasOne(StudentData::class,'Stud_ID','id');
