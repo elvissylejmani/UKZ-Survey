@@ -21,6 +21,7 @@ class ExcelImport implements WithMultipleSheets
            3 => new ForthSheetImport(),
            4 => new FifthSheetImport(),
            5 => new SixthSheetImport(),
+           6 => new SeventhSheetImport(),
         ];
     }
 }

@@ -18,7 +18,6 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        return classe::first()->Students;
         $Classes = classe::orderby('id','DESC')->get()->all();
         $Types = type::all();
         return view('Classes',compact('Classes','Types'));
