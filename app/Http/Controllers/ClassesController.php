@@ -109,4 +109,8 @@ class ClassesController extends Controller
         $class->Professors()->attach($prof);
         return back();
     }
+    public function AddStud($id)
+    {
+        return $id;
+    }
 }
