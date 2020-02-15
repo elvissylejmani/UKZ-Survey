@@ -110,8 +110,19 @@ class ClassesController extends Controller
     }
     public function AddStud()
     {
-         $class = DB::table('classes')->select('*');
-         return $class;
-                  return $class::withCount('Groups')->get();
+        $class = classe::all();
+        
+        return $class[0]->Groups;
+
+
+
+
+        
+        
+        // $class = DB::table('classes')
+        // ->leftJoin('groups', 'classes.id', '=', 'groups.Class_ID')
+        // ->select('classes.*','groups.*')
+        // ->get();
+        // dd($class[0]);
     }
 }

@@ -18,6 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('Name');
             $table->unsignedBigInteger('Prof_ID')->nullable();
             $table->unsignedBigInteger('Class_ID');
+            $table->integer('type');
             $table->foreign('Prof_ID')
             ->references('id')
             ->on('professors')

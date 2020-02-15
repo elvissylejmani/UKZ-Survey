@@ -11,7 +11,8 @@ class SeventhSheetImport implements ToModel
         return new group([
             'Name' => $rows[0],
             'Class_ID' => $rows[1],
-            'Prof_ID' => $rows[2]
+            'Prof_ID' => $rows[2],
+            'type' => $rows[3]
         ]);
     }
 }
