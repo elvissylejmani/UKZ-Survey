@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\classe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\professor;
 use App\type;
 use App\Groups;
@@ -56,10 +57,8 @@ class ClassesController extends Controller
     public function show($id)
     {
         
-        $class = classe::findOrFail($id);
-        
-        
-        return view('EditClass',compact('class'));
+         $class = classe::findOrFail($id);
+         return view('EditClass',compact('class'));
     }
 
     /**
@@ -109,8 +108,10 @@ class ClassesController extends Controller
         $class->Professors()->attach($prof);
         return back();
     }
-    public function AddStud($id)
+    public function AddStud()
     {
-        return $id;
+         $class = DB::table('classes')->select('*');
+         return $class;
+                  return $class::withCount('Groups')->get();
     }
 }

@@ -11,7 +11,6 @@ class ForthSheetImport implements ToModel
         return new classe([
             'Name' => $rows[0],
             'Type_ID' => $rows[1],
-            'ClassYear' => $rows[2]
         ]);
     }
 }

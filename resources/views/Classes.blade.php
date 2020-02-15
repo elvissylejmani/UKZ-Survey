@@ -28,10 +28,20 @@
 
     </div>
     <div class="col"></div>
+</form>
 
 </div>
+<div class="row mt-4 mb-4">
+    <div class="col-lg-12">
+        <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
+            <form action="/Classes/Stud" method="GET">
+                <button type="submit" class="btn btn-info"> Shto studenta neper groupe </button>
+            </form>
+        </nav>
+    </div>  
+</div>
 
-</form>
+
 </div>
 @if ($Classes != null)
 
@@ -66,6 +76,7 @@
         </ul>
     </div>
 </div>
+
 <div class="row">
 <div class="col-sm">
 <p class="h3">Grupet</p>

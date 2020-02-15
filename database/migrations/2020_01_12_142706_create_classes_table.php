@@ -17,7 +17,6 @@ class CreateClassesTable extends Migration
             $table->bigIncrements('id');
             $table->string('Name');
             $table->unsignedBigInteger('Type_ID');
-            $table->integer('ClassYear');
             $table->foreign('Type_ID')
             ->references('id')->on('types')
             ->onDelete('cascade');
