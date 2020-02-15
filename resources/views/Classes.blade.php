@@ -34,7 +34,7 @@
 <div class="row mt-4 mb-4">
     <div class="col-lg-12">
         <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
-            <form action="/Classes/Stud" method="GET">
+            <form action="/Classes/Group/Stud" method="GET">
                 <button type="submit" class="btn btn-info"> Shto studenta neper groupe </button>
             </form>
         </nav>

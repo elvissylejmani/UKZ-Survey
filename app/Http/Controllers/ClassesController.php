@@ -110,14 +110,10 @@ class ClassesController extends Controller
     }
     public function AddStud()
     {
-
-
         $class = classe::whereHas('Groups')->get();
-        // dd($class[0]->count());
        $a = $class[0]->Groups->where('type', '=','1')->count();
        $b =  $class[0]->Groups->where('type', '=','2')->count();
        $s = $class[0]->Students->count();
-       echo $s;
        function gcd($a, $b)
        {
              if ($a == 0)
@@ -129,7 +125,6 @@ class ClassesController extends Controller
              return ($a * $b) / gcd($a, $b);
        }
         $lcm = lcm($a,$b);
-       echo $s;
        $allgroups = [];
        $singlegroup = [];
         $counter = 0;
@@ -153,17 +148,28 @@ class ClassesController extends Controller
             $singlegroup[] = $std;
             $counter++;
         }
-        dd($allgroups);
-        // $class = classe::all();
-        // return $class[0]->Groups;
-
-
         
-        
-        // $class = DB::table('classes')
-        // ->leftJoin('groups', 'classes.id', '=', 'groups.Class_ID')
-        // ->select('classes.*','groups.*')
-        // ->get();
-        // dd($class[0]);
+        $LGroup = $class[0]->Groups->where('type', '=', 1);
+        $UGroup = $class[0]->Groups->where('type', '=', 2);
+        $tmp = 1;
+        foreach ($LGroup as $Gr) {
+            for ($i=1; $i <= count($allgroups)/$a  ; $i++) { 
+                foreach ($allgroups[$tmp] as $std) {
+                    $Gr->Students()->attach($std);
+                }
+                $tmp++;
+            }
+        }
+        $tmp=1;
+        foreach ($UGroup as $Gr) {
+            for ($i=1; $i <= count($allgroups)/$b  ; $i++) { 
+                foreach ($allgroups[$tmp] as $std) {
+                    $Gr->Students()->attach($std);
+                }
+                $tmp++;
+            }
+        }
+       return back();
+       
     }
 }
