@@ -110,11 +110,52 @@ class ClassesController extends Controller
     }
     public function AddStud()
     {
-        $class = classe::all();
-        
-        return $class[0]->Groups;
 
 
+        $class = classe::whereHas('Groups')->get();
+        // dd($class[0]->count());
+       $a = $class[0]->Groups->where('type', '=','1')->count();
+       $b =  $class[0]->Groups->where('type', '=','2')->count();
+       $s = $class[0]->Students->count();
+       echo $s;
+       function gcd($a, $b)
+       {
+             if ($a == 0)
+             return $b;
+             return gcd($b % $a, $a);
+       }
+       function lcm( $a, $b)
+       {
+             return ($a * $b) / gcd($a, $b);
+       }
+        $lcm = lcm($a,$b);
+       echo $s;
+       $allgroups = [];
+       $singlegroup = [];
+        $counter = 0;
+       $gr = 1;
+
+       foreach ($class[0]->Students as $std ) {
+            if ($counter == round($s/$lcm)) {
+                $allgroups[$gr] = $singlegroup;
+                $gr++;
+                unset($singlegroup);
+                $s -= $counter;
+                $lcm--;
+                $counter = 0;
+            }
+            elseif($std == $class[0]->Students[$class[0]->Students->count()-1])
+            {
+                $singlegroup[] = $std;
+                $allgroups[$gr] = $singlegroup;
+                break;
+            }
+            $singlegroup[] = $std;
+            $counter++;
+        }
+        dd($allgroups);
+        // $class = classe::all();
+        // return $class[0]->Groups;
 
 
         
