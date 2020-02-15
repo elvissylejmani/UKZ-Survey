@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class group extends Model
 {
-    protected $fillable = ['Name','Prof_ID','Class_ID'];
+    protected $fillable = ['Name','Prof_ID','Class_ID','type'];
     public function Professor()
     {
         return $this->belongsTo(professor::class,'Prof_ID','id');

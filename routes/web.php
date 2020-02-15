@@ -26,7 +26,7 @@ Route::post('/Classes/{id}/addprof','ClassesController@addprof')->middleware('au
 Route::get('/AddQuestions/{id}','AddQuestion@index')->middleware('auth');
 Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy'])->middleware('auth');
 Route::post('/import','ExcelController@import')->name('import')->middleware('auth');
-Route::get('/Classes/Stud','ClassesController@AddStud');
+Route::get('/Classes/Group/Stud','ClassesController@AddStud');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
