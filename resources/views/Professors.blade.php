@@ -49,7 +49,10 @@
                     </ul>
                     <div class="" style="posit">
                         <form action="Professor/{{$professor->id }}" method="GET">
-                        <button type="submit"  class="btn btn-success">Modifiko te dhenat e profesorit</button>
+                        <button type="submit" style="float:left" class="btn btn-success">Modifiko te dhenat e profesorit</button>
+                     </form>
+                     <form action="/Professor/{{$professor->id }}/Survey" method="GET">
+                         <button type="submit" class="btn btn-info">Shiko rezultatet e pytesorve per profesor</button>
                      </form>
                         <a href=" {{  route('Professor.delete', $professor->id) }}"onClick="return confirm('A jeni i sigurt se deshironi ta fshini te dhenen?')"><i style="float:right;margin-left:43vw; color:#FB0101; font-size:2em; " class="fas fa-times"></i></a>  
                         

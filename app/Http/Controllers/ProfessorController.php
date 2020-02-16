@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\professor;
 use App\classe;
+use Illuminate\Support\Facades\DB;
 class ProfessorController extends Controller
 {
     /**
@@ -97,5 +98,17 @@ class ProfessorController extends Controller
         $professor = professor::findOrFail($id);
         $professor->delete();
         return back();
+    }
+    public function SurveyData($id)
+    {
+        $surveys = DB::table('Professors')
+        ->where('Professors.id', '=', $id)
+        ->join('groups', 'Professors.id', '=', 'groups.Prof_ID')
+        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
+        ->select('surveys.SurveyTitle','surveys.id')
+        ->get();
+        return $surveys;
+
+        return $id;
     }
 }
