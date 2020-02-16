@@ -110,27 +110,28 @@ class ClassesController extends Controller
     }
     public function AddStud()
     {
-        $class = classe::whereHas('Groups')->get();
-       $a = $class[0]->Groups->where('type', '=','1')->count();
-       $b =  $class[0]->Groups->where('type', '=','2')->count();
-       $s = $class[0]->Students->count();
-       function gcd($a, $b)
-       {
-             if ($a == 0)
-             return $b;
-             return gcd($b % $a, $a);
-       }
-       function lcm( $a, $b)
-       {
-             return ($a * $b) / gcd($a, $b);
-       }
+        function gcd($a, $b)
+        {
+              if ($a == 0)
+              return $b;
+              return gcd($b % $a, $a);
+        }
+        function lcm( $a, $b)
+        {
+              return ($a * $b) / gcd($a, $b);
+        }
+        $classes = classe::whereHas('Groups')->get();
+        foreach ($classes as $class) {
+       $a = $class->Groups->where('type', '=','1')->count();
+       $b =  $class->Groups->where('type', '=','2')->count();
+       $s = $class->Students->count();
         $lcm = lcm($a,$b);
        $allgroups = [];
        $singlegroup = [];
         $counter = 0;
        $gr = 1;
 
-       foreach ($class[0]->Students as $std ) {
+       foreach ($class->Students as $std ) {
             if ($counter == round($s/$lcm)) {
                 $allgroups[$gr] = $singlegroup;
                 $gr++;
@@ -139,7 +140,7 @@ class ClassesController extends Controller
                 $lcm--;
                 $counter = 0;
             }
-            elseif($std == $class[0]->Students[$class[0]->Students->count()-1])
+            elseif($std == $class->Students[$class->Students->count()-1])
             {
                 $singlegroup[] = $std;
                 $allgroups[$gr] = $singlegroup;
@@ -149,8 +150,8 @@ class ClassesController extends Controller
             $counter++;
         }
         
-        $LGroup = $class[0]->Groups->where('type', '=', 1);
-        $UGroup = $class[0]->Groups->where('type', '=', 2);
+        $LGroup = $class->Groups->where('type', '=', 1);
+        $UGroup = $class->Groups->where('type', '=', 2);
         $tmp = 1;
         foreach ($LGroup as $Gr) {
             for ($i=1; $i <= count($allgroups)/$a  ; $i++) { 
@@ -169,6 +170,8 @@ class ClassesController extends Controller
                 $tmp++;
             }
         }
+    }
+        
        return back();
        
     }
