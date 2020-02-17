@@ -47,7 +47,7 @@
                     <div class="card-header">Studentet</div>
                     <div class="card-body">
                         @foreach ($Group->Students as $Stud)
-                      <p class="card-text">{{$Stud->name}} {{$Stud->lastname}} {{$Stud->id}}</p>
+                      <p class="card-text">{{$Stud->name}} {{$Stud->lastname}} (ID: {{$Stud->id}})</p>
                     @endforeach  
                     </div>
                     <div class="card-footer">
