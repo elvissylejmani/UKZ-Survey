@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\question;
+use Illuminate\Support\Facades\Auth;
+use App\isCompleted;
 use App\survey;
 use Illuminate\Http\Request;
 
@@ -37,11 +39,15 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
+        $st = url()->previous();
+        $st = $st[strlen($st)-1];
+        // return $st;
         $ans = request()->validate(['Answer' => 'required']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
         for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
             Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
         }
+        isCompleted::create(['Survey_ID' => $st,'User_ID' => Auth::id()]);
         return redirect('/')->with('alert','Faleminderit per vlersimin');
     }
 

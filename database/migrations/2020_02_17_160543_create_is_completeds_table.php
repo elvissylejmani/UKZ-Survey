@@ -15,6 +15,18 @@ class CreateIsCompletedsTable extends Migration
     {
         Schema::create('is_completeds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('Survey_ID');
+            $table->unsignedBigInteger('User_ID');
+            $table
+            ->foreign('Survey_ID')
+            ->references('id')
+            ->on('surveys')
+            ->onDelete('cascade');
+            $table
+            ->foreign('User_ID')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
