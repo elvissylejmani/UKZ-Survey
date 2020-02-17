@@ -122,11 +122,11 @@ class ProfessorController extends Controller
         if ($count!=0) {
             $avg/=$count;
         }
-        return $avg;
+       return view('AvrageForProfessor',compact('avg','surveys','professor'));
       
       
 
-        
+
       
       
     //    foreach ($surveys as $survey) {
