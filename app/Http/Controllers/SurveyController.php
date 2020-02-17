@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\survey;
 use App\group;
 use App\question;
+use App\isCompleted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,6 @@ class SurveyController extends Controller
      */
     public function index()
     {
-      
         $surveys = DB::table('users')
         ->where('users.id', '=', Auth::id())
         ->join('group_user', 'users.id', '=', 'group_user.User_ID')
@@ -26,6 +26,13 @@ class SurveyController extends Controller
         ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
         ->select('surveys.SurveyTitle','surveys.id')
         ->get();
+        $a = count($surveys);
+        for($i = 0;$i < $a;$i++){
+            $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$surveys[$i]->id)->get();
+            if (!$exist->isEmpty()) {
+                  unset($surveys[$i]);
+            }
+        }
         return view('Surveys',compact('surveys'));
     }
 
