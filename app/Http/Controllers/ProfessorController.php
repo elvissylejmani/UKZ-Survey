@@ -101,14 +101,57 @@ class ProfessorController extends Controller
     }
     public function SurveyData($id)
     {
-        $surveys = DB::table('Professors')
-        ->where('Professors.id', '=', $id)
-        ->join('groups', 'Professors.id', '=', 'groups.Prof_ID')
-        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        ->select('surveys.SurveyTitle','surveys.id')
-        ->get();
-        return $surveys;
+        $professor = professor::findOrFail($id);
+        $groups = $professor->Groups;
+       $surveys = [];
+       $avg = 0;
+       $count = 0;
+         foreach ($groups as $group) {
+             if($group->Survey != null)
+           $surveys[] = $group->Survey;
+           }
 
-        return $id;
+       foreach ($surveys as $survey) {
+         foreach ($survey->questions as $question ) {
+            foreach ($question->Answers as $ans) {
+                $avg += $ans->Answer;
+                $count++;
+            }
+        }
+    }
+        if ($count!=0) {
+            $avg/=$count;
+        }
+        return $avg;
+      
+      
+
+        
+      
+      
+    //    foreach ($surveys as $survey) {
+    //        echo $survey['SurveyTitle'];
+    //    }
+    //    return $surveys[1]->questions;
+    //    return $surveys;
+       
+       
+    //     $survey = $groups[3]->Survey;
+    //     $questions = $survey->questions;
+    //     return $ans = $questions[0]->Answers;
+    //     return $id;
+        
+
+
+
+        
+        // $surveys = DB::table('Professors')
+        // ->where('Professors.id', '=', $id)
+        // ->join('groups', 'Professors.id', '=', 'groups.Prof_ID')
+        // ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
+        // ->join('questions', 'surveys.id', '=', 'questions.Survey_ID')
+        // ->join('answers', 'questions.id', '=', 'answers.Question_ID')
+        // ->select('Professors.*','surveys.SurveyTitle','surveys.id','questions.question','answers.Answer')
+        // ->get();
     }
 }
