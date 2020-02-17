@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header bg-primary">
             <b>Profesori</b> {{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}
         </div>
 
@@ -10,13 +10,17 @@
                 <b>Mesatarja e pergjithshme e profesorit:</b> {{$avg ?? ''}}
 
             </div>
-            <div class="card-footer"><b> Me posht gjeni te dhenat se si jeni votuar nga studentet</div>
+            @if ($avg != 0)
+            <div class="card-footer bg-info"><b> Me posht gjeni te dhenat se si jeni votuar nga studentet</div>
+            @else
+            <div class="card-footer bg-warning"><b>Nuk jeni vlersuar ende</div>
+            @endif
     </div>
 
 @foreach ($surveys as $survey)
     
     <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header bg-primary">
             @php
                   $gr = $survey->Group;
               @endphp
@@ -54,9 +58,9 @@
         </div>
 
            @if ($countTemp != 0)
-           <div class="card-footer"><b> Mesatarja e pyetesorit </b> {{$SurveyTemp/$countTemp ?? ''}}</div>
+           <div class="card-footer bg-success"><b> Mesatarja e pyetesorit </b> {{$SurveyTemp/$countTemp ?? ''}}</div>
            @else
-           <div class="card-footer"><b>Ky pytesor nuk eshte plotsuar nga as nje student </b></div>
+           <div class="card-footer bg-warning"><b>Ky pytesor nuk eshte plotsuar nga as nje student </b></div>
            @endif
 
 </div>
