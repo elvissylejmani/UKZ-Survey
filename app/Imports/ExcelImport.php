@@ -17,11 +17,10 @@ class ExcelImport implements WithMultipleSheets
         return [
            0 => new FirstSheetImport(),
            1 => new SecondSheetImport(),
-           2 => new ThirdSheetImport(),
-           3 => new ForthSheetImport(),
-           4 => new FifthSheetImport(),
-           5 => new SixthSheetImport(),
-           6 => new SeventhSheetImport(),
+           2 => new ForthSheetImport(),
+           3 => new FifthSheetImport(),
+           4 => new SixthSheetImport(),
+           5 => new SeventhSheetImport(),
         ];
     }
 }
