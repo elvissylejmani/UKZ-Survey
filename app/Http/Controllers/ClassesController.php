@@ -20,8 +20,7 @@ class ClassesController extends Controller
     public function index()
     {
         $Classes = classe::orderby('id','DESC')->get()->all();
-        $Types = type::all();
-        return view('Classes',compact('Classes','Types'));
+        return view('Classes',compact('Classes'));
     }
 
     /**
