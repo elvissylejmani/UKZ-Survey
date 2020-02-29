@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Middleware\CheckRole;
 
 // use Illuminate\Routing\Route;
 // use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ Route::resource('/Question','QuestionController')->middleware('auth');
 Route::resource('/Answer','AnswerController')->middleware('auth');
 Route::resource('/Professor','ProfessorController')->middleware('auth');
 Route::resource('/Classes','ClassesController')->middleware('auth');
-Route::resource('Groups','GroupsController')->middleware('auth');
+Route::resource('Groups','GroupsController')->middleware(CheckRole::class);
 Route::resource('/Users','UsersController')->middleware('auth');
 Route::post('/Classes/{id}/addprof','ClassesController@addprof')->middleware('auth');
 Route::get('/AddQuestions/{id}','AddQuestion@index')->middleware('auth');
