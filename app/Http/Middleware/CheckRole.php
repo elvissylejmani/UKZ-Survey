@@ -15,10 +15,13 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->type == 'Admin') {
-            return back();
+        $a =$request->user()->type;
+        if (!strcmp($a,'Admin')) {
+            return $next($request);
+        }
+        else {
+        return redirect('/');
         }
 
-        return $next($request);
     }
 }
