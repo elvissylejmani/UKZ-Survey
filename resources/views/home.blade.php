@@ -1,5 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
+<section class="content-container">
+    <article class="single-menu">
+     <a href="surveys.html">Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="managesurveys.html">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="proffesors.html">Professors<span><i class="fas fa-chalkboard-teacher"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="subjects.html">Subjects<span><i class="fas fa-book"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="groups.html">Groups<span><i class="fas fa-users"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="users.html">Users<span><i class="fas fa-user"></i></span></a>   
+    </article>
+   </section>
+{{-- 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,5 +84,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
