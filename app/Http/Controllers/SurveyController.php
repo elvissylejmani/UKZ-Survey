@@ -122,4 +122,8 @@ class SurveyController extends Controller
     {
         return view('ManageSurvey');
     }
+    public function ShowSurvey()
+    {
+        return view('ShowSurvey');
+    }
 }

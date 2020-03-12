@@ -19,8 +19,8 @@
 
 
     <!-- Styles -->
-    <link href="{{ asset('css/newapp.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/newapp.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
 
 
  
@@ -64,9 +64,8 @@
             @yield('content')
     </section>
     
-
-    <script  href="{{ asset('js/all.js') }}"></script>
-    <script  href="{{ asset('js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/all.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
     @yield('script')
 </body>
 </html>

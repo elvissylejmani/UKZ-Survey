@@ -123,35 +123,5 @@ class ProfessorController extends Controller
             $avg/=$count;
         }
        return view('AvrageForProfessor',compact('avg','surveys','professor'));
-      
-      
-
-
-      
-      
-    //    foreach ($surveys as $survey) {
-    //        echo $survey['SurveyTitle'];
-    //    }
-    //    return $surveys[1]->questions;
-    //    return $surveys;
-       
-       
-    //     $survey = $groups[3]->Survey;
-    //     $questions = $survey->questions;
-    //     return $ans = $questions[0]->Answers;
-    //     return $id;
-        
-
-
-
-        
-        // $surveys = DB::table('Professors')
-        // ->where('Professors.id', '=', $id)
-        // ->join('groups', 'Professors.id', '=', 'groups.Prof_ID')
-        // ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        // ->join('questions', 'surveys.id', '=', 'questions.Survey_ID')
-        // ->join('answers', 'questions.id', '=', 'answers.Question_ID')
-        // ->select('Professors.*','surveys.SurveyTitle','surveys.id','questions.question','answers.Answer')
-        // ->get();
     }
 }

@@ -29,6 +29,7 @@ Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'Prof
 Route::post('/import','ExcelController@import')->name('import')->middleware(CheckRole::class);
 Route::get('/Classes/Group/Stud','ClassesController@AddStud')->middleware(CheckRole::class);
 Route::get('/Survey/Manage/all','SurveyController@ManageSurveys')->middleware(CheckRole::class);
+Route::get('/Survey/Show/all','SurveyController@ShowSurvey')->middleware(CheckRole::class);
 Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middleware(CheckRole::class);
 Auth::routes();
 
