@@ -33,14 +33,21 @@
         <div class="nav-container">
         <a href="/" class="logo">Ukz Survey</a>
         <div class="account-name">
-            <a href="#" id="trigger-dropdown">Endrit Shabani <span><i class="fas fa-caret-down"></i></span></a>
+            <a href="#" id="trigger-dropdown"> {{ Auth::user()->name }} {{ Auth::user()->lastname}}  <span><i class="fas fa-caret-down"></i></span></a>
             <button class="hamburger" id="hamburger"><span></span>
             <span></span>
             <span></span></button>
             <div class="dropdown-menu hide" id="dropdown-menu">
                 <ul>
                     <li>
-                     <a href="#">Log Out</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                         {{ __('Logout') }}
+                     </a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     </li>
                 </ul>
             </div>
