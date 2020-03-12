@@ -80,7 +80,7 @@ class SurveyController extends Controller
      */
     public function show(survey $survey)
     {
-        //
+        
     }
 
     /**
@@ -103,6 +103,7 @@ class SurveyController extends Controller
      */
     public function update(Request $request, survey $survey)
     {
+
     }
 
     /**
@@ -116,5 +117,9 @@ class SurveyController extends Controller
         survey::findOrFail($id)->delete();
         return back();
         
+    }
+    public function ManageSurveys()
+    {
+        return view('ManageSurvey');
     }
 }

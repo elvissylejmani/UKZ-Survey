@@ -49,8 +49,8 @@
     </nav>
     <section class="sidebar" id='sidebar'>
      <ul>
-         <li><a href="surveys.html">Surveys</a></li>
-         <li><a href="managesurveys.html">Manage<br/> Surveys</a></li>
+         <li><a href="/Survey">Surveys</a></li>
+         <li><a href="/Survey/Manage/all">Manage<br/> Surveys</a></li>
          <li><a href="proffesors.html">Proffesors</a></li>
          <li><a href="subjects.html">Subjects</a></li>
          <li><a href="groups.html">Groups</a></li>
@@ -63,7 +63,10 @@
        
             @yield('content')
     </section>
+    
+
     <script  href="{{ asset('js/all.js') }}"></script>
     <script  href="{{ asset('js/script.js') }}"></script>
+    @yield('script')
 </body>
 </html>

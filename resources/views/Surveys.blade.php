@@ -1,22 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content') 
 
-<div class="container-fluid">
-    <div class="row">
     @foreach ($surveys as $survey)
-    <div class="col col-md-6 mb-4">
-                <nav class="navbar navbar-md navbar-light bg-primary shadow-sm align-start border border-primary rounded ">
-                        <ul class="navbar-nav auto">
-                            </li class="nav-item">{{ $survey->id }}</li>
-                            <li class="nav-item"><p class="h1">{{ $survey->SurveyTitle }} </p></li>
-                                <a href="Question/{{$survey->id}}">  <button type="button" class="btn btn-secondary btn-lg">Plotso pyetsorin</button> </a>
-
-                        </ul>
-                      
-            </nav>  
-            </div>
-            @endforeach
+    <section class="content-container">
+        <article class="single-survey">
+         <h3 class="survey-subject">Title:<span>{{ $survey->SurveyTitle }}</span></h3>
+         <h3 class="survey-subject">Subject:<span>{{ $survey->Group}}</span></h3>
+         <h4 class="survey-subject">Professor:<span>Artan Dermaku</span></h4>
+         <div class="survey-action">
+         <a href="Question/{{$survey->id}}" class="survey-modify">Take Survey</a>
         </div>
-</div>
+        </article>
+    </section>
+            @endforeach
+
 @endsection
