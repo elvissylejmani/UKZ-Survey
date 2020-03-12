@@ -12,8 +12,8 @@
 */
 use App\Http\Middleware\CheckRole;
 
-// use Illuminate\Routing\Route;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::resource('/Survey','SurveyController')->middleware('auth');
@@ -28,6 +28,7 @@ Route::get('/AddQuestions/{id}','AddQuestion@index')->middleware(CheckRole::clas
 Route::get('Professor/delete/{id}', ['as' => 'Professor.delete', 'uses' => 'ProfessorController@destroy'])->middleware(CheckRole::class);
 Route::post('/import','ExcelController@import')->name('import')->middleware(CheckRole::class);
 Route::get('/Classes/Group/Stud','ClassesController@AddStud')->middleware(CheckRole::class);
+Route::get('/Survey/Manage/all','SurveyController@ManageSurveys')->middleware(CheckRole::class);
 Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middleware(CheckRole::class);
 Auth::routes();
 

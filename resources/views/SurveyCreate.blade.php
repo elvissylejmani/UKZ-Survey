@@ -1,13 +1,44 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
 
 
 
-<div class="container">
-        <form action="/Survey" method="post">
+        {{-- <form action="/Survey" method="post"> --}}
+          <section class="query-container">
+            <div class="query-info">
+                <h3 class="query-title">Create A Survey</h3>
+                <form action="" class="query-form">
+                    <input type="text" placeholder="Survey Title" >
+                    <div class="question-number">
+                    <input type="text" placeholder="Questions number" id="questionnumber">
+                    <button type="button" id='addquestion'>Add</button>
+                 </div>
+                    <div class="questions" id="questions">
+                       
+                    </div>
+                    <div class="select-groups">
+                       <div><input type="checkbox" id='select-all'> <label for="">Select All Groups</label></div> 
+                       <div><input type="checkbox" class='select-group'> <label for="">Group: U1, Subject:Algorithms and Data Structures, Professor:Artan Dermaku</label></div> 
+                       <div><input type="checkbox" class='select-group'> <label for="">Group: U1, Subject:Algorithms and Data Structures, Professor:Artan Dermaku</label></div> 
+                       <div><input type="checkbox" class='select-group'> <label for="">Group: U1, Subject:Algorithms and Data Structures, Professor:Artan Dermaku</label></div> 
+                       <div><input type="checkbox" class='select-group'> <label for="">Group: U1, Subject:Algorithms and Data Structures, Professor:Artan Dermaku</label></div> 
+                       
+                      
+                    </div>
+                    <input type="submit" value="Create">
+                </form>
+            </div>
+            </section>
+{{-- </form> --}}
 
-    <div class="row mb-4">
+
+
+
+
+
+
+    {{-- <div class="row mb-4">
         <div class="col"></div>
         <div class="col col-md-8">
                 <nav class="navbar navbar-md navbar-light bg-white shadow-sm align-start border border rounded">
@@ -81,11 +112,9 @@
         </div>
         <div class="col"></div>
 
-    </div>
+    </div> --}}
 
-</form>
-</div>
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="row">
 @foreach ($surveys as $survey)
 <div class="col col-md-6 mb-4">
@@ -115,18 +144,14 @@
         </div>
         @endforeach
         </div>
-    </div>
-</div>
+    </div> --}}
 
 @endsection
-<script>
-function toggle(source) {
-  checkboxes = document.getElementsByName('Group_ID[]');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
 
-</script>
+
+
+@section('script')
+<script type="text/javascript" src="{{ URL::asset('js/addquestion.js') }}"></script>
+@endsection
 
 
