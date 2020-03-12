@@ -78,9 +78,9 @@ class SurveyController extends Controller
      * @param  \App\survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function show(survey $survey)
+    public function show($id)
     {
-        
+        return view('editSurvey');
     }
 
     /**
