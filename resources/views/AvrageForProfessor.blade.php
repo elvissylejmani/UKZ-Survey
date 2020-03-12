@@ -1,5 +1,94 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
+
+
+<section class="content-container-prof-rating">
+    <div class="prof-rating-area">
+ <article class="single-prof-rating">
+     {{-- <div class="prof-img">
+    <img src="img/professors/Artan.jpg" alt=""> 
+ </div> --}}
+ <div class="prof-info">
+     <h3>Professor:<span>Artan Dermaku</span></h3>
+     <h3>Overall Average Rating:4.5</h3>
+ </div>
+ </article>
+</div>
+  <div class="completed-surveys">
+      <h3>Completed Surveys</h3>
+      <div class="completed-surveys-container">
+      <article class="single-completed-survey">
+          <div class="single-completed-survey-head">
+              <h4>Subject: <span>Algorithms and Data Structures</span> Group: <span>U1</span> Title: <span>Test 1</span></h4>
+          </div>
+          <div class="single-completed-survey-body">
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 4</h4>
+              </div>
+          </div>
+          <div class="single-completed-survey-footer">
+               <h4>Average rating on this survey: 4.6</h4>
+          </div>
+      </article>
+      <article class="single-completed-survey">
+          <div class="single-completed-survey-head">
+              <h4>Subject: <span>Algorithms and Data Structures</span> Group: <span>U1</span> Title: <span>Test 1</span></h4>
+          </div>
+          <div class="single-completed-survey-body">
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+              <div class="single-question">
+                  <h4>Question: <span>Question 1</span></h4>
+                  <h4>Rated with: 5</h4>
+              </div>
+          </div>
+          <div class="single-completed-survey-footer">
+               <h4>Average rating on this survey: 4.6</h4>
+          </div>
+      </article>
+  </div>
+ </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container-fluid">
     <div class="card mb-4">
         <div class="card-header bg-primary">
@@ -71,23 +160,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
-
+ --}}
+@endsection

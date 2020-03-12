@@ -15,8 +15,9 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        $professors = professor::orderBy('id', 'DESC')->get()->all();
-        return view('Professors',compact('professors'));
+        // $professors = professor::orderBy('id', 'DESC')->get()->all();
+         
+        return view('Professors');
     }
 
     /**
@@ -50,9 +51,9 @@ class ProfessorController extends Controller
      */
     public function show($id)
     {
-        $professor = professor::findOrFail($id);
+        // $professor = professor::findOrFail($id);
       
-        return view('editprof', compact('professor'));
+        return view('editprof');
     }
 
     /**
@@ -101,27 +102,36 @@ class ProfessorController extends Controller
     }
     public function SurveyData($id)
     {
-        $professor = professor::findOrFail($id);
-        $groups = $professor->Groups;
-       $surveys = [];
-       $avg = 0;
-       $count = 0;
-         foreach ($groups as $group) {
-             if($group->Survey != null)
-           $surveys[] = $group->Survey;
-           }
+    //     $professor = professor::findOrFail($id);
+    //     $groups = $professor->Groups;
+    //    $surveys = [];
+    //    $avg = 0;
+    //    $count = 0;
+    //      foreach ($groups as $group) {
+    //          if($group->Survey != null)
+    //        $surveys[] = $group->Survey;
+    //        }
 
-       foreach ($surveys as $survey) {
-         foreach ($survey->questions as $question ) {
-            foreach ($question->Answers as $ans) {
-                $avg += $ans->Answer;
-                $count++;
-            }
-        }
+    //    foreach ($surveys as $survey) {
+    //      foreach ($survey->questions as $question ) {
+    //         foreach ($question->Answers as $ans) {
+    //             $avg += $ans->Answer;
+    //             $count++;
+    //         }
+    //     }
+    // }
+    //     if ($count!=0) {
+    //         $avg/=$count;
+    //     }
+    //,compact('avg','surveys','professor')
+       return view('AvrageForProfessor');
     }
-        if ($count!=0) {
-            $avg/=$count;
-        }
-       return view('AvrageForProfessor',compact('avg','surveys','professor'));
+    public function add()
+    {
+        return view('add');
+    }
+    public function viewall()
+    {
+        return view('viewall');
     }
 }

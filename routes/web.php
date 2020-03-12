@@ -30,6 +30,8 @@ Route::post('/import','ExcelController@import')->name('import')->middleware(Chec
 Route::get('/Classes/Group/Stud','ClassesController@AddStud')->middleware(CheckRole::class);
 Route::get('/Survey/Manage/all','SurveyController@ManageSurveys')->middleware(CheckRole::class);
 Route::get('/Survey/Show/all','SurveyController@ShowSurvey')->middleware(CheckRole::class);
+Route::get('/Professor/add/new','ProfessorController@add')->middleware(CheckRole::class);
+Route::get('/Professor/view/all','ProfessorController@viewall')->middleware(CheckRole::class);
 Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middleware(CheckRole::class);
 Auth::routes();
 
