@@ -51,7 +51,7 @@
      <ul>
          <li><a href="/Survey">Surveys</a></li>
          <li><a href="/Survey/Manage/all">Manage<br/> Surveys</a></li>
-         <li><a href="proffesors.html">Proffesors</a></li>
+         <li><a href="/Professor">Proffesors</a></li>
          <li><a href="subjects.html">Subjects</a></li>
          <li><a href="groups.html">Groups</a></li>
          <li><a href="users.html">Users</a></li>
