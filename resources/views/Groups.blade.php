@@ -1,6 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
 
+
+
+
+
+<section class="content-container">
+    <article class="single-menu">
+     <a href="/Groups/add/new">Add New Group<span><i class="fas fa-plus"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Groups/view/all">View All Groups<span><i class="fas fa-eye"></i></span></a>   
+    </article>
+   </section>
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container">
     <form action="/Groups" method="post">
 
@@ -69,7 +91,7 @@
 
 
 
-@endif
+@endif --}}
 
 
 

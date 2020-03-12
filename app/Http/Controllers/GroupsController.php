@@ -18,11 +18,11 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        $classes = classe::all();
-        $Professors = professor::all();
-
-        $Groups = group::orderBy('id', 'DESC')->get()->all();
-        return view('Groups',compact('Groups','classes','Professors'));
+      //  $classes = classe::all();
+        //$Professors = professor::all();
+        // ,compact('Groups','classes','Professors')
+        //$Groups = group::orderBy('id', 'DESC')->get()->all();
+        return view('Groups');
     }
 
     /**
@@ -59,14 +59,15 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $Group = group::findOrFail($id);
-        $classes = classe::all();
-        $Users = User::all();
-        $grupuser = [];
-        foreach ($Group->Students as $stud) {
-            $grupuser[] = $stud->id;
-        }
-        return view('EditGroup',compact('Group','classes','Users','grupuser'));
+        // $Group = group::findOrFail($id);
+        // $classes = classe::all();
+        // $Users = User::all();
+        // $grupuser = [];
+        // foreach ($Group->Students as $stud) {
+        //     $grupuser[] = $stud->id;
+        // }
+        //,compact('Group','classes','Users','grupuser')
+        return view('EditGroup');
 
     }
 
@@ -118,5 +119,13 @@ class GroupsController extends Controller
     {
         group::findOrFail($id)->delete();
         return back();
+    }
+    public function add()
+    {
+        return view('addgroup');
+    }
+    public function viewall()
+    {
+        return view('viewallGroups');
     }
 }
