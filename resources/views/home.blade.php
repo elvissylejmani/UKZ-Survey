@@ -2,22 +2,22 @@
 @section('content')
 <section class="content-container">
     <article class="single-menu">
-     <a href="surveys.html">Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+     <a href="/Survey">Surveys<span><i class="fas fa-file-alt"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="managesurveys.html">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+     <a href="/Survey/create">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="proffesors.html">Professors<span><i class="fas fa-chalkboard-teacher"></i></span></a>   
+     <a href="/Professor">Professors<span><i class="fas fa-chalkboard-teacher"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="subjects.html">Subjects<span><i class="fas fa-book"></i></span></a>   
+     <a href="/Classes">Subjects<span><i class="fas fa-book"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="groups.html">Groups<span><i class="fas fa-users"></i></span></a>   
+     <a href="/Groups">Groups<span><i class="fas fa-users"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="users.html">Users<span><i class="fas fa-user"></i></span></a>   
+     <a href="/Users/view/all">Users<span><i class="fas fa-user"></i></span></a>   
     </article>
    </section>
 {{-- 
