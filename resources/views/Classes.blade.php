@@ -1,9 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 
 @section('content')
 
 
+<section class="content-container">
+    <article class="single-menu">
+     <a href="/Classes/add/new">Add New Subject<span><i class="fas fa-plus"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Classes/view/all">View All Subjects<span><i class="fas fa-eye"></i></span></a>   
+    </article>
+   </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container">
     <form action="/Classes" method="post">
 
@@ -23,7 +53,7 @@
                         @endforeach
                     </select> --}}
                    
-                    <button type="Submit" class="btn btn-primary">Shto</button>
+                    {{-- <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
 
     </div>
@@ -102,5 +132,5 @@
 
 
 
-@endif
+@endif --}} 
 @endsection

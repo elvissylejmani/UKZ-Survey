@@ -1,8 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
     
+<section class="query-container">
+    <div class="query-info">
+        <h3 class="query-title">Update Subject</h3>
+        <form action="" class="query-form addprof-form">
+            <input type="text" placeholder="Subject">
+            <input type="submit" value="Save">
+        </form>
+    </div>
 
 
+
+
+
+
+{{-- 
 <div class="container">
     <div class="row">
         <div class="col-12 mb-4">
@@ -52,7 +65,7 @@
     </div>
 
  
-</div>
+</div> --}}
 
 
 
