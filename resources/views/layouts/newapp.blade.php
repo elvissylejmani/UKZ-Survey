@@ -54,7 +54,7 @@
          <li><a href="/Professor">Proffesors</a></li>
          <li><a href="/Classes">Subjects</a></li>
          <li><a href="/Groups">Groups</a></li>
-         <li><a href="users.html">Users</a></li>
+         <li><a href="/Users/view/all">Users</a></li>
          <li class="logout-small"><a href="#">Log Out</a></li>
      </ul>
     </section>

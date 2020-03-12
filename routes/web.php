@@ -36,6 +36,8 @@ Route::get('/Classes/add/new','ClassesController@add')->middleware(CheckRole::cl
 Route::get('/Classes/view/all','ClassesController@viewall')->middleware(CheckRole::class);
 Route::get('/Groups/add/new','GroupsController@add')->middleware(CheckRole::class);
 Route::get('/Groups/view/all','GroupsController@viewall')->middleware(CheckRole::class);
+Route::get('/Users/view/all','StudentsViewController@viewall')->middleware(CheckRole::class);
+Route::get('/Users/add/new','StudentsViewController@add')->middleware(CheckRole::class);
 Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middleware(CheckRole::class);
 Auth::routes();
 
