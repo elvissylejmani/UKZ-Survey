@@ -1,9 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
     
+<section class="content">
+  <section class="flex-container">
+      
+      <div class="students">
+       <h3>Group: L1</h3>
+       <ol class="students-list">
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+           <li>
+               <p>Endrit Shabani</p>
+           </li>
+         </ol>
+      </div>
+  
+  </section>
 
 
-<div class="container">
+
+
+
+
+
+{{-- <div class="container">
     <div class="row">
         <div class="col-12 mb-4">
             <form action="/Groups/{{$Group->id}}" method="POST">
@@ -73,7 +109,7 @@
                   </div>
                 </div>
               </div>
-    </div>
+    </div> --}}
 
 
 

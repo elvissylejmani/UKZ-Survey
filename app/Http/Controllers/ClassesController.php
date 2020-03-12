@@ -19,8 +19,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        $Classes = classe::orderby('id','DESC')->get()->all();
-        return view('Classes',compact('Classes'));
+        // $Classes = classe::orderby('id','DESC')->get()->all();
+        //,compact('Classes')
+        return view('Classes');
     }
 
     /**
@@ -56,8 +57,9 @@ class ClassesController extends Controller
     public function show($id)
     {
         
-         $class = classe::findOrFail($id);
-         return view('EditClass',compact('class'));
+      //   $class = classe::findOrFail($id);
+      // ,compact('class')   
+      return view('EditClass');
     }
 
     /**
@@ -173,5 +175,13 @@ class ClassesController extends Controller
         
        return back();
        
+    }
+    public function add()
+    {
+        return view('addclasses');
+    }
+    public function viewall()
+    {
+        return view('viewallSubject');
     }
 }
