@@ -3,10 +3,10 @@
     
 <section class="content-container">
     <article class="single-menu">
-     <a href="createsurvey.html">Create A Survey<span><i class="fas fa-plus"></i></span></a>   
+     <a href="/Survey/create">Create A Survey<span><i class="fas fa-plus"></i></span></a>   
     </article>
     <article class="single-menu">
-     <a href="viewsurveys.html">View All Surveys<span><i class="fas fa-eye"></i></span></a>   
+     <a href="/Survey/Show/all">View All Surveys<span><i class="fas fa-eye"></i></span></a>   
     </article>
    </section>
 
