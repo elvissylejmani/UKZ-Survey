@@ -2,7 +2,7 @@
 
 @section('content') 
 
-    {{-- @foreach ($surveys as $survey) --}}
+    @foreach ($surveys as $survey)
     <section class="content-container">
         <article class="single-survey">
          <h3 class="survey-subject">Title:<span>{{ $survey->SurveyTitle ?? ''}}</span></h3>
@@ -13,6 +13,6 @@
         </div>
         </article>
     </section>
-            {{-- @endforeach --}}
+            @endforeach
 
 @endsection
