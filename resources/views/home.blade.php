@@ -4,6 +4,7 @@
     <article class="single-menu">
      <a href="/Survey">Surveys<span><i class="fas fa-file-alt"></i></span></a>   
     </article>
+    @if (Auth::user()->can('Admin'))
     <article class="single-menu">
      <a href="/Survey/create">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
     </article>
@@ -19,6 +20,7 @@
     <article class="single-menu">
      <a href="/Users/view/all">Users<span><i class="fas fa-user"></i></span></a>   
     </article>
+    @endif
    </section>
 {{-- 
 <div class="container">

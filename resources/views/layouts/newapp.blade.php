@@ -57,11 +57,13 @@
     <section class="sidebar" id='sidebar'>
      <ul>
          <li><a href="/Survey">Surveys</a></li>
+         @if (Auth::user()->can('Admin'))
          <li><a href="/Survey/Manage/all">Manage<br/> Surveys</a></li>
          <li><a href="/Professor">Proffesors</a></li>
          <li><a href="/Classes">Subjects</a></li>
          <li><a href="/Groups">Groups</a></li>
          <li><a href="/Users/view/all">Users</a></li>
+         @endif
          <li class="logout-small"><a href="#">Log Out</a></li>
      </ul>
     </section>
