@@ -57,8 +57,10 @@ class QuestionController extends Controller
      */
     public function show(question $question,$id)
     {
-         $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
-        return view('question',compact('questions'));
+        $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
+        $sr =$questions[0]->Survey;
+        $sr = $sr->Group;
+        return view('question',compact('questions','sr'));
     }
 
     /**
