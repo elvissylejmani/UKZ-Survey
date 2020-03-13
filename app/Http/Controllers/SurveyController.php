@@ -127,6 +127,7 @@ class SurveyController extends Controller
     }
     public function ShowSurvey()
     {
-        return view('ShowSurvey');
+        $surveys = Survey::OrderBy('id','desc')->get();
+        return view('ShowSurvey', compact('surveys'));
     }
 }
