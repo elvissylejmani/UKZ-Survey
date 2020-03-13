@@ -1,6 +1,84 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
+
+
+<section class="take-survey-container">
+        
+    <div class="questions">
+        <form action="">
+            <fieldset>
+                <legend style="text-align: center;">Algorithms and Data Structures | Artan Dermaku</legend>
+                <article class="single-question">
+                   <p><span>1.</span>Professor was always in time</p>
+                   <div class="options">
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                   </div>
+               </article>
+                <article class="single-question">
+                   <p><span>2.</span>Professor was always in time</p>
+                   <div class="options">
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                   </div>
+               </article>
+                <article class="single-question">
+                   <p><span>3.</span>Professor was always in time</p>
+                   <div class="options">
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                   </div>
+               </article>
+                <article class="single-question">
+                   <p><span>4.</span>Professor was always in time</p>
+                   <div class="options">
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                   </div>
+               </article>
+                <article class="single-question">
+                   <p><span>5.</span>Professor was always in time</p>
+                   <div class="options">
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                   </div>
+               </article>
+               <input type="submit" value="Submit" class="submit-survey">
+            </fieldset>
+       
+       </form>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container">
     @foreach ($questions as $question)
     <form action="/Answer" method="post">
@@ -30,5 +108,5 @@
    
 
 
-</div>
+</div> --}}
 @endsection
