@@ -24,8 +24,11 @@ class SurveyController extends Controller
         ->join('group_user', 'users.id', '=', 'group_user.User_ID')
         ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
         ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        ->select('surveys.SurveyTitle','surveys.id')
+        ->join('classes','groups.Class_ID','=','classes.id')
+        ->join('professors','groups.Prof_ID','=','professors.id')
+        ->select('surveys.SurveyTitle','surveys.id','classes.Name as Class_Name','professors.Name as Professor_Name','professors.Lastname','groups.Name')
         ->get();
+        // return $surveys;
         $a = count($surveys);
         for($i = 0;$i < $a;$i++){
             $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$surveys[$i]->id)->get();
