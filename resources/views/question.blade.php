@@ -6,60 +6,27 @@
 <section class="take-survey-container">
         
     <div class="questions">
-        <form action="">
+        {{-- <form action=""> --}}
             <fieldset>
-                <legend style="text-align: center;">Algorithms and Data Structures | Artan Dermaku</legend>
+                <legend style="text-align: center;">{{$sr->class->Name ?? ''}} | {{$sr->Professor->Name }} {{$sr->Professor->LastName ?? ''}}</legend>
+           @foreach ($questions as $question)
+           <form action="/Answer" method="post">
+            @csrf
                 <article class="single-question">
-                   <p><span>1.</span>Professor was always in time</p>
+                   <p>{{$question->question}}</p>
                    <div class="options">
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
+                       <div class="single-option"><input type="radio" name="Answer[]{{$question->id}}" value="1" id=""><label for="">1</label></div>
+                       <div class="single-option"><input type="radio" name="Answer[]{{$question->id}}" value="2" id=""><label for="">2</label></div>
+                       <div class="single-option"><input type="radio" name="Answer[]{{$question->id}}" value="3" id=""><label for="">3</label></div>
+                       <div class="single-option"><input type="radio" name="Answer[]{{$question->id}}" value="4" id=""><label for="">4</label></div>
+                       <div class="single-option"><input type="radio" name="Answer[]{{$question->id}}" value="5" id=""><label for="">5</label></div>
+                       <input type="hidden" name="Question_ID[]" value="{{$question->id}}"> 
                    </div>
                </article>
-                <article class="single-question">
-                   <p><span>2.</span>Professor was always in time</p>
-                   <div class="options">
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
-                   </div>
-               </article>
-                <article class="single-question">
-                   <p><span>3.</span>Professor was always in time</p>
-                   <div class="options">
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
-                   </div>
-               </article>
-                <article class="single-question">
-                   <p><span>4.</span>Professor was always in time</p>
-                   <div class="options">
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
-                   </div>
-               </article>
-                <article class="single-question">
-                   <p><span>5.</span>Professor was always in time</p>
-                   <div class="options">
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">1</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">2</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">3</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">4</label></div>
-                       <div class="single-option"><input type="radio" name="time" id=""><label for="">5</label></div>
-                   </div>
-               </article>
+               @endforeach
+           
                <input type="submit" value="Submit" class="submit-survey">
+</form>
             </fieldset>
        
        </form>
@@ -104,7 +71,6 @@
     </div>
     @endforeach
     <button type="submit">Submit</button>
-</form>
    
 
 
