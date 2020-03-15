@@ -83,9 +83,16 @@ class QuestionController extends Controller
      * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, question $question)
+    public function update(Request $request, question $question,$id)
     {
-        return "hello";
+        $ids = request()->validate(['id' => 'required']);
+
+        $data = request()->validate(['question' => 'required']);
+        $a = count($request->id);
+        for ($i=0; $i < $a; $i++) {
+            question::findOrFail($ids['id'][$i])->update(['question' => $data['question'][$i]]);
+        }
+        return back();
     }
 
     /**
