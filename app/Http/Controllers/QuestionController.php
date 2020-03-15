@@ -86,7 +86,6 @@ class QuestionController extends Controller
     public function update(Request $request, question $question,$id)
     {
         $ids = request()->validate(['id' => 'required']);
-
         $data = request()->validate(['question' => 'required']);
         $a = count($request->id);
         for ($i=0; $i < $a; $i++) {
