@@ -83,7 +83,8 @@ class SurveyController extends Controller
      */
     public function show($id)
     {
-        return view('editSurvey');
+        $survey = survey::findOrFail($id);
+        return view('editSurvey',compact('survey'));
     }
 
     /**
