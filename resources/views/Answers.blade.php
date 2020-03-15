@@ -8,51 +8,37 @@
 <section class="content-container-survey-result">
     <article class="single-survey-result">
         <div class="survey-result-head">
-            <h3>Subject: <span>Algorithms And Data Structures</span> Professor: <span>Artan Dermaku</span> Survey Title: <span>Title</span>
-             Group: <span>U2</span></h3>
+            <h3>Subject: <span>{{$gr->class->Name}}</span> Professor: <span>{{$gr->Professor->Name}} {{$gr->Professor->LastName}}</span> Survey Title: <span>{{$sur->SurveyTitle}}</span>
+             Group: <span>{{$gr->Name}}</span></h3>
         </div>
         <div class="survey-result-body">
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 1: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 13: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
-           <div class="single-question-result">
-               <h3>Question 13: Question Title</h3>
-               <h4>Question Rating Value:5</h4>
-           </div>
+            @foreach ($questions as $question)
+            {{-- @php
+            $temp = 0;   
+            $count = 0;
+           @endphp --}}
+            <div class="single-question-result">
+                <h3>Question: {{$question->question ?? ''}} :</h3>
+                @foreach ($question->Answers as $ans)
+                <h4>{{$ans->Answer}}</h4>
+                {{-- @php
+                $temp += $ans->Answer;
+                $count++;
+                @endphp --}}
+                @endforeach
+                
+                {{-- @if ($count != 0)
+                    <h5>Question Rating:</h5>
+                <h5>{{ $temp/$count ?? '' }}</h5>
+                @endif --}}
+            </div>
+            @endforeach
+          
           
         </div>
         <div class="survey-result-footer">
             <div class="survey-result-footer-container">
-            <h3>Rating: <span class="unrated">Unrated</span> Rated By: <span class="unrated"> 0</span></h3>
+            <h3>Rating: <span class="unrated">{{ $avg }}</span></h3>
         </div>
             
         </div>

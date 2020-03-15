@@ -59,22 +59,22 @@ class AnswerController extends Controller
      */
     public function show(Answer $answer, $id)
     {
-        //   $sur = survey::findOrFail($id);     
-        //   $gr = $sur->Group;        
-        //   $questions = $sur->Questions;
-        //   $avg = 0;
-        //   $count = 0;
-        //  foreach ( $questions as $question ) {
-        //     foreach ($question->Answers as $ans) {
-        //         $avg += $ans->Answer;
-        //         $count++;
-        //     }
-        // }
-        // if ($count!=0) {
-        //     $avg/=$count;
-        // }
-        //,compact('questions','sur','gr','avg')
-        return view('Answers');
+          $sur = survey::findOrFail($id);     
+          $gr = $sur->Group;        
+          $questions = $sur->Questions;
+          $avg = 0;
+          $count = 0;
+         foreach ( $questions as $question ) {
+            foreach ($question->Answers as $ans) {
+                $avg += $ans->Answer;
+                $count++;
+            }
+        }
+        if ($count!=0) {
+            $avg/=$count;
+        }
+      
+        return view('Answers',compact('questions','sur','gr','avg'));
 
     }
 
