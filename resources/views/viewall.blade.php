@@ -10,7 +10,11 @@
      <a href="/Professor/{{$professor->id}}" class="survey-modify">Modify</a>
      <a href="/Professor/{{$professor->id}}/Survey" class="survey-view">View Rating</a>
     </div>
-     <a href="#" class="delete-survey" title="Delete Survey"><i class="fas fa-times"></i></a>  
+    <form action="/Professor/{{$professor->id}}" method="POST">
+        @csrf
+        @method('DELETE')
+     <button class="delete-survey" title="Delete Professor"><i class="fas fa-times"></i></button>  
+    </form>
     </article>
 @endforeach
 
