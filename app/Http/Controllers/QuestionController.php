@@ -104,4 +104,13 @@ class QuestionController extends Controller
     {
         return "hello";
     }
+    public function addQuestions($id)
+    {
+        $questions = request()->validate(['question' => 'required']);
+        foreach ($questions['question'] as $question) {
+            question::create(['Survey_ID' => $id, 'question' => $question]);
+      }
+
+        return back();
+    }
 }
