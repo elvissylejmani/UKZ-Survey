@@ -39,6 +39,7 @@ Route::get('/Groups/view/all','GroupsController@viewall')->middleware(CheckRole:
 Route::get('/Users/view/all','StudentsViewController@viewall')->middleware(CheckRole::class);
 Route::get('/Users/add/new','StudentsViewController@add')->middleware(CheckRole::class);
 Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middleware(CheckRole::class);
+Route::post('/Question/{id}/Survey','QuestionController@addQuestions')->middleware(CheckRole::class);
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
