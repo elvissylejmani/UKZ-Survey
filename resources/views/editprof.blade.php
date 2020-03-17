@@ -4,9 +4,11 @@
 <section class="query-container">
     <div class="query-info">
         <h3 class="query-title">Update Professor</h3>
-        <form action="" class="query-form addprof-form">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
+        <form action="/Professor/{{$professor->id}}" method="POST"  class="query-form addprof-form">
+            @csrf
+            @method('PATCH')
+            <input type="text"  name="Name" value="{{$professor->Name}}">
+            <input type="text"  name="LastName" value="{{$professor->LastName}}">
             <input type="submit" value="Save">
         </form>
     </div>
@@ -31,11 +33,5 @@
     </div>
     --}}
 
-</div>
-
+{{-- </div> --}}
 @endsection
-<script>
-$(document).ready(function() {
-$('.mdb-select').materialSelect();
-});
-</script>
