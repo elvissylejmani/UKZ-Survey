@@ -7,7 +7,7 @@
         
     <div class="questions">
             <fieldset>
-                <legend style="text-align: center;">{{$sr->class->Name ?? ''}} | {{$sr->Professor->Name }} {{$sr->Professor->LastName ?? ''}}</legend>
+                <legend style="text-align: center;">{{$sr->class->Name ?? ''}} | {{$sr->Professor->Name  ?? ''}} {{$sr->Professor->LastName ?? ''}}</legend>
            @foreach ($questions as $question)
            <form action="/Answer" method="post">
             @csrf
