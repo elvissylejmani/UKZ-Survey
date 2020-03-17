@@ -51,9 +51,9 @@ class ProfessorController extends Controller
      */
     public function show($id)
     {
-        // $professor = professor::findOrFail($id);
+        $professor = professor::findOrFail($id);
       
-        return view('editprof');
+        return view('editprof',compact('professor'));
     }
 
     /**
@@ -132,6 +132,7 @@ class ProfessorController extends Controller
     }
     public function viewall()
     {
-        return view('viewall');
+        $professors = professor::orderBy('id', 'DESC')->get()->all();
+        return view('viewall',compact('professors'));
     }
 }
