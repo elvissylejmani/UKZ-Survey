@@ -102,29 +102,29 @@ class ProfessorController extends Controller
     }
     public function SurveyData($id)
     {
-    //     $professor = professor::findOrFail($id);
-    //     $groups = $professor->Groups;
-    //    $surveys = [];
-    //    $avg = 0;
-    //    $count = 0;
-    //      foreach ($groups as $group) {
-    //          if($group->Survey != null)
-    //        $surveys[] = $group->Survey;
-    //        }
+        $professor = professor::findOrFail($id);
+        $groups = $professor->Groups;
+       $surveys = [];
+       $avg = 0;
+       $count = 0;
+         foreach ($groups as $group) {
+             if($group->Survey != null)
+           $surveys[] = $group->Survey;
+           }
 
-    //    foreach ($surveys as $survey) {
-    //      foreach ($survey->questions as $question ) {
-    //         foreach ($question->Answers as $ans) {
-    //             $avg += $ans->Answer;
-    //             $count++;
-    //         }
-    //     }
-    // }
-    //     if ($count!=0) {
-    //         $avg/=$count;
-    //     }
-    //,compact('avg','surveys','professor')
-       return view('AvrageForProfessor');
+       foreach ($surveys as $survey) {
+         foreach ($survey->questions as $question ) {
+            foreach ($question->Answers as $ans) {
+                $avg += $ans->Answer;
+                $count++;
+            }
+        }
+    }
+        if ($count!=0) {
+            $avg/=$count;
+        }
+    
+       return view('AvrageForProfessor',compact('avg','surveys','professor'));
     }
     public function add()
     {

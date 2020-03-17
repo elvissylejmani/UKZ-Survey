@@ -9,62 +9,49 @@
     <img src="img/professors/Artan.jpg" alt=""> 
  </div> --}}
  <div class="prof-info">
-     <h3>Professor:<span>Artan Dermaku</span></h3>
-     <h3>Overall Average Rating:4.5</h3>
+     <h3>Professor:<span>{{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}</span></h3>
+     <h3>Overall Average Rating: {{$avg ?? ''}}</h3>
  </div>
  </article>
 </div>
   <div class="completed-surveys">
       <h3>Completed Surveys</h3>
       <div class="completed-surveys-container">
-      <article class="single-completed-survey">
+        @foreach ($surveys as $survey)
+        @php
+        $gr = $survey->Group;
+       @endphp
+        <article class="single-completed-survey">
           <div class="single-completed-survey-head">
-              <h4>Subject: <span>Algorithms and Data Structures</span> Group: <span>U1</span> Title: <span>Test 1</span></h4>
+              <h4>Subject: <span>{{$gr->class->Name}}</span> Group: <span>{{$gr->Name}}</span> Title: <span>{{$survey->SurveyTitle}}</span></h4>
           </div>
+          @php
+          unset($gr);
+          $SurveyTemp= 0;
+          $countTemp = 0;
+          @endphp
+           @foreach ($survey->questions as $question)
+           @php
+           $temp = 0;   
+           $count = 0;
+          @endphp
           <div class="single-completed-survey-body">
               <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
+                  <h4>Question: <span>{{$question->question}}:</span></h4>
+                  @foreach ($question->Answers as $ans)
+                  <h4>{{$ans->Answer}}</h4>
+                  @php
+                  $SurveyTemp += $ans->Answer;
+                  $countTemp++;
+                  @endphp
+                  @endforeach
+                  @endforeach
+                </div>
+                <div class="single-completed-survey-head">
+                <h4>Avreage for this survey: <span>@if($countTemp != 0) {{$SurveyTemp/$countTemp ?? ''}} @endif</span></h4>
               </div>
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
-              </div>
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
-              </div>
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 4</h4>
-              </div>
-          </div>
-          <div class="single-completed-survey-footer">
-               <h4>Average rating on this survey: 4.6</h4>
-          </div>
       </article>
-      <article class="single-completed-survey">
-          <div class="single-completed-survey-head">
-              <h4>Subject: <span>Algorithms and Data Structures</span> Group: <span>U1</span> Title: <span>Test 1</span></h4>
-          </div>
-          <div class="single-completed-survey-body">
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
-              </div>
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
-              </div>
-              <div class="single-question">
-                  <h4>Question: <span>Question 1</span></h4>
-                  <h4>Rated with: 5</h4>
-              </div>
-          </div>
-          <div class="single-completed-survey-footer">
-               <h4>Average rating on this survey: 4.6</h4>
-          </div>
-      </article>
+   @endforeach
   </div>
  </div>
 </section>
@@ -113,7 +100,8 @@
             @php
                   $gr = $survey->Group;
               @endphp
-              <b>Lenda:</b> {{$gr->Class->Name}} @php
+              <b>Lenda:</b> {{$gr->Class->Name}}
+               @php
                   unset($gr);
               @endphp
            <b>Groupi</b> {{$survey->Group->Name}} 
