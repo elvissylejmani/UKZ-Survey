@@ -9,7 +9,11 @@
      <div class="survey-action">
      <a href="/Classes/{{$class->id}}" class="survey-modify">Modify</a>
     </div>
-     <a href="#" class="delete-survey" title="Delete Survey"><i class="fas fa-times"></i></a>  
+    <form action="/Classes/{{$class->id}}" method="POST">
+        @csrf
+        @method('DELETE')
+     <button class="delete-survey" title="Delete Subject"><i class="fas fa-times"></i></button>  
+    </form>
     </article>
     
     @endforeach
