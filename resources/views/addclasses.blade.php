@@ -1,7 +1,6 @@
 @extends('layouts.newapp')
 
 @section('content')
-    
 
 <section class="query-container">
     <div class="query-info">
