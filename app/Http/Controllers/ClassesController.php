@@ -19,8 +19,7 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        // $Classes = classe::orderby('id','DESC')->get()->all();
-        //,compact('Classes')
+        
         return view('Classes');
     }
 
@@ -182,6 +181,7 @@ class ClassesController extends Controller
     }
     public function viewall()
     {
-        return view('viewallSubject');
+        $Classes = classe::orderby('id','DESC')->get()->all();
+        return view('viewallSubject',compact('Classes'));
     }
 }
