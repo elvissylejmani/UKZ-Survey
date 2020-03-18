@@ -43,7 +43,7 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         //
-       $Class = request()->validate(['Name' => 'required', 'Type_ID' => 'required']);
+       $Class = request()->validate(['Name' => 'required']);
        classe::create($Class);
        return back();
     }
