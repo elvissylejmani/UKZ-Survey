@@ -64,7 +64,14 @@
          <li><a href="/Groups">Groups</a></li>
          <li><a href="/Users/view/all">Users</a></li>
          @endif
-         <li class="logout-small"><a href="#">Log Out</a></li>
+         <li class="logout-small"><a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Logout') }}
+         </a>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form></li>
      </ul>
     </section>
     <section class="content">
