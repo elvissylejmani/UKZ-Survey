@@ -10,7 +10,7 @@
      <h3 class="survey-subject">Subject:<span>{{ $Group->Class->Name ?? '' }}</span></h3>
      <h3 class="survey-subject">Professor:<span>{{ $Group->Professor->Name ?? '' }} {{ $Group->Professor->LastName ?? '' }}</span></h3>
      <div class="survey-action">
-     <a href="/Groups/1" class="survey-modify">View</a>
+     <a href="/Groups/{{$Group->id}}" class="survey-modify">View</a>
     </div>
     <form action="/Groups/{{$Group->id}}" method="POST">
         @csrf

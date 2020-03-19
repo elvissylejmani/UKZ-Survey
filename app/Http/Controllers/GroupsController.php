@@ -60,7 +60,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        // $Group = group::findOrFail($id);
+        $Group = group::findOrFail($id);
         // $classes = classe::all();
         // $Users = User::all();
         // $grupuser = [];
@@ -68,7 +68,7 @@ class GroupsController extends Controller
         //     $grupuser[] = $stud->id;
         // }
         //,compact('Group','classes','Users','grupuser')
-        return view('EditGroup');
+        return view('EditGroup',compact('Group'));
 
     }
 
