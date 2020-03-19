@@ -130,6 +130,7 @@ class GroupsController extends Controller
     }
     public function viewall()
     {
-        return view('viewallGroups');
+        $Groups = group::orderBy('id', 'DESC')->get()->all();
+        return view('viewallGroups',compact('Groups'));
     }
 }
