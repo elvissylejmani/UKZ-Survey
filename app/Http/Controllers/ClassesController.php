@@ -56,9 +56,8 @@ class ClassesController extends Controller
     public function show($id)
     {
         
-      //   $class = classe::findOrFail($id);
-      // ,compact('class')   
-      return view('EditClass');
+        $class = classe::findOrFail($id);
+      return view('EditClass',compact('class'));
     }
 
     /**
