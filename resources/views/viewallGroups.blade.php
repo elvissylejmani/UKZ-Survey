@@ -12,8 +12,13 @@
      <div class="survey-action">
      <a href="/Groups/1" class="survey-modify">View</a>
     </div>
-     <a href="#" class="delete-survey" title="Delete Survey"><i class="fas fa-times"></i></a>  
+    <form action="/Groups/{{$Group->id}}" method="POST">
+        @csrf
+        @method('DELETE')
+     <button class="delete-survey" title="Delete Group"><i class="fas fa-times"></i></button>  
+    </form>
     </article>
+
     
     @endforeach
    </section>
