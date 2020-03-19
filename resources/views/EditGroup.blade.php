@@ -7,27 +7,11 @@
       <div class="students">
        <h3>Group: L1</h3>
        <ol class="students-list">
+        @foreach ($Group->Students as $Stud)
            <li>
-               <p>Endrit Shabani</p>
+               <p>{{$Stud->name}} {{$Stud->lastname}} (ID: {{$Stud->id}})</p>
            </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
-           <li>
-               <p>Endrit Shabani</p>
-           </li>
+           @endforeach
          </ol>
       </div>
   
