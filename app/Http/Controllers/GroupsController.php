@@ -46,7 +46,8 @@ class GroupsController extends Controller
         $group = $request->input('Name1'); 
         $id = $request->input('Class_ID'); 
         $Prof_Id = $request->input('Prof_ID'); 
-        group::create(['Name' => $group,'Class_ID' => $id,'Prof_ID' => $Prof_Id]);
+        $Type = $request->input('Type'); 
+        group::create(['Name' => $group,'Class_ID' => $id,'Prof_ID' => $Prof_Id,'type' => $Type]);
 
         return back();
     }
@@ -122,7 +123,10 @@ class GroupsController extends Controller
     }
     public function add()
     {
-        return view('addgroup');
+         $classes = classe::all();
+        $Professors = professor::all();
+        
+        return view('addgroup',compact('classes','Professors'));
     }
     public function viewall()
     {
