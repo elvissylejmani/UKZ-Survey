@@ -15,8 +15,9 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        $professors = professor::orderBy('id', 'DESC')->get()->all();
-        return view('Professors',compact('professors'));
+        // $professors = professor::orderBy('id', 'DESC')->get()->all();
+         
+        return view('Professors');
     }
 
     /**
@@ -52,7 +53,7 @@ class ProfessorController extends Controller
     {
         $professor = professor::findOrFail($id);
       
-        return view('editprof', compact('professor'));
+        return view('editprof',compact('professor'));
     }
 
     /**
@@ -122,36 +123,16 @@ class ProfessorController extends Controller
         if ($count!=0) {
             $avg/=$count;
         }
+    
        return view('AvrageForProfessor',compact('avg','surveys','professor'));
-      
-      
-
-
-      
-      
-    //    foreach ($surveys as $survey) {
-    //        echo $survey['SurveyTitle'];
-    //    }
-    //    return $surveys[1]->questions;
-    //    return $surveys;
-       
-       
-    //     $survey = $groups[3]->Survey;
-    //     $questions = $survey->questions;
-    //     return $ans = $questions[0]->Answers;
-    //     return $id;
-        
-
-
-
-        
-        // $surveys = DB::table('Professors')
-        // ->where('Professors.id', '=', $id)
-        // ->join('groups', 'Professors.id', '=', 'groups.Prof_ID')
-        // ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        // ->join('questions', 'surveys.id', '=', 'questions.Survey_ID')
-        // ->join('answers', 'questions.id', '=', 'answers.Question_ID')
-        // ->select('Professors.*','surveys.SurveyTitle','surveys.id','questions.question','answers.Answer')
-        // ->get();
+    }
+    public function add()
+    {
+        return view('add');
+    }
+    public function viewall()
+    {
+        $professors = professor::orderBy('id', 'DESC')->get()->all();
+        return view('viewall',compact('professors'));
     }
 }

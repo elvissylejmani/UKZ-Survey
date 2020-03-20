@@ -24,8 +24,11 @@ class SurveyController extends Controller
         ->join('group_user', 'users.id', '=', 'group_user.User_ID')
         ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
         ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        ->select('surveys.SurveyTitle','surveys.id')
+        ->join('classes','groups.Class_ID','=','classes.id')
+        ->join('professors','groups.Prof_ID','=','professors.id')
+        ->select('surveys.SurveyTitle','surveys.id','classes.Name as Class_Name','professors.Name as Professor_Name','professors.Lastname','groups.Name')
         ->get();
+        // return $surveys;
         $a = count($surveys);
         for($i = 0;$i < $a;$i++){
             $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$surveys[$i]->id)->get();
@@ -78,9 +81,10 @@ class SurveyController extends Controller
      * @param  \App\survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function show(survey $survey)
+    public function show($id)
     {
-        //
+        $survey = survey::findOrFail($id);
+        return view('editSurvey',compact('survey'));
     }
 
     /**
@@ -101,8 +105,11 @@ class SurveyController extends Controller
      * @param  \App\survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, survey $survey)
+    public function update(Request $request, survey $survey,$id)
     {
+        $data = request()->validate(['SurveyTitle' => 'required']);
+        survey::findOrFail($id)->update($data);
+        return back();
     }
 
     /**
@@ -116,5 +123,14 @@ class SurveyController extends Controller
         survey::findOrFail($id)->delete();
         return back();
         
+    }
+    public function ManageSurveys()
+    {
+        return view('ManageSurvey');
+    }
+    public function ShowSurvey()
+    {
+        $surveys = Survey::OrderBy('id','desc')->get();
+        return view('ShowSurvey', compact('surveys'));
     }
 }

@@ -1,7 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
+<section class="query-container">
+    <div class="query-info">
+        <h3 class="query-title">Update Professor</h3>
+        <form action="/Professor/{{$professor->id}}" method="POST"  class="query-form addprof-form">
+            @csrf
+            @method('PATCH')
+            <input type="text"  name="Name" value="{{$professor->Name}}">
+            <input type="text"  name="LastName" value="{{$professor->LastName}}">
+            <input type="submit" value="Save">
+        </form>
+    </div>
+    </section>
 
+{{-- 
 <div class="container">
     <div class="row">
         <div class="col-12 mb-4">
@@ -18,16 +31,7 @@
             </form>
         </div>
     </div>
-   
+    --}}
 
-
-
-
-</div>
-
+{{-- </div> --}}
 @endsection
-<script>
-$(document).ready(function() {
-$('.mdb-select').materialSelect();
-});
-</script>

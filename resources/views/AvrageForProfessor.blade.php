@@ -1,5 +1,81 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
+
+
+<section class="content-container-prof-rating">
+    <div class="prof-rating-area">
+ <article class="single-prof-rating">
+     {{-- <div class="prof-img">
+    <img src="img/professors/Artan.jpg" alt=""> 
+ </div> --}}
+ <div class="prof-info">
+     <h3>Professor:<span>{{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}</span></h3>
+     <h3>Overall Average Rating: {{$avg ?? ''}}</h3>
+ </div>
+ </article>
+</div>
+  <div class="completed-surveys">
+      <h3>Completed Surveys</h3>
+      <div class="completed-surveys-container">
+        @foreach ($surveys as $survey)
+        @php
+        $gr = $survey->Group;
+       @endphp
+        <article class="single-completed-survey">
+          <div class="single-completed-survey-head">
+              <h4>Subject: <span>{{$gr->class->Name}}</span> Group: <span>{{$gr->Name}}</span> Title: <span>{{$survey->SurveyTitle}}</span></h4>
+          </div>
+          @php
+          unset($gr);
+          $SurveyTemp= 0;
+          $countTemp = 0;
+          @endphp
+           @foreach ($survey->questions as $question)
+           @php
+           $temp = 0;   
+           $count = 0;
+          @endphp
+          <div class="single-completed-survey-body">
+              <div class="single-question">
+                  <h4>Question: <span>{{$question->question}}:</span></h4>
+                  @foreach ($question->Answers as $ans)
+                  <h4>{{$ans->Answer}}</h4>
+                  @php
+                  $SurveyTemp += $ans->Answer;
+                  $countTemp++;
+                  @endphp
+                  @endforeach
+                  @endforeach
+                </div>
+                <div class="single-completed-survey-head">
+                <h4>Avreage for this survey: <span>@if($countTemp != 0) {{$SurveyTemp/$countTemp ?? ''}} @endif</span></h4>
+              </div>
+      </article>
+   @endforeach
+  </div>
+ </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container-fluid">
     <div class="card mb-4">
         <div class="card-header bg-primary">
@@ -24,7 +100,8 @@
             @php
                   $gr = $survey->Group;
               @endphp
-              <b>Lenda:</b> {{$gr->Class->Name}} @php
+              <b>Lenda:</b> {{$gr->Class->Name}}
+               @php
                   unset($gr);
               @endphp
            <b>Groupi</b> {{$survey->Group->Name}} 
@@ -71,23 +148,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
-
+ --}}
+@endsection

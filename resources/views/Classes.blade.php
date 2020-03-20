@@ -1,9 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 
 @section('content')
 
 
+<section class="content-container">
+    <article class="single-menu">
+     <a href="/Classes/add/new">Add New Subject<span><i class="fas fa-plus"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Classes/view/all">View All Subjects<span><i class="fas fa-eye"></i></span></a>   
+    </article>
+   </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
 <div class="container">
     <form action="/Classes" method="post">
 
@@ -14,16 +44,16 @@
                     @csrf
                     <p class="h3 text-center ml-4"> Shto Lend</p>
                     <input type="text" name="Name" value="{{ old('Name')}}"  class="form-control mb-4 {{$errors->has('Name') ? 'border border-danger' : ''}}" placeholder="Emri i Lendes" aria-label="Username" aria-describedby="basic-addon1"> 
-                    <select class="custom-select" name="Type_ID" searchable="Search here.." required>
+                    {{-- <select class="custom-select" name="Type_ID" searchable="Search here.." required>
                         <option value="" disabled selected>Shto student per ket lend</option>
                         @foreach ($Types as $Type)
                                
                         <option value="{{$Type->id}}">{{$Type->type}}</option>
             
                         @endforeach
-                    </select>
+                    </select> --}}
                    
-                    <button type="Submit" class="btn btn-primary">Shto</button>
+                    {{-- <button type="Submit" class="btn btn-primary">Shto</button>
                 </nav>
 
     </div>
@@ -102,5 +132,5 @@
 
 
 
-@endif
+@endif --}} 
 @endsection

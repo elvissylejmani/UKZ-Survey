@@ -1,17 +1,49 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
 
 
 
-<div class="container">
-        <form action="/Survey" method="post">
+<section class="query-container">
+  <div class="query-info">
+    <form action="/Survey" method="post" class="query-form">
+      @csrf
 
-    <div class="row mb-4">
+                <h3 class="query-title">Create A Survey</h3>
+                    <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}" placeholder="Survey Title" >
+                    <div class="question-number">
+                    <input type="text" placeholder="Questions number" id="questionnumber">
+                    <button type="button" id='addquestion'>Add</button>
+                 </div>
+                    <div class="questions" id="questions">
+                       
+                    </div>
+                    <div class="select-groups">
+                      @if ($groups->isNotEmpty())
+                       <div><input type="checkbox" id='select-all'> <label for="">Select All Groups</label></div> 
+                       @endif
+                       @forelse($groups as $group)
+                       <div><input type="checkbox" name="Group_ID[]" value="{{$group->id}}" class='select-group'> <label for="">Group: {{$group->Name ?? ''}}, Subject:{{$group->class->Name ?? ''}}, Professor:{{$group->Professor->Name ?? ''}}  {{$group->Professor->LastName ?? ''}} </label></div> 
+                       @empty
+                       <h3>All groups have surveys</h3>
+                      @endforelse
+                    </div>
+                    <input type="submit" value="Create">
+                  </form>
+                  </div>
+                </section>
+{{-- </form> --}}
+
+
+
+
+
+
+
+    {{-- <div class="row mb-4">
         <div class="col"></div>
         <div class="col col-md-8">
                 <nav class="navbar navbar-md navbar-light bg-white shadow-sm align-start border border rounded">
-                        @csrf
                         <p class="h3 text-center ml-4"> Shto Pyetesor</p>
                         <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}"  class="form-control mb-4 {{$errors->has('SurveyTitle') ? 'border border-danger' : ''}}" placeholder="Titulli i Pyetesorit" aria-label="Username" aria-describedby="basic-addon1"> 
                   <div class="col-md-12">
@@ -81,11 +113,9 @@
         </div>
         <div class="col"></div>
 
-    </div>
+    </div> --}}
 
-</form>
-</div>
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="row">
 @foreach ($surveys as $survey)
 <div class="col col-md-6 mb-4">
@@ -115,18 +145,14 @@
         </div>
         @endforeach
         </div>
-    </div>
-</div>
+    </div> --}}
 
 @endsection
-<script>
-function toggle(source) {
-  checkboxes = document.getElementsByName('Group_ID[]');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
 
-</script>
+
+
+@section('script')
+<script type="text/javascript" src="{{ URL::asset('js/addquestion.js') }}"></script>
+@endsection
 
 

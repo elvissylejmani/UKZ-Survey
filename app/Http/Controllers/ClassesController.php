@@ -19,9 +19,8 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        $Classes = classe::orderby('id','DESC')->get()->all();
-        $Types = type::all();
-        return view('Classes',compact('Classes','Types'));
+        
+        return view('Classes');
     }
 
     /**
@@ -43,7 +42,7 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         //
-       $Class = request()->validate(['Name' => 'required', 'Type_ID' => 'required']);
+       $Class = request()->validate(['Name' => 'required']);
        classe::create($Class);
        return back();
     }
@@ -57,8 +56,8 @@ class ClassesController extends Controller
     public function show($id)
     {
         
-         $class = classe::findOrFail($id);
-         return view('EditClass',compact('class'));
+        $class = classe::findOrFail($id);
+      return view('EditClass',compact('class'));
     }
 
     /**
@@ -174,5 +173,14 @@ class ClassesController extends Controller
         
        return back();
        
+    }
+    public function add()
+    {
+        return view('addclasses');
+    }
+    public function viewall()
+    {
+        $Classes = classe::orderby('id','DESC')->get()->all();
+        return view('viewallSubject',compact('Classes'));
     }
 }

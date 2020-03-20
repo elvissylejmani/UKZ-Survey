@@ -1,8 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
     
+<section class="query-container">
+    <div class="query-info">
+        <h3 class="query-title">Update Subject</h3>
+        <form action="/Classes/{{$class->id}}" method="POST" class="query-form addprof-form">
+            @csrf
+            @method('PATCH')
+            <input type="text" name="Name" value="{{$class->Name}}" placeholder="Subject">
+            <input type="submit" value="Save">
+        </form>
+    </div>
 
 
+
+
+
+
+{{-- 
 <div class="container">
     <div class="row">
         <div class="col-12 mb-4">
@@ -52,7 +67,7 @@
     </div>
 
  
-</div>
+</div> --}}
 
 
 

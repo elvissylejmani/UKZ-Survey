@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypesTable extends Migration
+class CreateFuzzyRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('fuzzy_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
+            $table->double('rating');
+            $table->integer('students');
+            $table->unsignedBigInteger('Prof_ID');
+            $table->foreign('Prof_ID')
+            ->references('id') 
+            ->on('professors')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('fuzzy_ratings');
     }
 }

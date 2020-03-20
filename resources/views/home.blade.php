@@ -1,5 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 @section('content')
+<section class="content-container">
+    <article class="single-menu">
+     <a href="/Survey">Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+    </article>
+    @if (Auth::user()->can('Admin'))
+    <article class="single-menu">
+     <a href="/Survey/create">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Professor">Professors<span><i class="fas fa-chalkboard-teacher"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Classes">Subjects<span><i class="fas fa-book"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Groups">Groups<span><i class="fas fa-users"></i></span></a>   
+    </article>
+    <article class="single-menu">
+     <a href="/Users/view/all">Users<span><i class="fas fa-user"></i></span></a>   
+    </article>
+    @endif
+   </section>
+{{-- 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,5 +86,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

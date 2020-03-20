@@ -1,6 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
+    
+
+       <section class="content-container">
+        <article class="single-menu">
+         <a href="/Professor/add/new">Add New Professor<span><i class="fas fa-plus"></i></span></a>   
+        </article>
+        <article class="single-menu">
+         <a href="/Professor/view/all">View All Professors<span><i class="fas fa-eye"></i></span></a>   
+        </article>
+       </section>
+      
+
+
+
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- @section('content')
 
 
 
@@ -64,4 +97,4 @@
         </div>
     </div>
     
-@endsection
+@endsection --}}

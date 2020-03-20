@@ -16,10 +16,6 @@ class CreateClassesTable extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Name');
-            $table->unsignedBigInteger('Type_ID');
-            $table->foreign('Type_ID')
-            ->references('id')->on('types')
-            ->onDelete('cascade');
             $table->timestamps();
         });
     }

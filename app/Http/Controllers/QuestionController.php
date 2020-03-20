@@ -57,8 +57,10 @@ class QuestionController extends Controller
      */
     public function show(question $question,$id)
     {
-         $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
-        return view('question',compact('questions'));
+        $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
+        $sr =$questions[0]->Survey;
+        $sr = $sr->Group;
+        return view('question',compact('questions','sr'));
     }
 
     /**
@@ -81,9 +83,15 @@ class QuestionController extends Controller
      * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, question $question)
+    public function update(Request $request, question $question,$id)
     {
-        return "hello";
+        $ids = request()->validate(['id' => 'required']);
+        $data = request()->validate(['question' => 'required']);
+        $a = count($request->id);
+        for ($i=0; $i < $a; $i++) {
+            question::findOrFail($ids['id'][$i])->update(['question' => $data['question'][$i]]);
+        }
+        return back();
     }
 
     /**
@@ -95,5 +103,14 @@ class QuestionController extends Controller
     public function destroy(question $question)
     {
         return "hello";
+    }
+    public function addQuestions($id)
+    {
+        $questions = request()->validate(['question' => 'required']);
+        foreach ($questions['question'] as $question) {
+            question::create(['Survey_ID' => $id, 'question' => $question]);
+      }
+
+        return back();
     }
 }

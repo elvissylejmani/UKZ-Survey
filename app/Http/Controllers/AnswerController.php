@@ -73,6 +73,7 @@ class AnswerController extends Controller
         if ($count!=0) {
             $avg/=$count;
         }
+      
         return view('Answers',compact('questions','sur','gr','avg'));
 
     }

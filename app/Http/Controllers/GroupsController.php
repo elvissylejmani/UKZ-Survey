@@ -18,11 +18,11 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        $classes = classe::all();
-        $Professors = professor::all();
-
-        $Groups = group::orderBy('id', 'DESC')->get()->all();
-        return view('Groups',compact('Groups','classes','Professors'));
+      //  $classes = classe::all();
+        //$Professors = professor::all();
+        // ,compact('Groups','classes','Professors')
+        //$Groups = group::orderBy('id', 'DESC')->get()->all();
+        return view('Groups');
     }
 
     /**
@@ -46,7 +46,8 @@ class GroupsController extends Controller
         $group = $request->input('Name1'); 
         $id = $request->input('Class_ID'); 
         $Prof_Id = $request->input('Prof_ID'); 
-        group::create(['Name' => $group,'Class_ID' => $id,'Prof_ID' => $Prof_Id]);
+        $Type = $request->input('Type'); 
+        group::create(['Name' => $group,'Class_ID' => $id,'Prof_ID' => $Prof_Id,'type' => $Type]);
 
         return back();
     }
@@ -60,13 +61,14 @@ class GroupsController extends Controller
     public function show($id)
     {
         $Group = group::findOrFail($id);
-        $classes = classe::all();
-        $Users = User::all();
-        $grupuser = [];
-        foreach ($Group->Students as $stud) {
-            $grupuser[] = $stud->id;
-        }
-        return view('EditGroup',compact('Group','classes','Users','grupuser'));
+        // $classes = classe::all();
+        // $Users = User::all();
+        // $grupuser = [];
+        // foreach ($Group->Students as $stud) {
+        //     $grupuser[] = $stud->id;
+        // }
+        //,compact('Group','classes','Users','grupuser')
+        return view('EditGroup',compact('Group'));
 
     }
 
@@ -118,5 +120,17 @@ class GroupsController extends Controller
     {
         group::findOrFail($id)->delete();
         return back();
+    }
+    public function add()
+    {
+         $classes = classe::all();
+        $Professors = professor::all();
+        
+        return view('addgroup',compact('classes','Professors'));
+    }
+    public function viewall()
+    {
+        $Groups = group::orderBy('id', 'DESC')->get()->all();
+        return view('viewallGroups',compact('Groups'));
     }
 }

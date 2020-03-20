@@ -18,6 +18,4 @@ class survey extends Model
     {
         return $this->belongsTo(group::class,'Group_ID');
     }
- 
-
 }

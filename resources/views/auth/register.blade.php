@@ -1,7 +1,70 @@
-@extends('layouts.app')
+@extends('layouts.newapp')
 
 @section('content')
-<div class="container">
+<div class="login">
+    <form class="login-form" id='register-form'  method="POST" action="{{ route('register') }}">
+        @csrf
+
+        <div class="login-logo">
+            <img src="{{ asset('img/logo.png') }}" alt=""> 
+        </div>
+        <div class="login-input-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" style="@error('name') border-color:red @enderror" id="name" placeholder="name"  value="{{ old('name') }}" required autocomplete="name" autofocus>
+            @error('name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="login-input-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" style="@error('lastname') border-color:red @enderror" id="lastname" placeholder="last name" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+            @error('lastname')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="login-input-group">
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" style="@error('email') border-color:red @enderror" id="email" placeholder="e mail" value="{{ old('email') }}" required autocomplete="email">
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="login-input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" style="@error('password') border-color:red @enderror" id="password" placeholder="password"  required autocomplete="new-password">
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="login-input-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="password2" placeholder="confirm password" required autocomplete="new-password">
+        </div>
+
+        <input type="submit" value="Register">
+
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -89,5 +152,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
