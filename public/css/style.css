@@ -203,6 +203,94 @@ position: absolute;
 .hide{
     display: none;
 }
+/* login */
+.register a{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+.login{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 150px; */
+    height: 100vh;
+    align-items: center;
+}
+.login .login-form{
+    width: 40%;
+    background-color: var(--mainbg);
+    margin-top: 150px;
+    color: white;
+    transform: translateY(-100px);
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1.2px solid var(--mainbg) ;
+    border-bottom: 2.2px solid var(--mainbg);
+    border-right: 2.2px solid var(--mainbg);
+    padding: 50px 0;
+    border-radius: 5px;
+
+}
+
+.login-form .login-input-group{
+    margin: 15px 0;
+    /* background-color: grey; */
+    width: 70%;
+    text-align: center;
+}
+
+.login-form label{
+    display: inline-block;
+    width: 20%;
+}
+.login-form input[type=email],.login-form input[type=password],.login-form input[type=text]{
+    height: 35px;
+    width: 75%;
+    /* border: 2.2px solid var(--mainbg); */
+    border-radius: 5px;
+}
+.login-form .remember-me{
+    width: 100%;
+    text-align: center;
+}
+.login-form input::placeholder{
+    padding-left: 15px;
+}
+.remember-me label{
+    width: 25%;
+}
+
+.login-form input[type=submit]{
+    margin-top: 25px;
+    background: white;
+    cursor: pointer;
+    padding: 7px 18px;
+    color: var(--mainbg);
+    border: none;
+    transition: all .3s linear;
+}
+.login-form input[type=submit]:hover{
+    transform: scale(1.25) translateY(-10px);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.212);
+}
+
+.login-form .forgot-password{
+    text-decoration: none;
+    color: white;
+    margin-top: 12px;
+    font-size: 0.76rem;
+}
+/* end of login */
+
+/* register  */
+#register-form{
+    margin-top: 250px;
+}
+/* end of register */
 /* create survey  */
 .query-container{
 width: 50%;
@@ -633,6 +721,16 @@ width: 50%;
     left: 15%;
 }
 }
+
+@media screen and (max-width:865px){
+ .login .login-input-group{
+     display: flex;
+     flex-direction: column;
+ }
+ .login-input-group label,.login-input-group input[type=email],.login-input-group input[type=password],.login-form input[type=text]{
+     width: 100%;
+ }
+}
 @media screen and (max-width:768px){
 .sidebar{
     width: 25%;
@@ -656,6 +754,11 @@ width: 50%;
     /* transform: translateX(10%); */
    
 }
+}
+@media screen and (max-width:675px){
+    .login .login-form{
+        width: 70%;
+    }
 }
 @media screen and (max-width:540px){
     .content-container{
@@ -715,6 +818,13 @@ width: 50%;
       margin-right: 0;
     }
   
+}
+@media screen and (max-width:400px){
+    @media screen and (max-width:675px){
+        .login .login-form{
+            width: 100%;
+        }
+    }
 }
 
 /* end of media queries  */
