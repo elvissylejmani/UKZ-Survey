@@ -33,6 +33,13 @@
         <div class="nav-container">
         <a href="/" class="logo">Ukz Survey</a>
         <div class="account-name">
+            @guest
+            <div class="register">
+                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+            </div>
+
+            @else
             <a href="#" id="trigger-dropdown"> {{ Auth::user()->name }} {{ Auth::user()->lastname}}  <span><i class="fas fa-caret-down"></i></span></a>
             <button class="hamburger" id="hamburger"><span></span>
             <span></span>
@@ -51,9 +58,13 @@
                     </li>
                 </ul>
             </div>
+            @endguest
         </div>
      </div>
     </nav>
+    @guest
+
+    @else
     <section class="sidebar" id='sidebar'>
      <ul>
          <li><a href="/Survey">Surveys</a></li>
@@ -75,9 +86,10 @@
      </ul>
     </section>
     <section class="content">
-       
-       
-            @yield('content')
+        @endguest
+        
+        
+        @yield('content')
     </section>
     
     <script type="text/javascript" src="{{ URL::asset('js/all.js') }}"></script>
