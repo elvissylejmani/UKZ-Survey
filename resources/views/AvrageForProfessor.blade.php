@@ -1,0 +1,153 @@
+@extends('layouts.newapp')
+@section('content')
+
+
+<section class="content-container-prof-rating">
+    <div class="prof-rating-area">
+ <article class="single-prof-rating">
+     {{-- <div class="prof-img">
+    <img src="img/professors/Artan.jpg" alt=""> 
+ </div> --}}
+ <div class="prof-info">
+     <h3>Professor:<span>{{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}</span></h3>
+     <h3>Overall Average Rating: {{$avg ?? ''}}</h3>
+ </div>
+ </article>
+</div>
+  <div class="completed-surveys">
+      <h3>Completed Surveys</h3>
+      <div class="completed-surveys-container">
+        @foreach ($surveys as $survey)
+        @php
+        $gr = $survey->Group;
+       @endphp
+        <article class="single-completed-survey">
+          <div class="single-completed-survey-head">
+              <h4>Subject: <span>{{$gr->class->Name}}</span> Group: <span>{{$gr->Name}}</span> Title: <span>{{$survey->SurveyTitle}}</span></h4>
+          </div>
+          @php
+          unset($gr);
+          $SurveyTemp= 0;
+          $countTemp = 0;
+          @endphp
+           @foreach ($survey->questions as $question)
+           @php
+           $temp = 0;   
+           $count = 0;
+          @endphp
+          <div class="single-completed-survey-body">
+              <div class="single-question">
+                  <h4>Question: <span>{{$question->question}}:</span></h4>
+                  @foreach ($question->Answers as $ans)
+                  <h4>{{$ans->Answer}}</h4>
+                  @php
+                  $SurveyTemp += $ans->Answer;
+                  $countTemp++;
+                  @endphp
+                  @endforeach
+                  @endforeach
+                </div>
+                <div class="single-completed-survey-head">
+                <h4>Avreage for this survey: <span>@if($countTemp != 0) {{$SurveyTemp/$countTemp ?? ''}} @endif</span></h4>
+              </div>
+      </article>
+   @endforeach
+  </div>
+ </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+<div class="container-fluid">
+    <div class="card mb-4">
+        <div class="card-header bg-primary">
+            <b>Profesori</b> {{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}
+        </div>
+
+            <div class="card-body">
+                <b>Mesatarja e pergjithshme e profesorit:</b> {{$avg ?? ''}}
+
+            </div>
+            @if ($avg != 0)
+            <div class="card-footer bg-info"><b> Me posht gjeni te dhenat se si jeni votuar nga studentet</div>
+            @else
+            <div class="card-footer bg-warning"><b>Nuk jeni vlersuar ende</div>
+            @endif
+    </div>
+
+@foreach ($surveys as $survey)
+    
+    <div class="card mb-4">
+        <div class="card-header bg-primary">
+            @php
+                  $gr = $survey->Group;
+              @endphp
+              <b>Lenda:</b> {{$gr->Class->Name}}
+               @php
+                  unset($gr);
+              @endphp
+           <b>Groupi</b> {{$survey->Group->Name}} 
+           <b> Titulli :</b>  {{ $survey->SurveyTitle }} 
+        </div>
+        <div class="card-body">
+            @php
+                $SurveyTemp= 0;
+                $countTemp = 0;
+            @endphp
+            @foreach ($survey->questions as $question)
+            @php
+            $temp = 0;   
+            $count = 0;
+           @endphp
+               <h5 class="card-title"><b>Pyeteja:</b> {{$question->question ?? '' }}</h5>
+               @foreach ($question->Answers as $ans)
+               <p class="card-text">{{$ans->Answer ?? ''}}</p>
+                   @php
+                        $SurveyTemp += $ans->Answer;
+                        $countTemp++;
+                       $temp += $ans->Answer;
+                       $count++;
+                   @endphp
+               @endforeach
+           <b>Mesatarja per ket pytje:</b>  
+           @if ($count != 0)
+           {{ $temp/$count ?? '' }}
+           @endif
+           @endforeach
+        </div>
+
+           @if ($countTemp != 0)
+           <div class="card-footer bg-success"><b> Mesatarja e pyetesorit </b> {{$SurveyTemp/$countTemp ?? ''}}</div>
+           @else
+           <div class="card-footer bg-warning"><b>Ky pytesor nuk eshte plotsuar nga as nje student </b></div>
+           @endif
+
+</div>
+
+
+
+@endforeach
+
+
+</div>
+@endsection
+ --}}
+@endsection
