@@ -17,6 +17,11 @@ class CreateFuzzyRatingsTable extends Migration
             $table->bigIncrements('id');
             $table->double('rating');
             $table->integer('students');
+            $table->unsignedBigInteger('Prof_ID');
+            $table->foreign('Prof_ID')
+            ->references('id') 
+            ->on('professors')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
