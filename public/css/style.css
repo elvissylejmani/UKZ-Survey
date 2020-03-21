@@ -17,7 +17,9 @@
     justify-content: center;
     width: 100%;
 }
-
+.pr-0{
+    padding-right: 0 !important;
+}
 /* end of utilities */
 body{
     font-family: "Poppins","Roboto",sans-serif;
@@ -312,7 +314,6 @@ width: 50%;
 .query-form{
     display: flex;
     flex-direction: column;
-    /* background-color: pink; */
     width: 50%;
     flex-grow: 0;
 }
@@ -447,7 +448,15 @@ width: 50%;
 }
 /* end of viewsurveys */
 
+/* update surveys  */
+.update-survey .query-form .questions input{
+    margin:10px 0;
+}
+.update-survey-title{
+    padding-right: 150px;
+}
 
+/* end of updatesurveys */
 /* addprofessor */
 .addprof-form input{
     margin: 10px 0;
@@ -719,6 +728,10 @@ width: 50%;
 }
 .content{
     left: 15%;
+}
+
+.update-survey-title{
+    padding-right: 40px;
 }
 }
 

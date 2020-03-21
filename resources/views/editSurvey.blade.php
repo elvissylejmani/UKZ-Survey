@@ -15,7 +15,9 @@
                  </div>
                      <input type="submit" value="Add">
                    </form>
-        <h3 class="query-title">Update Survey Title</h3>
+              
+               
+        <h3 class="query-title update-survey-title">Update Survey Title</h3>
         <form action="/Survey/{{$survey->id}}" method="POST" class="query-form">
             @csrf
             @method('PATCH')
@@ -23,6 +25,8 @@
             <input type="text" value="{{$survey->SurveyTitle}}" name="SurveyTitle" placeholder="Questions number" id="questionnumber">
             <button type="submit" id='addquestion'>Save</button>
          </form>
+    </div>
+    <div class="query-info update-survey">
          <form action="/Question/{{$survey->id}}" method="POST" class="query-form">
              @csrf
              @method('PATCH')
