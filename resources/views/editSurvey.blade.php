@@ -35,6 +35,11 @@
                 @foreach ($survey->questions as $question)
             <div class="questions" id="questions">
                 <input type="text" value="{{$question->question}}" name="question[]" placeholder="Survey Title" >
+                <form action="/Question/{{$question->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                 <button class="delete-survey" title="Delete Question"><i class="fas fa-times"></i></button>  
+                </form>
                 <input type="hidden" name="id[]" value="{{$question->id}}">
             </div>
             @endforeach

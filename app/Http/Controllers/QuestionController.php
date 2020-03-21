@@ -100,9 +100,10 @@ class QuestionController extends Controller
      * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(question $question)
+    public function destroy(question $question,$id)
     {
-        return "hello";
+         question::findOrFail($id)->delete();
+         return back();
     }
     public function addQuestions($id)
     {
