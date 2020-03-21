@@ -40,6 +40,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
+        return Auth::user()->fuzzyRating();
         $Prof_ID = request()->validate(['Prof_ID' => 'required']);
         $st = url()->previous();
         $st = $st[strlen($st)-1];
