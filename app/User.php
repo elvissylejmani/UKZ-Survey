@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    private $fuzzyValue;
     /**
      * The attributes that are mass assignable.
      *
@@ -59,5 +60,14 @@ class User extends Authenticatable
         else {
             return false;
         }
+    }
+    public function FuzzyRating()
+    {
+        $sets = Auth::user()->StudentInfo;
+        if($sets->Average > 8.0)
+        {
+            $this->fuzzyValue += 1;
+        }
+        return $this->fuzzyValue;
     }
 }
