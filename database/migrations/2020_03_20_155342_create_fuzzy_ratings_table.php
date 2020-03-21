@@ -16,6 +16,7 @@ class CreateFuzzyRatingsTable extends Migration
         Schema::create('fuzzy_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->double('rating');
+            $table->integer('answers');
             $table->integer('students');
             $table->unsignedBigInteger('Prof_ID');
             $table->foreign('Prof_ID')
