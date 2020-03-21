@@ -52,6 +52,8 @@ class AnswerController extends Controller
             ->where('Prof_ID','=',$Prof_ID);
             $fuzzytable
             ->increment('rating',$ans['Answer'][$i]);
+            $fuzzytable
+            ->increment('answers',1);
         }
         $fuzzytable
             ->increment('students',1);
