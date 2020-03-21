@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class fuzzy_rating extends Model
 {
-    protected $fillable = ['rating','students','Prof_ID'];
+    protected $fillable = ['rating','answers','students','Prof_ID'];
 }
