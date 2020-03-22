@@ -456,6 +456,24 @@ width: 50%;
     padding-right: 150px;
 }
 
+.edit-questions{
+    display: flex;
+    margin: 15px 0;
+}
+
+.edit-questions .delete-survey{
+    width: 55px;
+    margin-left: 15px;
+}
+.save-survey-update{
+    
+    background-color: var(--mainbg);
+    color: white;
+    cursor: pointer;
+    padding: 12px 25px;
+    border: none;
+}
+
 /* end of updatesurveys */
 /* addprofessor */
 .addprof-form input{

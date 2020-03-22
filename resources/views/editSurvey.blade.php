@@ -31,10 +31,10 @@
              @csrf
              @method('PATCH')
              <h3 class="query-title">Update Survey questions</h3>
-         <div class="question-number">
+             <div class="question-number">
                 @foreach ($survey->questions as $question)
-            <div class="questions" id="questions">
-                <input type="text" value="{{$question->question}}" name="question[]" placeholder="Survey Title" >
+             <div class="edit-questions" id="edit-questions">
+                <input type="text" value="{{$question->question}}" name="question[]" placeholder="Survey Title" class="question-value" >
                 <form action="/Question/{{$question->id}}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -45,7 +45,7 @@
             @endforeach
         </div>
         
-        <input type="submit" value="Save">
+        <input type="submit" value="Save" class="save-survey-update">
     </form>
          </div>
 
