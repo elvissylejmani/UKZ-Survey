@@ -6,7 +6,7 @@
     </article>
     @if (Auth::user()->can('Admin'))
     <article class="single-menu">
-     <a href="/Survey/create">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
+     <a href="/Survey/Manage/all">Manage Surveys<span><i class="fas fa-file-alt"></i></span></a>   
     </article>
     <article class="single-menu">
      <a href="/Professor">Professors<span><i class="fas fa-chalkboard-teacher"></i></span></a>   
