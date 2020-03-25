@@ -11,7 +11,7 @@
      <h3 class="survey-subject">Gr:<span>{{$gr->Name}}</span></h3>
      <h4 class="survey-professor">Professor:<span>{{$gr->Professor->Name ?? ''}} {{$gr->Professor->LastName ?? ''}}</span></h4>
      <div class="survey-action">
-     <a href="/Survey/1" class="survey-modify">Modify</a>
+     <a href="/Survey/{{$survey->id}}" class="survey-modify">Modify</a>
      <a href="/Answer/{{$survey->id}}" class="survey-view">View Results</a>
     </div>
     <form action="/Survey/{{$survey->id}}" method="POST">
