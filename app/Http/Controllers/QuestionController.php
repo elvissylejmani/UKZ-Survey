@@ -101,7 +101,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(question $question,$id)
-    {
+    { 
          question::findOrFail($id)->delete();
          return back();
     }
