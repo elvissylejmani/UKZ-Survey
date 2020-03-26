@@ -40,7 +40,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        return Auth::user()->fuzzyRating();
+        // return Auth::user()->fuzzyRating();
         $Prof_ID = request()->validate(['Prof_ID' => 'required']);
         $st = url()->previous();
         $st = $st[strlen($st)-1];
@@ -49,15 +49,15 @@ class AnswerController extends Controller
         $qid = request()->validate(['Question_ID' => 'required']); 
         for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
             Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
-           $fuzzytable = DB::table('fuzzy_ratings')
-            ->where('Prof_ID','=',$Prof_ID);
-            $fuzzytable
-            ->increment('rating',$ans['Answer'][$i]);
-            $fuzzytable
-            ->increment('answers',1);
+        //    $fuzzytable = DB::table('fuzzy_ratings')
+        //     ->where('Prof_ID','=',$Prof_ID);
+        //     $fuzzytable
+        //     ->increment('rating',$ans['Answer'][$i]);
+        //     $fuzzytable
+        //     ->increment('answers',1);
         }
-        $fuzzytable
-            ->increment('students',1);
+        // $fuzzytable
+        //     ->increment('students',1);
         isCompleted::create(['Survey_ID' => $st,'User_ID' => Auth::id()]);
         return redirect('/')->with('alert','Faleminderit per vlersimin');
     }
