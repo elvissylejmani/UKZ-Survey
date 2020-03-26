@@ -13,7 +13,8 @@ class FifthSheetImport implements ToModel
             'Year' => $rows[1],
             'Average' => $rows[2],
             'ExamsPassed' => $rows[3],
-            'Attendance' => $rows[4]
+            'Exams' => $rows[4],
+            'Attendance' => $rows[5]
         ]);
     }
 }
