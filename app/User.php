@@ -64,10 +64,45 @@ class User extends Authenticatable
     public function FuzzyRating()
     {
         $sets = Auth::user()->StudentInfo;
-        if($sets->Average > 8.0)
+        $avg = $sets->Average;
+        if($avg > 6.0 && $avg <= 7.0)
         {
-            $this->fuzzyValue += 1;
+            $this->fuzzyValue += 0.06;
         }
+        else if ($avg > 7.0 && $avg <= 8.0) {
+            $this->fuzzyValue += 0.13;
+        }
+        else if ($avg > 8.0 && $avg <= 8.5) {
+            $this->fuzzyValue += 0.19;
+        }
+        else if ($avg > 8.5 && $avg <= 9.0) {
+            $this->fuzzyValue += 0.27;
+        }
+        else{
+            $this->fuzzyValue += 0.33;
+        }
+
+        $att = $sets->Attendance;
+        if($att > 0 && $att <= 20)
+        {
+            $this->fuzzyValue += 0.6;
+        }
+        else if ($att > 21 && $att <= 40) {
+            $this->fuzzyValue += 0.13;
+        }
+        else if ($att > 41 && $att <= 60) {
+            $this->fuzzyValue += 0.19;
+        }
+        else if ($att > 61 && $att <= 80) {
+            $this->fuzzyValue += 0.27;
+        }
+        else{
+            $this->fuzzyValue += 0.33;
+        }
+
+
+        $unPassedExams = $sets->Exams - $sets->ExamsPassed;
+        return $unPassedExams;
         return $this->fuzzyValue;
     }
 }
