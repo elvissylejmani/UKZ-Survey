@@ -102,7 +102,23 @@ class User extends Authenticatable
 
 
         $unPassedExams = $sets->Exams - $sets->ExamsPassed;
-        return $unPassedExams;
+        if($unPassedExams > 10)
+        {
+            $this->fuzzyValue += 0.6;
+        }
+        else if ($unPassedExams < 10 && $unPassedExams >= 8) {
+            $this->fuzzyValue += 0.13;
+        }
+        else if ($unPassedExams < 8 && $unPassedExams >= 5) {
+            $this->fuzzyValue += 0.19;
+        }
+        else if ($unPassedExams < 5 && $unPassedExams >= 2) {
+            $this->fuzzyValue += 0.27;
+        }
+        else{
+            $this->fuzzyValue += 0.33;
+        }
+        // return $unPassedExams;
         return $this->fuzzyValue;
     }
 }
