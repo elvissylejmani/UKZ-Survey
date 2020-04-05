@@ -121,4 +121,12 @@ class User extends Authenticatable
         // return $unPassedExams;
         return $this->fuzzyValue;
     }
+    public function InsertFuzzyData($AnswerAvg,$Questions,$Prof_ID)
+    {
+        $StudentSet = $this->FuzzyRating();
+        $count = count($Questions['Question_ID']);
+        $AnswerAvg = array_sum($AnswerAvg['Answer'])/count($AnswerAvg['Answer']);
+        return $Prof_ID;
+        return $StudentSet;
+    }
 }
