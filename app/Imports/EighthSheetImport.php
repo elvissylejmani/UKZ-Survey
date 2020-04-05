@@ -4,7 +4,7 @@ namespace App\Imports;
 use App\fuzzySet;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class SecondSheetImport implements ToModel
+class EighthSheetImport implements ToModel
 {
     public function model(array $rows)
     {
