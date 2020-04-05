@@ -20,7 +20,7 @@ class CreateFuzzyRatingsTable extends Migration
             $table->unsignedBigInteger('Prof_ID');
             $table->foreign('StudentSet')
             ->references('id') 
-            ->on('Fuzzy_Sets')
+            ->on('fuzzy_sets')
             ->onDelete('cascade');
             $table->foreign('Prof_ID')
             ->references('id') 
