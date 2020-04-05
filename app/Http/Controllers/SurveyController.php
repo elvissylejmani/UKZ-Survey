@@ -73,11 +73,6 @@ class SurveyController extends Controller
             foreach ($questions['question'] as $question) {
                   question::create(['Survey_ID' => $id['id'], 'question' => $question]);
             }
-            $Prof_ID = DB::table('groups')
-            ->where('groups.id', '=', $Group_ID)
-            ->join('professors', 'groups.Prof_ID', '=', 'professors.id')
-            ->select('professors.id')->get();
-            fuzzy_rating::firstOrCreate(['rating' => 0,'answers' => 0, 'students' => 0, 'Prof_ID' => $Prof_ID[0]->id]);
         }
         return redirect('/Survey/create')->with('alert','Pyetesori u krijua me sukses');
     }
