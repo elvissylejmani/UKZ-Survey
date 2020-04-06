@@ -15,10 +15,13 @@ class CreateFuzzyRatingsTable extends Migration
     {
         Schema::create('fuzzy_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('rating');
-            $table->integer('answers');
-            $table->integer('students');
+            $table->double('AverageOfAnswers');
+            $table->unsignedBigInteger('StudentSet');
             $table->unsignedBigInteger('Prof_ID');
+            $table->foreign('StudentSet')
+            ->references('id') 
+            ->on('fuzzy_sets')
+            ->onDelete('cascade');
             $table->foreign('Prof_ID')
             ->references('id') 
             ->on('professors')

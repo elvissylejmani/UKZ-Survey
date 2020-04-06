@@ -19,6 +19,8 @@ class CreateStudentDataTable extends Migration
             $table->Integer('Year');
             $table->float('Average');
             $table->Integer('ExamsPassed');
+            $table->Integer('Exams');
+            $table->Integer('Attendance');
             $table->foreign('Stud_ID')
             ->references('id')->on('users')
             ->onDelete('cascade');
