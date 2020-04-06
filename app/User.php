@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\fuzzy_rating;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
@@ -126,7 +127,20 @@ class User extends Authenticatable
         $StudentSet = $this->FuzzyRating();
         $count = count($Questions['Question_ID']);
         $AnswerAvg = array_sum($AnswerAvg['Answer'])/count($AnswerAvg['Answer']);
-        return $Prof_ID;
-        return $StudentSet;
+        if ($StudentSet > 0 && $StudentSet <= 0.3) {
+            fuzzy_rating::create(['AverageOfAnswers' => $AnswerAvg,'StudentSet' => 1,'Prof_ID' => $Prof_ID['Prof_ID']]);
+        }
+        else if ($StudentSet > 0.3 && $StudentSet <= 0.5) {
+            fuzzy_rating::create(['AverageOfAnswers' => $AnswerAvg,'StudentSet' => 2,'Prof_ID' => $Prof_ID['Prof_ID']]);
+        }
+        else if ($StudentSet > 0.5 && $StudentSet <= 0.7) {
+            fuzzy_rating::create(['AverageOfAnswers' => $AnswerAvg,'StudentSet' => 3,'Prof_ID' => $Prof_ID['Prof_ID']]);
+        }
+        else if ($StudentSet > 0.7 && $StudentSet <= 0.9) {
+             fuzzy_rating::create(['AverageOfAnswers' => $AnswerAvg,'StudentSet' => 4,'Prof_ID' => $Prof_ID['Prof_ID']]);
+        }
+        else {
+            fuzzy_rating::create(['AverageOfAnswers' => $AnswerAvg,'StudentSet' => 5,'Prof_ID' => $Prof_ID['Prof_ID']]);
+        }
     }
 }
