@@ -17,4 +17,8 @@ class professor extends Model
     {
         return $this->hasManyThrough(survey::class,group::class,'Prof_ID','Group_ID','id','id');
     }
+    public function FuzzyRating()
+    {
+        return $this->hasMany(fuzzy_rating::class,'Prof_ID','id');
+    }
 }
