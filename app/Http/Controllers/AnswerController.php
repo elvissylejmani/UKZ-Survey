@@ -45,9 +45,9 @@ class AnswerController extends Controller
         $st = $st[strlen($st)-1];
         $ans = request()->validate(['Answer' => 'required']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
-        Auth::user()->InsertFuzzyData($ans,$qid,$Prof_ID);
+        $set = Auth::user()->InsertFuzzyData($ans,$qid,$Prof_ID);
         for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
-            Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i]]);
+            Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i],'StudentSet'=> $set]);
         }
      
         isCompleted::create(['Survey_ID' => $st,'User_ID' => Auth::id()]);
