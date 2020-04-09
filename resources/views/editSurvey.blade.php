@@ -35,7 +35,7 @@
                 @foreach ($survey->questions as $question)
              <div class="edit-questions" id="edit-questions">
                 <input type="text" value="{{$question->question}}" name="question[]" placeholder="Survey Title" class="question-value" >
-                <a href="/Question/{{$question->id}}/delete" data-token="{{ csrf_token() }}"> <i class="fas fa-times"></i> </a>
+                <a href="/Question/{{$question->id}}/delete" data-token="{{ csrf_token() }}" class="delete-question"> <i class="fas fa-times"></i> </a>
                 <input type="hidden" name="id[]" value="{{$question->id}}">
             </div>
             @endforeach

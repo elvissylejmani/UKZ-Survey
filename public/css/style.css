@@ -460,7 +460,10 @@ width: 50%;
     display: flex;
     margin: 15px 0;
 }
-
+.edit-questions .delete-question{
+    margin-left: 15px;
+    color: red;
+}
 .edit-questions .delete-survey{
     width: 55px;
     margin-left: 15px;
