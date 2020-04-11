@@ -124,7 +124,7 @@ class ProfessorController extends Controller
             $avg/=$count;
         }
     
-       return view('AvrageForProfessor',compact('avg','surveys','professor'));
+       return view('AverageForProfessor',compact('avg','surveys','professor'));
     }
     public function add()
     {
