@@ -14,7 +14,7 @@
  </article>
 </div>
 <div class="filter-by-set">
-  <section class="filter-by-set-sidebar">
+  <section class="filter-by-set-sidebar" id="filter-by-set-sidebar">
      <a href="#" class="active">Overall Rating</a>
      <a href="#" >Excellent</a>
      <a href="#">Very Good</a>
@@ -169,4 +169,7 @@
 </div>
 @endsection
  --}}
+@endsection
+@section('script')
+<script type="text/javascript" src="{{ URL::asset('js/filterrating.js') }}"></script>
 @endsection
