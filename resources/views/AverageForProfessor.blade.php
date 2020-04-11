@@ -10,9 +10,28 @@
  </div> --}}
  <div class="prof-info">
      <h3>Professor:<span>{{$professor->Name ?? ''}} {{$professor->LastName ?? ''}}</span></h3>
-     <h3>Overall Average Rating: {{$avg ?? ''}}</h3>
  </div>
  </article>
+</div>
+<div class="filter-by-set">
+  <section class="filter-by-set-sidebar">
+     <a href="#" class="active">Overall Rating</a>
+     <a href="#" >Excellent</a>
+     <a href="#">Very Good</a>
+     <a href="#">Good</a>
+     <a href="#">Weak</a>
+     <a href="#">Very Weak</a>
+  </section>
+  <section class="filter-by-set-ratings">
+      <article class="filter-by-set-article">
+          <h3>Students voted</h3>
+          <h3>50</h3>
+      </article>
+      <article class="filter-by-set-article">
+          <h3>Average</h3>
+          <h3>4.5</h3>
+      </article>
+  </section>
 </div>
   <div class="completed-surveys">
       <h3>Completed Surveys</h3>
