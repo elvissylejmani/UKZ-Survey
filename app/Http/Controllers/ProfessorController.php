@@ -105,11 +105,13 @@ class ProfessorController extends Controller
         $professor = professor::findOrFail($id);
          if(app('request')->input('set') != null)
         $AnswersRating = DB::table('professors')
+        ->where('fuzzy_ratings.Prof_ID', $id)
         ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
         ->where('fuzzy_ratings.StudentSet',app('request')->input('set'))
         ->avg('fuzzy_ratings.AverageOfAnswers');
         else
         $AnswersRating = DB::table('professors')
+        ->where('fuzzy_ratings.Prof_ID', $id)
         ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
         ->avg('fuzzy_ratings.AverageOfAnswers');
         $groups = $professor->Groups;
