@@ -60,6 +60,7 @@
           <div class="single-completed-survey-body">
               <div class="single-question">
                   <h4>Question: <span>{{$question->question}}:</span></h4>
+                  @if (app('request')->input('set') != null)
                   @foreach ($question->Answers->where('StudentSet',app('request')->input('set')) as $ans)
                   <h4>{{$ans->Answer}}</h4>
                   @php
@@ -67,6 +68,16 @@
                   $countTemp++;
                   @endphp
                   @endforeach
+                  @else
+                  @foreach ($question->Answers as $ans)
+                  <h4>{{$ans->Answer}}</h4>
+                  @php
+                  $SurveyTemp += $ans->Answer;
+                  $countTemp++;
+                  @endphp
+                  @endforeach
+                  @endif
+                 
                   @endforeach
                 </div>
                 <div class="single-completed-survey-head">
