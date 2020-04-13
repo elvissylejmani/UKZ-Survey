@@ -103,6 +103,15 @@ class ProfessorController extends Controller
     public function SurveyData($id)
     {
         $professor = professor::findOrFail($id);
+         if(app('request')->input('set') != null)
+        $AnswersRating = DB::table('professors')
+        ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
+        ->where('fuzzy_ratings.StudentSet',app('request')->input('set'))
+        ->avg('fuzzy_ratings.AverageOfAnswers');
+        else
+        $AnswersRating = DB::table('professors')
+        ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
+        ->avg('fuzzy_ratings.AverageOfAnswers');
         $groups = $professor->Groups;
        $surveys = [];
        $avg = 0;
@@ -124,7 +133,7 @@ class ProfessorController extends Controller
             $avg/=$count;
         }
     
-       return view('AverageForProfessor',compact('avg','surveys','professor'));
+       return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating'));
     }
     public function add()
     {

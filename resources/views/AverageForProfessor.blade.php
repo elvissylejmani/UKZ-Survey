@@ -14,22 +14,25 @@
  </article>
 </div>
 <div class="filter-by-set">
-  <section class="filter-by-set-sidebar" id="filter-by-set-sidebar">
-     <a href="#" class="active">Overall Rating</a>
-     <a href="#" >Excellent</a>
-     <a href="#">Very Good</a>
-     <a href="#">Good</a>
-     <a href="#">Weak</a>
-     <a href="#">Very Weak</a>
+  <section class="filter-by-set-sidebar" id="filter-by-set-sidebar"> 
+     <a href="/Professor/{{$professor->id}}/Survey" class="@if(app('request')->input('set') == null) active @else '' @endif">Overall Rating</a>
+     <a href="/Professor/{{$professor->id}}/Survey?set=5" class="@if(app('request')->input('set') == 5) active @else '' @endif">Excellent</a>
+     <a href="/Professor/{{$professor->id}}/Survey?set=4" class="@if(app('request')->input('set') == 4) active @else '' @endif">Very Good</a>
+     <a href="/Professor/{{$professor->id}}/Survey?set=3" class="@if(app('request')->input('set') == 3) active @else '' @endif">Good</a>
+     <a href="/Professor/{{$professor->id}}/Survey?set=2" class="@if(app('request')->input('set') == 2) active @else '' @endif">Weak</a>
+     <a href="/Professor/{{$professor->id}}/Survey?set=1" class="@if(app('request')->input('set') == 1) active @else '' @endif">Very Weak</a>
   </section>
   <section class="filter-by-set-ratings">
       <article class="filter-by-set-article">
           <h3>Students voted</h3>
-          <h3>50</h3>
+      <h3>
+          @if(app('request')->input('set') != null){{ $professor->FuzzyRating->where('StudentSet',app('request')->input('set'))->count()  }}
+          @else   {{ count($professor->FuzzyRating->all()) }} @endif
+        </h3>
       </article>
       <article class="filter-by-set-article">
           <h3>Average</h3>
-          <h3>4.5</h3>
+          <h3>{{ $AnswersRating ?? 0  }}</h3>
       </article>
   </section>
 </div>
@@ -57,6 +60,15 @@
           <div class="single-completed-survey-body">
               <div class="single-question">
                   <h4>Question: <span>{{$question->question}}:</span></h4>
+                  @if (app('request')->input('set') != null)
+                  @foreach ($question->Answers->where('StudentSet',app('request')->input('set')) as $ans)
+                  <h4>{{$ans->Answer}}</h4>
+                  @php
+                  $SurveyTemp += $ans->Answer;
+                  $countTemp++;
+                  @endphp
+                  @endforeach
+                  @else
                   @foreach ($question->Answers as $ans)
                   <h4>{{$ans->Answer}}</h4>
                   @php
@@ -64,6 +76,8 @@
                   $countTemp++;
                   @endphp
                   @endforeach
+                  @endif
+                 
                   @endforeach
                 </div>
                 <div class="single-completed-survey-head">
@@ -171,5 +185,5 @@
  --}}
 @endsection
 @section('script')
-<script type="text/javascript" src="{{ URL::asset('js/filterrating.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ URL::asset('js/filterrating.js') }}"></script> --}}
 @endsection
