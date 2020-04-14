@@ -86,7 +86,7 @@ class User extends Authenticatable
         $att = $sets->Attendance;
         if($att > 0 && $att <= 20)
         {
-            $this->fuzzyValue += 0.6;
+            $this->fuzzyValue += 0.06;
         }
         else if ($att > 21 && $att <= 40) {
             $this->fuzzyValue += 0.13;
@@ -105,7 +105,7 @@ class User extends Authenticatable
         $unPassedExams = $sets->Exams - $sets->ExamsPassed;
         if($unPassedExams > 10)
         {
-            $this->fuzzyValue += 0.6;
+            $this->fuzzyValue += 0.06;
         }
         else if ($unPassedExams < 10 && $unPassedExams >= 8) {
             $this->fuzzyValue += 0.13;
