@@ -103,7 +103,7 @@ class User extends Authenticatable
 
 
         $unPassedExams = $sets->Exams - $sets->ExamsPassed;
-        if($unPassedExams > 10)
+        if($unPassedExams >= 10)
         {
             $this->fuzzyValue += 0.06;
         }
