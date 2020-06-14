@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\survey;
 use App\question;
 use Illuminate\Http\Request;
+use App\isCompleted;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 
@@ -58,6 +60,10 @@ class QuestionController extends Controller
     public function show(question $question,$id)
     {
         $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
+        $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$id)->get();
+        if (!$exist->isEmpty()) {
+       abort(403);
+      }
         $sr =$questions[0]->Survey;
         $sr = $sr->Group;
         return view('question',compact('questions','sr'));
