@@ -68,56 +68,56 @@ class User extends Authenticatable
         $avg = $sets->Average;
         if($avg > 6.0 && $avg <= 7.0)
         {
-            $this->fuzzyValue += 0.06;
+            $this->fuzzyValue += 0.1;
         }
         else if ($avg > 7.0 && $avg <= 8.0) {
-            $this->fuzzyValue += 0.13;
+            $this->fuzzyValue += 0.2;
         }
         else if ($avg > 8.0 && $avg <= 8.5) {
-            $this->fuzzyValue += 0.19;
+            $this->fuzzyValue += 0.3;
         }
         else if ($avg > 8.5 && $avg <= 9.0) {
-            $this->fuzzyValue += 0.27;
+            $this->fuzzyValue += 0.4;
         }
         else{
-            $this->fuzzyValue += 0.33;
+            $this->fuzzyValue += 0.5;
         }
 
         $att = $sets->Attendance;
         if($att > 0 && $att <= 20)
         {
-            $this->fuzzyValue += 0.06;
+            $this->fuzzyValue += 0.02;
         }
         else if ($att > 21 && $att <= 40) {
-            $this->fuzzyValue += 0.13;
+            $this->fuzzyValue += 0.4;
         }
         else if ($att > 41 && $att <= 60) {
-            $this->fuzzyValue += 0.19;
+            $this->fuzzyValue += 0.6;
         }
         else if ($att > 61 && $att <= 80) {
-            $this->fuzzyValue += 0.27;
+            $this->fuzzyValue += 0.8;
         }
         else{
-            $this->fuzzyValue += 0.33;
+            $this->fuzzyValue += 0.10;
         }
 
 
         $unPassedExams = $sets->Exams - $sets->ExamsPassed;
-        if($unPassedExams > 10)
+        if($unPassedExams >= 10)
         {
-            $this->fuzzyValue += 0.06;
+            $this->fuzzyValue += 0.08;
         }
         else if ($unPassedExams < 10 && $unPassedExams >= 8) {
-            $this->fuzzyValue += 0.13;
+            $this->fuzzyValue += 0.16;
         }
         else if ($unPassedExams < 8 && $unPassedExams >= 5) {
-            $this->fuzzyValue += 0.19;
+            $this->fuzzyValue += 0.24;
         }
         else if ($unPassedExams < 5 && $unPassedExams >= 2) {
-            $this->fuzzyValue += 0.27;
+            $this->fuzzyValue += 0.32;
         }
         else{
-            $this->fuzzyValue += 0.33;
+            $this->fuzzyValue += 0.40;
         }
         // return $unPassedExams;
         return $this->fuzzyValue;
