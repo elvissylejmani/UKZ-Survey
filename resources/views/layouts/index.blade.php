@@ -48,6 +48,7 @@
       </li>
 
       <!-- Divider -->
+      @if (Auth::user()->can('Admin'))
       <hr class="sidebar-divider">
 
       <!-- Heading -->
@@ -73,7 +74,7 @@
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
+          <i class="fas fa-chalkboard-teacher"></i>
           <span>Professor</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -90,16 +91,15 @@
 
       <!-- Heading -->
       
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-book"></i>
           <span>Subjects</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login subjects:</h6>
+            <h6 class="collapse-header">Custom subjects:</h6>
             <a class="collapse-item" href="/Classes/add/new">Create</a>
             <a class="collapse-item" href="/Classes/view/all">Show</a>
           </div>
@@ -108,31 +108,32 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForth" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-users"></i>
           <span>Groups</span>
         </a>
         <div id="collapseForth" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login subjects:</h6>
+            <h6 class="collapse-header">Custom subjects:</h6>
             <a class="collapse-item" href="/Groups/add/new">Create</a>
             <a class="collapse-item" href="/Groups/view/all">Show</a>
           </div>
         </div>
       </li>
-
-      <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-users-cog"></i>
+          <span>Users</span>
+        </a>
+        <div id="collapse5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom subjects:</h6>
+            <a class="collapse-item" href="/Groups/add/new">Register new users</a>
+            <a class="collapse-item" href="/Groups/view/all">Group students</a>
+          </div>
+        </div>
       </li>
 
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
+     @endif
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -269,7 +270,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <div class="sm-flex align-items-center justify-content-between mb-4">
        
           @yield('content')
         
