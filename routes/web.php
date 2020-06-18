@@ -44,5 +44,5 @@ Route::post('/Question/{id}','QuestionController@update')->middleware(CheckRole:
 Route::get('/Question/{id}/delete','QuestionController@destroy')->middleware(CheckRole::class);
 Auth::routes();
 
-Route::get('/', 'SurveyController@index')->name('home');
+Route::get('/', 'SurveyController@index')->name('home')->middleware('auth');
 

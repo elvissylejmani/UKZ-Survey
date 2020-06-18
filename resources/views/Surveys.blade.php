@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content') 
-    
+    <div class="row">
     @foreach ($surveys as $survey)
     <div class="col-md-6">
         <div class="card shadow mb-4">
@@ -34,5 +34,5 @@
         </div>
         </article> --}}
         @endforeach
-    </section>
+</div>
 @endsection
