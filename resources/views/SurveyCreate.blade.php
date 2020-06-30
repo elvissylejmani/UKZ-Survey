@@ -1,4 +1,4 @@
-@extends('layouts.newapp')
+@extends('layouts.index')
 
 @section('content')
 
@@ -8,8 +8,49 @@
   <div class="query-info">
     <form action="/Survey" method="post" class="query-form">
       @csrf
+      <div class="card shadow mb-4 border-left-primary">
+        <div class="card-header py-3 mx-auto">
+          <h3 class="m-0 font-weight-bold text-primary ">Create A Survey</h3>
+        </div>
+        <div class="card-body">
+          <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}" class="form-control" placeholder="Survey Title" >
+          <div class="input-group mb-3 mt-3">
+            <input type="text" id="questionnumber" class="form-control" placeholder="Question Number" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="button" id='addquestion'>Add</button>
+            </div>
+          </div>
+          <div class="questions" id="questions">
+                       
+          </div>
+         
 
-                <h3 class="query-title">Create A Survey</h3>
+
+          <div class="card shadow mb-4 ">
+            <div class="m-3">
+            @if ($groups->isNotEmpty())
+             <div><input type="checkbox" id='select-all'> <label for="">Select All Groups</label></div> 
+             @endif
+             @forelse($groups as $group)
+             <div><input type="checkbox" name="Group_ID[]" value="{{$group->id}}" class='select-group'> <label for="">Group: {{$group->Name ?? ''}}, Subject:{{$group->class->Name ?? ''}}, Professor:{{$group->Professor->Name ?? ''}}  {{$group->Professor->LastName ?? ''}} </label></div> 
+             @empty
+             <h3>All groups have surveys</h3>
+            @endforelse
+          </div>
+          </div>
+        <div class="col-6 mb-4 mx-auto">
+          <button class="btn btn-success btn-icon-split">
+              <span class="icon text-white-50">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="text">Add Surveys</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+                {{-- <h3 class="query-title">Create A Survey</h3>
                     <input type="text" name="SurveyTitle" value="{{ old('SurveyTitle')}}" placeholder="Survey Title" >
                     <div class="question-number">
                     <input type="text" placeholder="Questions number" id="questionnumber">
@@ -29,9 +70,8 @@
                       @endforelse
                     </div>
                     <input type="submit" value="Create">
-                  </form>
                   </div>
-                </section>
+                </section> --}}
 {{-- </form> --}}
 
 

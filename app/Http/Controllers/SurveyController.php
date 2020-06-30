@@ -20,23 +20,24 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        $surveys = DB::table('users')
-        ->where('users.id', '=', Auth::id())
-        ->join('group_user', 'users.id', '=', 'group_user.User_ID')
-        ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
-        ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
-        ->join('classes','groups.Class_ID','=','classes.id')
-        ->join('professors','groups.Prof_ID','=','professors.id')
-        ->select('surveys.SurveyTitle','surveys.id','classes.Name as Class_Name','professors.Name as Professor_Name','professors.Lastname','groups.Name')
-        ->get();
-        // return $surveys;
-        $a = count($surveys);
-        for($i = 0;$i < $a;$i++){
-            $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$surveys[$i]->id)->get();
-            if (!$exist->isEmpty()) {
-                  unset($surveys[$i]);
-            }
-        }
+        $surveys = auth::user()->Surveys();
+        // $surveys = DB::table('users')
+        // ->where('users.id', '=', Auth::id())
+        // ->join('group_user', 'users.id', '=', 'group_user.User_ID')
+        // ->join('groups', 'group_user.Group_ID', '=', 'groups.id')
+        // ->join('surveys', 'groups.id', '=', 'surveys.Group_ID')
+        // ->join('classes','groups.Class_ID','=','classes.id')
+        // ->join('professors','groups.Prof_ID','=','professors.id')
+        // ->select('surveys.SurveyTitle','surveys.id','classes.Name as Class_Name','professors.Name as Professor_Name','professors.Lastname','groups.Name')
+        // ->get();
+        // // return $surveys;
+        // $a = count($surveys);
+        // for($i = 0;$i < $a;$i++){
+        //     $exist = isCompleted::where('User_ID','=',Auth::id())->where('Survey_ID','=',$surveys[$i]->id)->get();
+        //     if (!$exist->isEmpty()) {
+        //           unset($surveys[$i]);
+        //     }
+        // }
         return view('Surveys',compact('surveys'));
     }
 

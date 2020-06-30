@@ -19,11 +19,11 @@
                   </div>
                    <div class="col-sm-6" required>
                     <div class="input-group-prepend">
-                       <div class="single-option mr-4 ml-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1 value="1" id="" required><label for="">  1</label></div>
+                       <div class="single-option mr-4 ml-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="1" id="" required><label for="">  1</label></div>
                        <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="2" id="" required><label for="">2</label></div>
-                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1 value="3" id="" required><label for="">3</label></div>
-                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1 value="4" id="" required><label for="">4</label></div>
-                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1 value="5" id="" required><label for="">5</label></div>
+                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="3" id="" required><label for="">3</label></div>
+                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="4" id="" required><label for="">4</label></div>
+                       <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="5" id="" required><label for="">5</label></div>
                        <input type="hidden" name="Question_ID[]" value="{{$question->id}}"> 
                        <input type="hidden" name="Prof_ID" value="{{$sr->Professor->id}}">
                     </div>
