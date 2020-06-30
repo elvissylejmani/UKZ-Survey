@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 mx-auto">
-<div class="card mb-4 w-100">
+<div class="card mb-4 w-100 font-weight-bold text-primary border-left-primary shadow-lg ">
     <div class="card-header">
       Subject: {{$sr->class->Name ?? ''}} | Professor: {{$sr->Professor->Name  ?? ''}} {{$sr->Professor->LastName ?? ''}} | Group: {{$sr->Name ?? ''}}
     </div>
@@ -18,7 +18,7 @@
                     
                   </div>
                    <div class="col-sm-6" required>
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend ">
                        <div class="single-option mr-4 ml-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="1" id="" required><label for="">  1</label></div>
                        <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="2" id="" required><label for="">2</label></div>
                        <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="3" id="" required><label for="">3</label></div>
