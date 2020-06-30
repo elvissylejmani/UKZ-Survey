@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 Route::resource('/Survey','SurveyController')->middleware('auth');
 Route::resource('/Question','QuestionController')->middleware('auth');
 Route::resource('/Answer','AnswerController')->middleware('auth');
+Route::group(['middleware' => ['auth']], function() {
 Route::resource('/Professor','ProfessorController')->middleware(CheckRole::class);
 Route::resource('/Classes','ClassesController')->middleware(CheckRole::class);
 Route::resource('Groups','GroupsController')->middleware(CheckRole::class);
@@ -42,6 +43,7 @@ Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middlewar
 Route::post('/Question/{id}/Survey','QuestionController@addQuestions')->middleware(CheckRole::class);
 Route::post('/Question/{id}','QuestionController@update')->middleware(CheckRole::class);
 Route::get('/Question/{id}/delete','QuestionController@destroy')->middleware(CheckRole::class);
+});
 Auth::routes();
 
 Route::get('/', 'SurveyController@index')->name('home')->middleware('auth');
