@@ -5,7 +5,7 @@
     @csrf
     <div class="card shadow mb-4 border-left-primary">
       <div class="card-header py-3 mx-auto">
-        <h3 class="m-0 font-weight-bold text-primary ">Add new professor</h3>
+        <h3 class="m-0 font-weight-bold text-primary ">Create A Survey</h3>
       </div>
       <div class="card-body">
         <input type="text" name="Name" value="{{ old('Name')}}" class="form-control mb-2" placeholder="First Name" >
