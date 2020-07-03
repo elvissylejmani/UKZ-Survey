@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('content')
-<div id="chart" style="height: 300px;"></div>
+
+
 <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
@@ -199,15 +200,4 @@
 @section('script')
 {{-- <script type="text/javascript" src="{{ URL::asset('js/filterrating.js') }}"></script> --}}
 <script type="text/javascript" src="{{ URL::asset('admin/js/demo/chart-bar-demo.js') }}"></script>
-   <!-- Charting library -->
-   <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
-   <!-- Chartisan -->
-   <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
-   <!-- Your application script -->
-<script>
-    const chart = new Chartisan({
-      el: '#chart',
-      url: "@chart('sample_chart')",
-    });
-  </script>
 @endsection
