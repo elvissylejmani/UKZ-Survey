@@ -4,8 +4,6 @@
 
 
 
-<section class="query-container">
-  <div class="query-info">
     <form action="/Survey" method="post" class="query-form">
       @csrf
       <div class="card shadow mb-4 border-left-primary">

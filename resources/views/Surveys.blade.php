@@ -12,7 +12,7 @@
             <h4 class="survey-subject"></span></h4>
             <h4 class="survey-subject">Group:<span>{{ $survey->Name ?? ''}}</span></h4>
             <h4 class="survey-subject">Subject:<span>{{ $survey->Class_Name ?? ''}}</span></h4>
-           <h4 class="survey-subject">Professor:<span>{{ $survey->Professor_Name }} {{ $survey->Lastname }}</span></h4>
+           <h4 class="survey-subject">Professor:<span>{{ $survey->Professor_Name ?? '' }} {{ $survey->Lastname ?? '' }}</span></h4>
         </div>
         <div class="col-6 mb-4 mx-auto">
         <a href="Question/{{$survey->id ?? ''}}" class="btn btn-primary btn-icon-split">

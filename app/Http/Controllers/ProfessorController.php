@@ -40,7 +40,7 @@ class ProfessorController extends Controller
     {
         $professor = request()->validate(['Name' => 'required', 'LastName' => 'required']);
         professor::create($professor);
-        return redirect('/Professor')->with('alert','Profesori u Shtua me sukses');
+        return redirect('/Professor/view/all')->with('alert','Profesori u Shtua me sukses');
     }
 
     /**
