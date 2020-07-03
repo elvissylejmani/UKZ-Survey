@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\professor;
 use App\classe;
 use Illuminate\Support\Facades\DB;
+use ConsoleTVs\Charts\BaseChart;
+use Chartisan\PHP\Chartisan;
+
 class ProfessorController extends Controller
 {
     /**
@@ -134,6 +137,8 @@ class ProfessorController extends Controller
         if ($count!=0) {
             $avg/=$count;
         }
+
+     
     
        return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating'));
     }
