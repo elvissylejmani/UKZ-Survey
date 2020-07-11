@@ -21,4 +21,55 @@ class professor extends Model
     {
         return $this->hasMany(fuzzy_rating::class,'Prof_ID','id');
     }
+
+    public function Fuzzy($ans)
+    {
+        $ansValues = [];
+        foreach($ans as $an)
+        {
+            if ($an->StudentSet == 1) {
+                break;
+            }
+            elseif ($an->StudentSet == 2) {
+                break;
+            }
+            elseif ($an->StudentSet == 3) {
+                if ($an->Answer == 1)
+                $ansValues[] = $an->Answer - 0.25;
+                elseif($an->Answer == 2)
+                $ansValues[] = $an->Answer - 0.25;
+                elseif($an->Answer == 3)
+                $ansValues[] = $an->Answer;
+                elseif($an->Answer == 4)
+                $ansValues[] = $an->Answer + 0.25;
+                else
+                $ansValues[] = $an->Answer + 0.25;
+            }
+            elseif ($an->StudentSet == 4) {
+                if ($an->Answer == 1)
+                $ansValues[] = $an->Answer - 0.35;
+                elseif($an->Answer == 2)
+                $ansValues[] = $an->Answer - 0.35;
+                elseif($an->Answer == 3)
+                $ansValues[] = $an->Answer;
+                elseif($an->Answer == 4)
+                $ansValues[] = $an->Answer + 0.35;
+                else
+                $ansValues[] = $an->Answer + 0.35;
+            }
+            else{
+                if ($an->Answer == 1)
+                $ansValues[] = $an->Answer - 0.5;
+                elseif($an->Answer == 2)
+                $ansValues[] = $an->Answer - 0.5;
+                elseif($an->Answer == 3)
+                $ansValues[] = $an->Answer;
+                elseif($an->Answer == 4)
+                $ansValues[] = $an->Answer + 0.5;
+                else
+                $ansValues[] = $an->Answer + 0.5;
+            }
+        }
+        return array_sum($ansValues)/count($ansValues);
+    }
 }
