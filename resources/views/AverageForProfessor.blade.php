@@ -2,19 +2,29 @@
 @section('content')
 
 
-
-<div class="card shadow mb-4 ">	
-    <div class="card-header py-3">	
-      <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>	
-    </div>	
-    <div class="card-body">	
-      <div class="chart-bar"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>	
-        <canvas id="myBarChart" width="552" height="320" class="chartjs-render-monitor" style="display: block; width: 552px; height: 320px;"></canvas>	
-      </div>	
-      <hr>	
-      Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.	
-    </div>	
+<div class="card border-left-primary shadow mb-4">	
+  <div class="card-header py-3">
+    Fuzzy logic rating
+</div>
+<div class="card  shadow h-100 py-2 " style="width: 100%">
+  <div class="card-body mx-auto">
+    <div class="row no-gutters align-items-center">
+      <div class="col mr-2">
+        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Average using Fuzzy logic:</div>
+      <div class="h5 mb-0 font-weight-bold text-gray-800"><h1>  <button class="btn btn-primary btn-circle btn-lg" style="height: 5.5rem; width: 5.5rem"> @if ($FuzzyAverage > 5) 5 
+        @elseif($FuzzyAverage < 1) 1
+          @else
+       {{$FuzzyAverage ?? 0}}
+      
+       @endif
+      </button>   </h1></div>
+      </div>
+      <div class="col-auto">
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
   <div class="card shadow mb-4">	
     <div class="card-header py-3">
