@@ -122,17 +122,21 @@ class ProfessorController extends Controller
              if($group->Survey != null)
            $surveys[] = $group->Survey;
            }
-
+           $ansF = [];
        foreach ($surveys as $survey) {
          foreach ($survey->questions as $question ) {
             foreach ($question->Answers as $ans) {
                 $avg += $ans->Answer;
+                $ansF[] = $ans;
                 $count++;
             }
         }
     }
         if ($count!=0) {
             $avg/=$count;
+          return  $FuzzyAverage = $professor->Fuzzy($ansF);
+
+
         }
     
        return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating'));
