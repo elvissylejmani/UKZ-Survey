@@ -134,12 +134,12 @@ class ProfessorController extends Controller
     }
         if ($count!=0) {
             $avg/=$count;
-          return  $FuzzyAverage = $professor->Fuzzy($ansF);
+            $FuzzyAverage = $professor->Fuzzy($ansF);
 
 
         }
     
-       return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating'));
+       return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating','FuzzyAverage'));
     }
     public function add()
     {
