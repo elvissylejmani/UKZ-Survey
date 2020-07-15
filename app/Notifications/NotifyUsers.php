@@ -11,14 +11,19 @@ class NotifyUsers extends Notification
 {
     use Queueable;
 
+    public $ID_Survey;
+    public $Title;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id,$title)
     {
-        //
+    
+        $this->ID_Survey = $id;
+        
+        $this->Title = $title;
     }
 
     /**
@@ -41,9 +46,10 @@ class NotifyUsers extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->greeting('Hello form Kadri Zeka University!')
                     ->subject("New Survey")
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->line('Ukz-platform created a new survey called: '. $this->Title)
+                    ->action('Take Survey', url('/Question/'.$this->ID_Survey))
                     ->line('Thank you for using our application!');
     }
 
