@@ -3,7 +3,7 @@
 @section('content')
 <div class="card shadow mb-4 border-left-primary">
     <div class="card-header py-3 mx-auto">
-      <h3 class="m-0 font-weight-bold text-primary ">Create A Survey</h3>
+      <h3 class="m-0 font-weight-bold text-primary ">Edit data for this professor</h3>
     </div>
     <div class="card-body">
         <form action="/Professor/{{$professor->id}}" method="POST"  class="query-form addprof-form">

@@ -1,7 +1,39 @@
-@extends('layouts.newapp')
+@extends('layouts.index')
 @section('content')
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Students:</h6>
+    </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    @php $nr = 1; @endphp
+    @for($i = 0; $i<count($Group->Students);$i++)
+    <tr>
+    <th scope="row">{{$nr++}}</th>
+    <td>{{$Group->Students[$i]->name}}</td>
+    <td>{{$Group->Students[$i]->lastname}}</td>
+    <td>{{$Group->Students[$i]->id}}</td>
+    </tr>
+    @endfor
+  </tbody>
+</table>
+</div>
+  </div>
+</div>
+
     
-<section class="content">
+{{-- <section class="content">
   <section class="flex-container">
       
       <div class="students">
@@ -15,7 +47,7 @@
          </ol>
       </div>
   
-  </section>
+  </section> --}}
 
 
 
