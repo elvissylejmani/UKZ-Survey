@@ -1,14 +1,25 @@
-@extends('layouts.newapp')
+@extends('layouts.index')
 @section('content')
     
-<section class="query-container">
-    <div class="query-info">
-        <h3 class="query-title">Update Subject</h3>
+<div class="card shadow mb-4 border-left-primary">
+    <div class="card-header py-3 mx-auto">
+      <h3 class="m-0 font-weight-bold text-primary ">Edit data for this professor</h3>
+    </div>
+    <div class="card-body">
         <form action="/Classes/{{$class->id}}" method="POST" class="query-form addprof-form">
             @csrf
             @method('PATCH')
-            <input type="text" name="Name" value="{{$class->Name}}" placeholder="Subject">
-            <input type="submit" value="Save">
+            <input type="text" name="Name" value="{{$class->Name}}" class="form-control mb-2" placeholder="Subject Name" >
+          
+         <div class="col-6 mb-4 mx-auto">
+                <button class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Update Professor</span>
+                  </button>
+                </div>
+      
         </form>
     </div>
 
