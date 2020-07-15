@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\fuzzy_rating;
+use App\Notifications\NotifyUsers;
 
 class SurveyController extends Controller
 {
@@ -70,8 +71,12 @@ class SurveyController extends Controller
         $vl = request()->validate(['SurveyTitle' => 'required']);
         $questions = request()->validate(['question' => 'required']);
         foreach ($Group_IDs['Group_ID'] as $Group_ID ) {
-       $id = survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
-            foreach ($questions['question'] as $question) {
+        $id = survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
+        $gr = $id->Group;
+        foreach($gr->Students as $user){
+        $user->notify(new NotifyUsers());
+        }
+        foreach ($questions['question'] as $question) {
                   question::create(['Survey_ID' => $id['id'], 'question' => $question]);
             }
         }
