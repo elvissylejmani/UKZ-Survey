@@ -74,7 +74,7 @@ class SurveyController extends Controller
         $id = survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
         $gr = $id->Group;
         foreach($gr->Students as $user){
-        $user->notify(new NotifyUsers());
+        $user->notify(new NotifyUsers($id->id,$id->SurveyTitle));
         }
         foreach ($questions['question'] as $question) {
                   question::create(['Survey_ID' => $id['id'], 'question' => $question]);

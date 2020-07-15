@@ -132,6 +132,7 @@ class ProfessorController extends Controller
             }
         }
     }
+    $FuzzyAverage = 0;
         if ($count!=0) {
             $avg/=$count;
             $FuzzyAverage = $professor->Fuzzy($ansF);
