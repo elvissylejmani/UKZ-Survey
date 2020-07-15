@@ -7,7 +7,7 @@
 <div class="col-md-6">
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Professor:</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Subject:</h6>
     </div>
     <div class="card-body">
         <h4 class="survey-subject"></span></h4>
