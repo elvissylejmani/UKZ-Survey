@@ -126,8 +126,8 @@
         <div id="collapse5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom subjects:</h6>
-            <a class="collapse-item" href="/Groups/add/new">Register new users</a>
-            <a class="collapse-item" href="/Groups/view/all">Group students</a>
+            <a class="collapse-item" href="/Users/add/new">Register Users using excel</a>
+            <a class="collapse-item" style="color: red" href="/Classes/Group/Stud">Register students</a>
           </div>
         </div>
       </li>
