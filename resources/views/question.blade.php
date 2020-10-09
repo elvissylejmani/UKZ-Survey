@@ -26,6 +26,7 @@
                        <div class="single-option mr-4"><input type="radio" name="Answer[]{{$question->id}}" class="mr-1" value="5" id="" required><label for="">5</label></div>
                        <input type="hidden" name="Question_ID[]" value="{{$question->id}}"> 
                        <input type="hidden" name="Prof_ID" value="{{$sr->Professor->id}}">
+                       <input type="hidden" name="id" value="{{$id}}">
                     </div>
                    </div>
                @endforeach
