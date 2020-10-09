@@ -41,8 +41,8 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         $Prof_ID = request()->validate(['Prof_ID' => 'required']);
-        $st = url()->previous();
-        $st = $st[strlen($st)-1];
+        
+        $id = request()->validate(['id' => 'required']); 
         $ans = request()->validate(['Answer' => 'required']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
         $set = Auth::user()->InsertFuzzyData($ans,$qid,$Prof_ID);
@@ -50,7 +50,7 @@ class AnswerController extends Controller
             Answer::create(['Answer' =>$ans['Answer'][$i],'Question_ID' => $qid['Question_ID'][$i],'StudentSet'=> $set]);
         }
      
-        isCompleted::create(['Survey_ID' => $st,'User_ID' => Auth::id()]);
+        isCompleted::create(['Survey_ID' => $id['id'],'User_ID' => Auth::id()]);
         return redirect('/')->with('alert','Faleminderit per vlersimin');
     }
 

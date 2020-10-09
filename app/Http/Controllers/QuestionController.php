@@ -80,7 +80,7 @@ class QuestionController extends Controller
         $questions = question::where('Survey_ID',$id)->orderBy('id')->paginate(100);
         $sr =$questions[0]->Survey;
         $sr = $sr->Group;
-        return view('question',compact('questions','sr'));
+        return view('question',compact('questions','sr','id'));
     }
 
     /**
