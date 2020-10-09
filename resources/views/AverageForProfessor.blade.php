@@ -14,7 +14,7 @@
       <div class="h5 mb-0 font-weight-bold text-gray-800"><h1>  <button class="btn btn-primary btn-circle btn-lg" style="height: 5.5rem; width: 5.5rem"> @if ($FuzzyAverage > 5) 5 
         @elseif($FuzzyAverage < 1) 1
           @else
-       {{$FuzzyAverage ?? 0}}
+       {{round($FuzzyAverage,2) ?? 0}}
       
        @endif
       </button>   </h1></div>
@@ -53,7 +53,7 @@
             <div class="mt-4"></div>   
             Average
           
-            <h1>  <button class="btn btn-primary btn-circle btn-lg" style="height: 5.5rem; width: 5.5rem"> {{$AnswersRating ?? 0}} </button>   </h1>
+            <h1>  <button class="btn btn-primary btn-circle btn-lg" style="height: 5.5rem; width: 5.5rem"> {{round($AnswersRating,2) ?? 0}} </button>   </h1>
             
             {{-- Average<h1>{{$AnswersRating ?? 0}} </h1></td> --}}
         </tr>
@@ -147,7 +147,7 @@ $gr = $survey->Group;
                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Rating</div>
                           <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@if($countTemp != 0) {{$SurveyTemp/$countTemp }} @php
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@if($countTemp != 0) {{round($SurveyTemp/$countTemp,2) }} @php
                                   $avg = $SurveyTemp/$countTemp;
                               @endphp @else @php
                                   $avg = 0;
