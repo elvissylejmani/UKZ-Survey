@@ -90,13 +90,13 @@ class User extends Authenticatable
             $this->fuzzyValue += 0.02;
         }
         else if ($att > 21 && $att <= 40) {
-            $this->fuzzyValue += 0.4;
+            $this->fuzzyValue += 0.04;
         }
         else if ($att > 41 && $att <= 60) {
-            $this->fuzzyValue += 0.6;
+            $this->fuzzyValue += 0.06;
         }
         else if ($att > 61 && $att <= 80) {
-            $this->fuzzyValue += 0.8;
+            $this->fuzzyValue += 0.08;
         }
         else{
             $this->fuzzyValue += 0.10;
