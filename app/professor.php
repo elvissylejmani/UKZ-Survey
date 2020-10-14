@@ -35,39 +35,39 @@ class professor extends Model
             }
             elseif ($an->StudentSet == 3) {
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.25;
+                $ansValues[] = $an->Answer - 0.025;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.25;
+                $ansValues[] = $an->Answer - 0.025;
                 elseif($an->Answer == 3)
                 $ansValues[] = $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.25;
+                $ansValues[] = $an->Answer + 0.025;
                 else
-                $ansValues[] = $an->Answer + 0.25;
+                $ansValues[] = $an->Answer + 0.025;
             }
             elseif ($an->StudentSet == 4) {
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.35;
+                $ansValues[] = $an->Answer - 0.035;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.35;
+                $ansValues[] = $an->Answer - 0.035;
                 elseif($an->Answer == 3)
                 $ansValues[] = $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.35;
+                $ansValues[] = $an->Answer + 0.035;
                 else
-                $ansValues[] = $an->Answer + 0.35;
+                $ansValues[] = $an->Answer + 0.035;
             }
             else{
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.5;
+                $ansValues[] = $an->Answer - 0.05;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.5;
+                $ansValues[] = $an->Answer - 0.05;
                 elseif($an->Answer == 3)
                 $ansValues[] = $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.5;
+                $ansValues[] = $an->Answer + 0.05;
                 else
-                $ansValues[] = $an->Answer + 0.5;
+                $ansValues[] = $an->Answer + 0.05;
             }
         }
         return array_sum($ansValues)/count($ansValues);
