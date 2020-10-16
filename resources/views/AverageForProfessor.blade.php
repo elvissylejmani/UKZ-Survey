@@ -1,7 +1,18 @@
 @extends('layouts.index')
 @section('content')
 
-
+<div class="card border-left-primary shadow h-100 mb-2 py-2">
+  <div class="card-body ">
+    <div class="row no-gutters align-items-center">
+      <div class="col mr-2">
+        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <h1>{{$professor->Name}} {{$professor->LastName}} </h1> </div>
+      </div>
+      <div class="col-auto">
+        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="card border-left-primary shadow mb-4">	
   <div class="card-header py-3">
     Fuzzy logic rating

@@ -43,7 +43,7 @@ class AnswerController extends Controller
         $Prof_ID = request()->validate(['Prof_ID' => 'required']);
         
         $id = request()->validate(['id' => 'required']); 
-        $ans = request()->validate(['Answer' => 'required']); 
+        $ans = request()->validate(['Answer' => 'required|min:1|max:5']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
         $set = Auth::user()->InsertFuzzyData($ans,$qid,$Prof_ID);
         for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
