@@ -24,52 +24,54 @@ class professor extends Model
 
     public function Fuzzy($ans)
     {
-        $ansValues = [];
+        $ansValues = 0;
+        $i = count($ans);
         foreach($ans as $an)
         {
             if ($an->StudentSet == 1) {
-                break;
+                $i--;
             }
             elseif ($an->StudentSet == 2) {
-                break;
+                $i--;
             }
             elseif ($an->StudentSet == 3) {
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.025;
+                $ansValues += $an->Answer - 0.035;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.025;
+                $ansValues += $an->Answer - 0.025;
                 elseif($an->Answer == 3)
-                $ansValues[] = $an->Answer;
+                $ansValues += $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.025;
+                $ansValues += $an->Answer + 0.025;
                 else
-                $ansValues[] = $an->Answer + 0.025;
+                $ansValues = $an->Answer + 0.035;
             }
             elseif ($an->StudentSet == 4) {
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.035;
+                $ansValues += $an->Answer - 0.045;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.035;
+                $ansValues += $an->Answer - 0.035;
                 elseif($an->Answer == 3)
-                $ansValues[] = $an->Answer;
+                $ansValues += $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.035;
+                $ansValues += $an->Answer + 0.035;
                 else
-                $ansValues[] = $an->Answer + 0.035;
+                $ansValues += $an->Answer + 0.045;
             }
             else{
                 if ($an->Answer == 1)
-                $ansValues[] = $an->Answer - 0.05;
+                $ansValues += $an->Answer - 0.09;
                 elseif($an->Answer == 2)
-                $ansValues[] = $an->Answer - 0.05;
+                $ansValues += $an->Answer - 0.05;
                 elseif($an->Answer == 3)
-                $ansValues[] = $an->Answer;
+                $ansValues += $an->Answer;
                 elseif($an->Answer == 4)
-                $ansValues[] = $an->Answer + 0.05;
+                $ansValues += $an->Answer + 0.05;
                 else
-                $ansValues[] = $an->Answer + 0.05;
+                $ansValues += $an->Answer + 0.09;
             }
         }
-        return array_sum($ansValues)/count($ansValues);
+        // dd($ansValues/$i);
+        return $ansValues/$i;
     }
 }

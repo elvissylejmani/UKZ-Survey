@@ -72,10 +72,10 @@ class SurveyController extends Controller
         $questions = request()->validate(['question' => 'required']);
         foreach ($Group_IDs['Group_ID'] as $Group_ID ) {
         $id = survey::create(['SurveyTitle' => $vl['SurveyTitle'], 'Group_ID' => $Group_ID]);
-        $gr = $id->Group;
-        foreach($gr->Students as $user){
-        $user->notify(new NotifyUsers($id->id,$id->SurveyTitle));
-        }
+        // $gr = $id->Group;
+        // foreach($gr->Students as $user){
+        // $user->notify(new NotifyUsers($id->id,$id->SurveyTitle));
+        // }
         foreach ($questions['question'] as $question) {
                   question::create(['Survey_ID' => $id['id'], 'question' => $question]);
             }

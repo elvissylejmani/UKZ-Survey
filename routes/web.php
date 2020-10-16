@@ -43,6 +43,7 @@ Route::get('/Professor/{id}/Survey','ProfessorController@SurveyData')->middlewar
 Route::post('/Question/{id}/Survey','QuestionController@addQuestions')->middleware(CheckRole::class);
 Route::post('/Question/{id}','QuestionController@update')->middleware(CheckRole::class);
 Route::get('/Question/{id}/delete','QuestionController@destroy')->middleware(CheckRole::class);
+Route::get('/Professor/{id}/profile','ProfessorController@profile')->middleware(CheckRole::class);
 });
 Auth::routes();
 
