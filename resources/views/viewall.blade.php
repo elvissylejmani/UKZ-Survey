@@ -22,13 +22,15 @@
         <span class="text">Modify</span>
       </a>
     </div>
-    <div class="col-7  ">
+    <div class="col-4 ml-4">
     <a href="/Professor/{{$professor->id}}/Survey" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-check"></i>
         </span>
         <span class="text">View Results</span>
       </a>
+    </div>
+    <div class="col-4  ">
     <a href="/Professor/{{$professor->id}}/profile" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-check"></i>
@@ -36,7 +38,7 @@
         <span class="text">View Profile</span>
       </a>
     </div>
-    <div class="col-2  ">
+    <div class="col-1 ">
         <form action="/Professor/{{$professor->id}}" method="POST">
             @csrf
         @method('DELETE')

@@ -13,7 +13,7 @@
         <form action="{{ route('import') }}" method="POST"  enctype="multipart/form-data" class="query-form addprof-form">
         @csrf
         <div class="custom-file">
-        <input type="file" name="import_file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <input type="file" name="import_file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
         </div>  
         <div class="col-3 mt-2 ">
