@@ -17,21 +17,7 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -43,7 +29,7 @@ class AnswerController extends Controller
         $Prof_ID = request()->validate(['Prof_ID' => 'required']);
         
         $id = request()->validate(['id' => 'required']); 
-        $ans = request()->validate(['Answer' => 'required|min:1|max:5']); 
+        $ans = request()->validate(['Answer' => 'required']); 
         $qid = request()->validate(['Question_ID' => 'required']); 
         $set = Auth::user()->InsertFuzzyData($ans,$qid,$Prof_ID);
         for ($i=0; $i <= sizeof($ans['Answer'])-1; $i++) { 
@@ -92,26 +78,5 @@ class AnswerController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Answer $answer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Answer $answer)
-    {
-        //
-    }
+   
 }

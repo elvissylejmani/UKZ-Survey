@@ -67,7 +67,7 @@ class User extends Authenticatable
     {
         $sets = Auth::user()->StudentInfo;
         $avg = $sets->Average;
-        if($avg > 6.0 && $avg <= 7.0)
+        if($avg >= 6.0 && $avg <= 7.0)
         {
             $this->fuzzyValue += 0.1;
         }
@@ -85,7 +85,7 @@ class User extends Authenticatable
         }
 
         $att = $sets->Attendance;
-        if($att > 0 && $att <= 20)
+        if($att >= 0 && $att <= 20)
         {
             $this->fuzzyValue += 0.02;
         }

@@ -105,40 +105,36 @@ class ProfessorController extends Controller
     {
         $professor = professor::findOrFail($id);
          if(app('request')->input('set') != null)
-        $AnswersRating = DB::table('professors')
+        $AnswersRating = DB::table('fuzzy_ratings')
         ->where('fuzzy_ratings.Prof_ID', $id)
-        ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
         ->where('fuzzy_ratings.StudentSet',app('request')->input('set'))
         ->avg('fuzzy_ratings.AverageOfAnswers');
         else
-        $AnswersRating = DB::table('professors')
-        ->where('fuzzy_ratings.Prof_ID', $id)
-        ->join('fuzzy_ratings', 'professors.id', '=', 'fuzzy_ratings.Prof_ID')
-        ->avg('fuzzy_ratings.AverageOfAnswers');
+        $AnswersRating = DB::table('fuzzy_ratings')
+        ->where('Prof_ID', $id)
+        ->avg('AverageOfAnswers');
         $groups = $professor->Groups;
-       $surveys = [];
-       $avg = 0;
-       $count = 0;
-         foreach ($groups as $group) {
-             if($group->Survey != null)
-           $surveys[] = $group->Survey;
-           }
-           $ansF = [];
-       foreach ($surveys as $survey) {
-         foreach ($survey->questions as $question ) {
-            foreach ($question->Answers as $ans) {
-                $avg += $ans->Answer;
-                $ansF[] = $ans;
-                $count++;
+        $surveys = [];
+        $avg = 0;
+        $count = 0;
+        foreach ($groups as $group) {
+            if($group->Survey != null)
+            $surveys[] = $group->Survey;
+        }
+        $ansF = [];
+        foreach ($surveys as $survey) {
+            foreach ($survey->questions as $question ) {
+                foreach ($question->Answers as $ans) {
+                    $avg += $ans->Answer;
+                    $ansF[] = $ans;
+                    $count++;
+                }
             }
         }
-    }
-    $FuzzyAverage = 0;
+        $FuzzyAverage = 0;
         if ($count!=0) {
             $avg/=$count;
-            $FuzzyAverage = $professor->Fuzzy($ansF);
-
-
+            $FuzzyAverage = $professor->Fuzzy($ansF,$count);
         }
     
        return view('AverageForProfessor',compact('avg','surveys','professor','AnswersRating','FuzzyAverage'));
