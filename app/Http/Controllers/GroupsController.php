@@ -18,22 +18,10 @@ class GroupsController extends Controller
      */
     public function index()
     {
-      //  $classes = classe::all();
-        //$Professors = professor::all();
-        // ,compact('Groups','classes','Professors')
-        //$Groups = group::orderBy('id', 'DESC')->get()->all();
+    
         return view('Groups');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -61,13 +49,7 @@ class GroupsController extends Controller
     public function show($id)
     {
         $Group = group::findOrFail($id);
-        // $classes = classe::all();
-        // $Users = User::all();
-        // $grupuser = [];
-        // foreach ($Group->Students as $stud) {
-        //     $grupuser[] = $stud->id;
-        // }
-        //,compact('Group','classes','Users','grupuser')
+   
         return view('EditGroup',compact('Group'));
 
     }

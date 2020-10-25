@@ -29,6 +29,9 @@
                        <input type="hidden" name="id" value="{{$id}}">
                     </div>
                    </div>
+                   @foreach ($errors->all() as $error)
+                   <li>{{ $error }}</li>
+                   @endforeach
                @endforeach
            <div class="col-md-6 mx-auto mb-4">
                <button type="submit" class="btn btn-success btn-icon-split mt-4 mx-auto">
